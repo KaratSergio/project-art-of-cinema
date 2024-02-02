@@ -20,7 +20,7 @@ const dataSlice = createSlice({
         action => action.type.endsWish('/fulfilled'),
         (state, action) => {
           state.status = 'succeeded';
-          state.movies.action.payload;
+          state.movies = action.payload;
         }
       )
       .addMatcher(
