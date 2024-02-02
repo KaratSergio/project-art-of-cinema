@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDataAsync } from 'redux/dataMovie/dataThunks';
+import { fetchDataAsync } from '../../redux/dataMovie/dataThunks';
 import {
   selectMovies,
   selectStatus,
   selectError,
-} from 'redux/dataMovie/dataSelectors';
+} from '../../redux/dataMovie/dataSelectors';
 
 export const MovieList = () => {
   const dispatch = useDispatch();
@@ -13,9 +13,13 @@ export const MovieList = () => {
   const status = useSelector(selectStatus);
   const error = useSelector(selectError);
 
+  console.log(movies, status, error);
+
   useEffect(() => {
     dispatch(fetchDataAsync({ url: '/movie/popular' }));
   }, [dispatch]);
+
+  console.log(movies);
 
   return (
     <div>
@@ -29,4 +33,4 @@ export const MovieList = () => {
   );
 };
 
-export default MovieList
+export default MovieList;

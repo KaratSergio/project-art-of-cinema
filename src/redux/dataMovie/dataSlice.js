@@ -11,20 +11,20 @@ const dataSlice = createSlice({
   extraReducers: builder => {
     builder
       .addMatcher(
-        action => action.type.endsWish('/pending'),
+        action => action.type.endsWith('/pending'), 
         state => {
           state.status = 'loading';
         }
       )
       .addMatcher(
-        action => action.type.endsWish('/fulfilled'),
+        action => action.type.endsWith('/fulfilled'), 
         (state, action) => {
           state.status = 'succeeded';
           state.movies = action.payload;
         }
       )
       .addMatcher(
-        action => action.type.endsWish('/rejected'),
+        action => action.type.endsWith('/rejected'), 
         (state, action) => {
           state.status = 'failed';
           state.error = action.error.message;
