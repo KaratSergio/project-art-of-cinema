@@ -13,7 +13,7 @@ export const fetchDataAsync = createAsyncThunk(
   async ({ url, params }) => {
     try {
       const response = await instance.get(url, { params });
-      return response.data;
+      return response.data.results;
     } catch (error) {
       throw error;
     }
