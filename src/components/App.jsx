@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
-import { MovieList } from './MovieList/MovieList';
+import { Layout } from './Layout/Layout';
+// import { MovieList } from './MovieList/MovieList';
 
 export const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<MovieList />}></Route>
+      <Route path="/" element={<Layout />}></Route>
     </Routes>
   );
 };

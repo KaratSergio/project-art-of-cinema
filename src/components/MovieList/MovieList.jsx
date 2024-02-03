@@ -19,7 +19,7 @@ export const MovieList = () => {
 
   return (
     <div>
-      <h1>Movie List</h1>
+      <h1>Popular Movies</h1>
       <ul>
         {movies && movies.map(movie => <li key={movie.id}>{movie.title}</li>)}
       </ul>

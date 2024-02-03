@@ -1,0 +1,11 @@
+$primary-color: #3498db;
+
+.container {
+  width: 300px;
+  height: 100vh;
+  background-color: $primary-color;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
