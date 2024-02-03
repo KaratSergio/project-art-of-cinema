@@ -9,8 +9,6 @@ const instance = axios.create({
   params: {
     api_key: API_KEY,
     language: 'en-US',
-    per_page: 20,
-    page: 1,
   },
 });
 
@@ -18,7 +16,9 @@ export const fetchDataAsync = createAsyncThunk(
   'data/fetchData',
   async ({ url, params }) => {
     try {
-      const response = await instance.get(url, { params });
+      const response = await instance.get(url, {
+        params: { ...params, per_page: 18 },
+      });
       return response.data.results;
     } catch (error) {
       throw error;

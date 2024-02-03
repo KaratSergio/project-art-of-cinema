@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDataAsync } from '../../redux/dataMovie/dataThunks';
 import {
@@ -16,9 +16,13 @@ export const MovieList = () => {
   // const status = useSelector(selectStatus);
   // const error = useSelector(selectError);
 
+  const [currentPage, setCurrentPage] = useState(1);
+
   useEffect(() => {
-    dispatch(fetchDataAsync({ url: '/movie/popular' }));
-  }, [dispatch]);
+    dispatch(
+      fetchDataAsync({ url: '/movie/popular', params: { page: currentPage } })
+    );
+  }, [dispatch, currentPage]);
 
   return (
     <div className={scss.container}>
@@ -26,7 +30,7 @@ export const MovieList = () => {
       <div>
         <ul className={scss.movieGallery}>
           {movies &&
-            movies.map(movie => (
+            movies.slice(0, 18).map(movie => (
               <li className={scss.movieItem} key={movie.id}>
                 {movie.poster_path && (
                   <img
@@ -38,6 +42,14 @@ export const MovieList = () => {
               </li>
             ))}
         </ul>
+      </div>
+      <div>
+        <button onClick={() => setCurrentPage(prevPage => prevPage - 1)}>
+          Previous Page
+        </button>
+        <button onClick={() => setCurrentPage(prevPage => prevPage + 1)}>
+          Next Page
+        </button>
       </div>
     </div>
   );
