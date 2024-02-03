@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 
 import { Navigation } from '../Navigation/Navigation';
 
-
 import scss from './Layout.module.scss';
 
 export const Layout = () => {
@@ -11,13 +10,11 @@ export const Layout = () => {
     <>
       <section className={scss.container}>
         <div><Navigation /></div>
-
         <div>
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>
         </div>
-
       </section>
     </>
   );

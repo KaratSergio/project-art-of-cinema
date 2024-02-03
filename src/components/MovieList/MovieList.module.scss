@@ -1,4 +1,19 @@
 .container {
-    width: 500px;
-    background-color: tomato;
+  width: 1440px;
+  height: 100%;
+}
+.movieTitle {
+  text-align: center;
+  margin-top: 10px;
+}
+.movieGallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px 10px;
+}
+.movieItem {
+  width: 200px;
+  height: 320px;
 }

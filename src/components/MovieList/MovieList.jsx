@@ -12,6 +12,7 @@ import scss from './MovieList.module.scss';
 export const MovieList = () => {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
+  const ImageURL = 'https://image.tmdb.org/t/p/w200';
   // const status = useSelector(selectStatus);
   // const error = useSelector(selectError);
 
@@ -21,10 +22,23 @@ export const MovieList = () => {
 
   return (
     <div className={scss.container}>
-      <h1>Movies</h1>
-      <ul>
-        {movies && movies.map(movie => <li key={movie.id}>{movie.title}</li>)}
-      </ul>
+      <h1 className={scss.movieTitle}>Movies</h1>
+      <div>
+        <ul className={scss.movieGallery}>
+          {movies &&
+            movies.map(movie => (
+              <li className={scss.movieItem} key={movie.id}>
+                {movie.poster_path && (
+                  <img
+                    src={`${ImageURL}${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                )}
+                <p>{movie.title}</p>
+              </li>
+            ))}
+        </ul>
+      </div>
     </div>
   );
 };
