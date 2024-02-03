@@ -7,6 +7,8 @@ import {
   // selectError,
 } from '../../redux/dataMovie/dataSelectors';
 
+import scss from './MovieList.module.scss';
+
 export const MovieList = () => {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
@@ -14,11 +16,11 @@ export const MovieList = () => {
   // const error = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(fetchDataAsync({ url: '/movie' }));
+    dispatch(fetchDataAsync({ url: '/movie/popular' }));
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={scss.container}>
       <h1>Movies</h1>
       <ul>
         {movies && movies.map(movie => <li key={movie.id}>{movie.title}</li>)}

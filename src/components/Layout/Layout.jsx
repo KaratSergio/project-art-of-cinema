@@ -11,13 +11,13 @@ export const Layout = () => {
     <>
       <section className={scss.container}>
         <div><Navigation /></div>
-      </section>
-      <section>
+
         <div>
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>
         </div>
+
       </section>
     </>
   );

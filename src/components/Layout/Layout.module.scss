@@ -1,6 +1,8 @@
 $primary-color: #3498db;
 
 .container {
+  display: flex;
+  gap: 220px;
   width: 300px;
   height: 100vh;
   background-color: $primary-color;
