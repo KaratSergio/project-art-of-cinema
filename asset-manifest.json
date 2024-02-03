@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/project-art-of-cinema/static/css/main.b87514ff.css",
-    "main.js": "/project-art-of-cinema/static/js/main.ab2065b6.js",
+    "main.css": "/project-art-of-cinema/static/css/main.1e510d34.css",
+    "main.js": "/project-art-of-cinema/static/js/main.243c7f62.js",
     "index.html": "/project-art-of-cinema/index.html",
-    "main.b87514ff.css.map": "/project-art-of-cinema/static/css/main.b87514ff.css.map",
-    "main.ab2065b6.js.map": "/project-art-of-cinema/static/js/main.ab2065b6.js.map"
+    "main.1e510d34.css.map": "/project-art-of-cinema/static/css/main.1e510d34.css.map",
+    "main.243c7f62.js.map": "/project-art-of-cinema/static/js/main.243c7f62.js.map"
   },
   "entrypoints": [
-    "static/css/main.b87514ff.css",
-    "static/js/main.ab2065b6.js"
+    "static/css/main.1e510d34.css",
+    "static/js/main.243c7f62.js"
   ]
 }
