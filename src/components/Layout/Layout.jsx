@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { MovieList } from '../MovieList/MovieList';
-// import { Navigation } from '../Navigation/Navigation';
+import { Navigation } from '../Navigation/Navigation';
+
 
 import scss from './Layout.module.scss';
 
@@ -10,10 +10,7 @@ export const Layout = () => {
   return (
     <>
       <section className={scss.container}>
-        <div>{/* <Navigation /> */}</div>
-        <div>
-          <MovieList />
-        </div>
+        <div><Navigation /></div>
       </section>
       <section>
         <div>

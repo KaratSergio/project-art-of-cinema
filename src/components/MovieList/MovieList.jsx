@@ -14,12 +14,12 @@ export const MovieList = () => {
   // const error = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(fetchDataAsync({ url: '/movie/popular' }));
+    dispatch(fetchDataAsync({ url: '/movie' }));
   }, [dispatch]);
 
   return (
     <div>
-      <h1>Popular Movies</h1>
+      <h1>Movies</h1>
       <ul>
         {movies && movies.map(movie => <li key={movie.id}>{movie.title}</li>)}
       </ul>
