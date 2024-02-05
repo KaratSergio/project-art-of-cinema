@@ -14,17 +14,17 @@ const instance = axios.create({
 
 export const fetchMoviesAsync = createAsyncThunk(
   'movies/fetchMovies',
-  async currentPage => {
+  async ({ endpoint, query, currentPage }) => {
     try {
-      const response = await instance.get('discover/movie', {
-        params: {
-          include_adult: false,
-          include_video: false,
-          page: currentPage,
-          sort_by: 'popularity.desc',
-        },
+      const params = new URLSearchParams({
+        include_adult: false,
+        include_video: false,
+        page: currentPage,
+        sort_by: 'popularity.desc',
+        query: query,
       });
 
+      const response = await instance.get(`${endpoint}?${params}`);
       const totalPages = response.data.total_pages;
 
       return {
@@ -36,3 +36,19 @@ export const fetchMoviesAsync = createAsyncThunk(
     }
   }
 );
+
+export const useSearchMovies = (query, currentPage) => {
+  return fetchMoviesAsync({endpoint:`search/movie`, query, currentPage});
+};
+
+export const useMovieDetails =(id) => {
+  return fetchMoviesAsync({endpoint: `movie/${id}`, currentPage: 1});
+};
+
+export const useMovieCredits = id => {
+  return fetchMoviesAsync({ endpoint: `movie/${id}/credits`, currentPage: 1 });
+};
+
+export const useMovieReviews = id => {
+  return fetchMoviesAsync({ endpoint: `movie/${id}/reviews`, currentPage: 1 });
+};

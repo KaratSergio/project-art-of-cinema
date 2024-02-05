@@ -14,20 +14,28 @@ export const MovieList = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [query] = useState('');
 
   const handlePageChange = async page => {
     setCurrentPage(page);
   };
 
-  useEffect(() => {
-    const fetchData = () => {
+useEffect(() => {
+  const fetchData = async () => {
+    try {
       setLoading(true);
-      dispatch(fetchMoviesAsync(currentPage));
+      await dispatch(
+        fetchMoviesAsync({ endpoint: 'discover/movie', currentPage, query })
+      );
+    } catch (error) {
+      console.error('Error fetching movies:', error);
+    } finally {
       setLoading(false);
-    };
+    }
+  };
 
-    fetchData();
-  }, [dispatch, currentPage]);
+  fetchData();
+}, [dispatch, currentPage, query]);
 
   return (
     <div className={scss.container}>
