@@ -1,4 +1,5 @@
 import React from 'react';
+import scss from './Pagination.module.scss';
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const isFirstPage = currentPage === 1;
@@ -21,7 +22,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   };
 
   return (
-    <>
+    <div className={scss.container}>
       {/* Кнопки для першої сторінки */}
       {isFirstPage ? (
         <span>1</span>
@@ -62,7 +63,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           </button>
         </>
       )}
-    </>
+    </div>
   );
 };
 

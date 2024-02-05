@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchMoviesAsync } from '../dataMovie/dataThunks'; 
+import { fetchMoviesAsync } from './movieThunks';
 
-const dataSlice = createSlice({
+const movieSlice = createSlice({
   name: 'movies',
   initialState: {
     movies: [],
@@ -25,4 +25,4 @@ const dataSlice = createSlice({
   },
 });
 
-export default dataSlice.reducer;
+export default movieSlice.reducer;

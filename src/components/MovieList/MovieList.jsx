@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchMoviesAsync } from '../../redux/dataMovie/dataThunks';
-import { selectMovies } from '../../redux/dataMovie/dataSelectors';
+import { fetchMoviesAsync } from '../../redux/dataMovie/movieThunks';
+import { selectMovies } from '../../redux/dataMovie/movieSelectors';
 import Pagination from '../Pagination/Pagination';
 
 import scss from './MovieList.module.scss';
