@@ -16,15 +16,15 @@ export const fetchMoviesAsync = createAsyncThunk(
   'movies/fetchMovies',
   async ({ endpoint, query, currentPage }) => {
     try {
-      const params = new URLSearchParams({
+      const params = {
         include_adult: false,
         include_video: false,
         page: currentPage,
         sort_by: 'popularity.desc',
         query: query,
-      });
+      };
 
-      const response = await instance.get(`${endpoint}?${params}`);
+      const response = await instance.get(endpoint, { params });
       const totalPages = response.data.total_pages;
 
       return {
@@ -36,6 +36,7 @@ export const fetchMoviesAsync = createAsyncThunk(
     }
   }
 );
+
 
 export const useSearchMovies = (query, currentPage) => {
   return fetchMoviesAsync({endpoint:`search/movie`, query, currentPage});

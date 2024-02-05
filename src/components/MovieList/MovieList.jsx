@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { fetchMoviesAsync } from '../../redux/dataMovie/movieThunks';
 import { selectMovies } from '../../redux/dataMovie/movieSelectors';
@@ -37,33 +38,36 @@ useEffect(() => {
   fetchData();
 }, [dispatch, currentPage, query]);
 
-  return (
-    <div className={scss.container}>
-      <h1 className={scss.movieTitle}>Movies</h1>
-      <div>
-        <ul className={scss.movieGallery}>
-          {movies &&
-            movies.slice(0, 18).map(movie => (
-              <li className={scss.movieItem} key={movie.id}>
-                {movie.poster_path && (
+return (
+  <div className={scss.container}>
+    <h1 className={scss.movieTitle}>Movies</h1>
+    <div>
+      <ul className={scss.movieGallery}>
+        {movies &&
+          movies.slice(0, 18).map(movie => (
+            <li className={scss.movieItem} key={movie.id}>
+              {movie.poster_path && (
+                // Добавляем Link здесь
+                <Link to={`movie/${movie.id}`}>
                   <img
                     src={`${ImageURL}${movie.poster_path}`}
                     alt={movie.title}
                   />
-                )}
-                <p>{movie.title}</p>
-              </li>
-            ))}
-        </ul>
-      </div>
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-        loading={loading}
-      />
+                </Link>
+              )}
+              <p>{movie.title}</p>
+            </li>
+          ))}
+      </ul>
     </div>
-  );
+    <Pagination
+      currentPage={currentPage}
+      totalPages={totalPages}
+      onPageChange={handlePageChange}
+      loading={loading}
+    />
+  </div>
+);
 };
 
 export default MovieList;

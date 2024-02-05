@@ -44,7 +44,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
               onClick={() => onPageChange(pageNumber)}
               disabled={currentPage === pageNumber}
             >
-              {pageNumber}
+              {isNaN(pageNumber) ? null : pageNumber}
             </button>
           )}
         </React.Fragment>
