@@ -12,14 +12,25 @@ const instance = axios.create({
   },
 });
 
-export const fetchDataAsync = createAsyncThunk(
-  'data/fetchData',
-  async ({ url, params }) => {
+export const fetchMoviesAsync = createAsyncThunk(
+  'movies/fetchMovies',
+  async currentPage => {
     try {
-      const response = await instance.get(url, {
-        params: { ...params, per_page: 18 },
+      const response = await instance.get('discover/movie', {
+        params: {
+          include_adult: false,
+          include_video: false,
+          page: currentPage,
+          sort_by: 'popularity.desc',
+        },
       });
-      return response.data.results;
+
+      const totalPages = response.data.total_pages;
+
+      return {
+        movies: response.data.results,
+        totalPages,
+      };
     } catch (error) {
       throw error;
     }

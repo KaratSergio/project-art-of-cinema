@@ -1,27 +1,32 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDataAsync } from '../../redux/dataMovie/dataThunks';
-import {
-  selectMovies,
-  // selectStatus,
-  // selectError,
-} from '../../redux/dataMovie/dataSelectors';
+
+import { fetchMoviesAsync } from '../../redux/dataMovie/dataThunks';
+import { selectMovies } from '../../redux/dataMovie/dataSelectors';
+import Pagination from '../Pagination/Pagination';
 
 import scss from './MovieList.module.scss';
 
 export const MovieList = () => {
   const dispatch = useDispatch();
-  const movies = useSelector(selectMovies);
+  const { movies, totalPages } = useSelector(selectMovies);
   const ImageURL = 'https://image.tmdb.org/t/p/w200';
-  // const status = useSelector(selectStatus);
-  // const error = useSelector(selectError);
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+
+  const handlePageChange = async page => {
+    setCurrentPage(page);
+  };
 
   useEffect(() => {
-    dispatch(
-      fetchDataAsync({ url: '/movie/popular', params: { page: currentPage } })
-    );
+    const fetchData = () => {
+      setLoading(true);
+      dispatch(fetchMoviesAsync(currentPage));
+      setLoading(false);
+    };
+
+    fetchData();
   }, [dispatch, currentPage]);
 
   return (
@@ -43,14 +48,12 @@ export const MovieList = () => {
             ))}
         </ul>
       </div>
-      <div>
-        <button onClick={() => setCurrentPage(prevPage => prevPage - 1)}>
-          Previous Page
-        </button>
-        <button onClick={() => setCurrentPage(prevPage => prevPage + 1)}>
-          Next Page
-        </button>
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        loading={loading}
+      />
     </div>
   );
 };

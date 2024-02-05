@@ -1,50 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchMoviesAsync } from '../dataMovie/dataThunks'; 
 
 const dataSlice = createSlice({
-  name: 'data',
+  name: 'movies',
   initialState: {
     movies: [],
     status: 'idle',
     error: null,
   },
-  reducers: {
-    addMovies: (state, action) => {
-      state.movies = action.payload;
-    },
-    updateStatus: (state, action) => {
-      state.status = action.payload;
-    },
-    clearData: state => {
-      state.movies = [];
-      state.status = 'idle';
-      state.error = null;
-    },
-  },
+  reducers: {},
   extraReducers: builder => {
     builder
-      .addMatcher(
-        action => action.type.endsWith('/pending'),
-        state => {
-          state.status = 'loading';
-        }
-      )
-      .addMatcher(
-        action => action.type.endsWith('/fulfilled'),
-        (state, action) => {
-          state.status = 'succeeded';
-          state.movies = action.payload;
-        }
-      )
-      .addMatcher(
-        action => action.type.endsWith('/rejected'),
-        (state, action) => {
-          state.status = 'failed';
-          state.error = action.error.message;
-        }
-      );
+      .addCase(fetchMoviesAsync.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(fetchMoviesAsync.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.movies = action.payload;
+      })
+      .addCase(fetchMoviesAsync.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
   },
 });
-
-export const { addMovies, updateStatus, clearData } = dataSlice.actions;
 
 export default dataSlice.reducer;
