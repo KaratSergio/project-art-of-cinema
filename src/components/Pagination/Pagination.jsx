@@ -39,14 +39,16 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           {index !== 0 && pageNumber !== array[index - 1] + 1 && (
             <span>...</span>
           )}
-          {pageNumber !== 1 && pageNumber !== maxPages && (
-            <button
-              onClick={() => onPageChange(pageNumber)}
-              disabled={currentPage === pageNumber}
-            >
-              {isNaN(pageNumber) ? null : pageNumber}
-            </button>
-          )}
+          {Number.isInteger(pageNumber) &&
+            pageNumber !== 1 &&
+            pageNumber !== maxPages && (
+              <button
+                onClick={() => onPageChange(pageNumber)}
+                disabled={currentPage === pageNumber}
+              >
+                {pageNumber}
+              </button>
+            )}
         </React.Fragment>
       ))}
 

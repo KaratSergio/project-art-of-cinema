@@ -14,7 +14,7 @@ const instance = axios.create({
 
 export const fetchMoviesAsync = createAsyncThunk(
   'movies/fetchMovies',
-  async ({ endpoint, query, currentPage }) => {
+  async ({ endpoint, query, currentPage }, { rejectWithValue }) => {
     try {
       const params = {
         include_adult: false,
@@ -33,18 +33,20 @@ export const fetchMoviesAsync = createAsyncThunk(
         totalPages,
       };
     } catch (error) {
-      throw error;
+      if (!error.response) {
+        throw error;
+      }
+      return rejectWithValue(error.response.data);
     }
   }
 );
 
-
 export const useSearchMovies = (query, currentPage) => {
-  return fetchMoviesAsync({endpoint:`search/movie`, query, currentPage});
+  return fetchMoviesAsync({ endpoint: `search/movie`, query, currentPage });
 };
 
-export const useMovieDetails =(id) => {
-  return fetchMoviesAsync({endpoint: `movie/${id}`, currentPage: 1});
+export const useMovieDetails = id => {
+  return fetchMoviesAsync({ endpoint: `movie/${id}`, currentPage: 1 });
 };
 
 export const useMovieCredits = id => {
@@ -54,4 +56,3 @@ export const useMovieCredits = id => {
 export const useMovieReviews = id => {
   return fetchMoviesAsync({ endpoint: `movie/${id}/reviews`, currentPage: 1 });
 };
-

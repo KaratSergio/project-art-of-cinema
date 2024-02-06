@@ -20,6 +20,7 @@ export const MovieDetails = () => {
             currentPage: 1,
           })
         );
+         console.log('Received movie details:', response.payload);
         setDetails(response.payload);
       } catch (error) {
         console.error('Error fetching movie details:', error);
@@ -29,27 +30,28 @@ export const MovieDetails = () => {
     fetchMovieDetails();
   }, [dispatch, id]);
 
-  if (!details) return <div>Loading...</div>;
+  if (!details) return null;
+  console.log(details);
+
+  const { title, poster_path, release_date, vote_average, overview, genres } =
+    details;
 
   return (
     <div>
       <Link to={from}>Go back</Link>
       <div>
         <div>
-          <img src={`${ImageURL}${details.poster_path}`} alt={details.title} />
+          <img src={`${ImageURL}${poster_path}`} alt={title} />
         </div>
         <div>
           <div>
-            {details.title} (
-            {details.release_date ? details.release_date.slice(0, 4) : ''})
+            {title} ({release_date ? release_date.slice(0, 4) : ''})
           </div>
           <div>Overview</div>
-          <div>{details.overview}</div>
+          <div>{vote_average}</div>
+          <div>{overview}</div>
           <div>Genres</div>
-          <div>
-            {details.genres &&
-              details.genres.map(genre => genre.name).join(', ')}
-          </div>
+          <div>{genres && genres.map(genre => genre.name).join(', ')}</div>
           <div>Additional Information</div>
           <div>
             <div>
