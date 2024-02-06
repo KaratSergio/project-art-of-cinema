@@ -25,6 +25,7 @@ export const fetchMoviesAsync = createAsyncThunk(
       };
 
       const response = await instance.get(endpoint, { params });
+      console.log(response.data);
       const totalPages = response.data.total_pages;
 
       return {

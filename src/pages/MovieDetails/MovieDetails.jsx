@@ -1,5 +1,6 @@
 import { useEffect, useState, Suspense } from 'react';
 import { Link, useLocation, useParams, Outlet } from 'react-router-dom';
+import { useDispatch } from 'react-redux'; 
 import { fetchMoviesAsync } from '../../redux/dataMovie/movieThunks';
 
 export const MovieDetails = () => {
@@ -8,27 +9,28 @@ export const MovieDetails = () => {
   const location = useLocation();
   const from = location.state?.from || '/';
   const ImageURL = 'https://image.tmdb.org/t/p/w400';
+  const dispatch = useDispatch(); 
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const results = await fetchMoviesAsync({
+        const results = await dispatch(fetchMoviesAsync({ 
           endpoint: `movie/${id}`,
           currentPage: 1,
-        });
-        setDetails(results.payload);
+        }));
+        setDetails(results.payload); 
       } catch (error) {
         console.error('Error fetching movie details:', error);
       }
     };
 
     fetchMovieDetails();
-  }, [id]);
+  }, [dispatch, id]);
 
-  if (!details) return null;
+  if (!details || !details.results || details.results.length === 0) return null;
 
   const { title, poster_path, release_date, vote_average, overview, genres } =
-    details;
+    details.results[0];
   const releaseYear = (release_date || '').slice(0, 4);
   const score = !isNaN(vote_average) ? Math.round(vote_average * 10) : 0;
 
@@ -37,10 +39,7 @@ export const MovieDetails = () => {
       <Link to={from}>Go back</Link>
       <div>
         <div>
-          <img
-            src={poster_path ? `${ImageURL}${poster_path}` : ''}
-            alt={title}
-          />
+          <img src={poster_path ? `${ImageURL}${poster_path}` : ''} alt={title} />
         </div>
         <div>
           <div>
@@ -78,3 +77,4 @@ export const MovieDetails = () => {
 };
 
 export default MovieDetails;
+
