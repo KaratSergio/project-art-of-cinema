@@ -54,3 +54,4 @@ export const useMovieCredits = id => {
 export const useMovieReviews = id => {
   return fetchMoviesAsync({ endpoint: `movie/${id}/reviews`, currentPage: 1 });
 };
+

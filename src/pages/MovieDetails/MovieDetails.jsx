@@ -1,6 +1,6 @@
 import { useEffect, useState, Suspense } from 'react';
 import { Link, useLocation, useParams, Outlet } from 'react-router-dom';
-import { useDispatch } from 'react-redux'; 
+import { useDispatch } from 'react-redux';
 import { fetchMoviesAsync } from '../../redux/dataMovie/movieThunks';
 
 export const MovieDetails = () => {
@@ -9,16 +9,18 @@ export const MovieDetails = () => {
   const location = useLocation();
   const from = location.state?.from || '/';
   const ImageURL = 'https://image.tmdb.org/t/p/w400';
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const results = await dispatch(fetchMoviesAsync({ 
-          endpoint: `movie/${id}`,
-          currentPage: 1,
-        }));
-        setDetails(results.payload); 
+        const response = await dispatch(
+          fetchMoviesAsync({
+            endpoint: `movie/${id}`,
+            currentPage: 1,
+          })
+        );
+        setDetails(response.payload);
       } catch (error) {
         console.error('Error fetching movie details:', error);
       }
@@ -27,29 +29,27 @@ export const MovieDetails = () => {
     fetchMovieDetails();
   }, [dispatch, id]);
 
-  if (!details || !details.results || details.results.length === 0) return null;
-
-  const { title, poster_path, release_date, vote_average, overview, genres } =
-    details.results[0];
-  const releaseYear = (release_date || '').slice(0, 4);
-  const score = !isNaN(vote_average) ? Math.round(vote_average * 10) : 0;
+  if (!details) return <div>Loading...</div>;
 
   return (
     <div>
       <Link to={from}>Go back</Link>
       <div>
         <div>
-          <img src={poster_path ? `${ImageURL}${poster_path}` : ''} alt={title} />
+          <img src={`${ImageURL}${details.poster_path}`} alt={details.title} />
         </div>
         <div>
           <div>
-            {title} ({releaseYear})
+            {details.title} (
+            {details.release_date ? details.release_date.slice(0, 4) : ''})
           </div>
-          {/* Рейтинг */}
           <div>Overview</div>
-          <div>{overview}</div>
+          <div>{details.overview}</div>
           <div>Genres</div>
-          <div>{genres && genres.map(genre => genre.name).join(', ')}</div>
+          <div>
+            {details.genres &&
+              details.genres.map(genre => genre.name).join(', ')}
+          </div>
           <div>Additional Information</div>
           <div>
             <div>
@@ -77,4 +77,3 @@ export const MovieDetails = () => {
 };
 
 export default MovieDetails;
-
