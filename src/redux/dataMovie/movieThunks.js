@@ -25,7 +25,7 @@ export const fetchMoviesAsync = createAsyncThunk(
       };
 
       const response = await instance.get(endpoint, { params });
-      console.log(response.data);
+      // console.log(response.data);
       const totalPages = response.data.total_pages;
 
       return {
@@ -41,18 +41,29 @@ export const fetchMoviesAsync = createAsyncThunk(
   }
 );
 
-export const useSearchMovies = (query, currentPage) => {
+export const searchMovies = (query, currentPage) => {
   return fetchMoviesAsync({ endpoint: `search/movie`, query, currentPage });
 };
 
-export const useMovieDetails = id => {
-  return fetchMoviesAsync({ endpoint: `movie/${id}`, currentPage: 1 });
+export const fetchMovieDetails = createAsyncThunk(
+  'movies/fetchMovieDetails',
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await instance.get(`movie/${id}`);
+      return response.data;
+    } catch (error) {
+      if (!error.response) {
+        throw error;
+      }
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const fetchMovieCredits = id => {
+  return fetchMoviesAsync({ endpoint: `movie/${id}/credits` });
 };
 
-export const useMovieCredits = id => {
-  return fetchMoviesAsync({ endpoint: `movie/${id}/credits`, currentPage: 1 });
-};
-
-export const useMovieReviews = id => {
-  return fetchMoviesAsync({ endpoint: `movie/${id}/reviews`, currentPage: 1 });
+export const fetchMovieReviews = id => {
+  return fetchMoviesAsync({ endpoint: `movie/${id}/reviews` });
 };

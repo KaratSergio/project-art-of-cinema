@@ -1,7 +1,7 @@
+import { useDispatch } from 'react-redux';
 import { useEffect, useState, Suspense } from 'react';
 import { Link, useLocation, useParams, Outlet } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { fetchMoviesAsync } from '../../redux/dataMovie/movieThunks';
+import { fetchMovieDetails } from '../../redux/dataMovie/movieThunks';
 
 export const MovieDetails = () => {
   const [details, setDetails] = useState(null);
@@ -12,29 +12,25 @@ export const MovieDetails = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchMovieDetails = async () => {
+    const fetchDetails = async () => {
       try {
-        const response = await dispatch(
-          fetchMoviesAsync({
-            endpoint: `movie/${id}`,
-            currentPage: 1,
-          })
-        );
-         console.log('Received movie details:', response.payload);
+        const response = await dispatch(fetchMovieDetails(id));
+        // console.log('Received movie details:', response.payload);
         setDetails(response.payload);
       } catch (error) {
         console.error('Error fetching movie details:', error);
       }
     };
 
-    fetchMovieDetails();
+    fetchDetails();
   }, [dispatch, id]);
 
   if (!details) return null;
-  console.log(details);
+  // console.log(details);
 
   const { title, poster_path, release_date, vote_average, overview, genres } =
     details;
+  const genresList = genres.map(genre => genre.name).join(', ');
 
   return (
     <div>
@@ -45,13 +41,13 @@ export const MovieDetails = () => {
         </div>
         <div>
           <div>
-            {title} ({release_date ? release_date.slice(0, 4) : ''})
+            {title} ({release_date})
           </div>
           <div>Overview</div>
           <div>{vote_average}</div>
           <div>{overview}</div>
           <div>Genres</div>
-          <div>{genres && genres.map(genre => genre.name).join(', ')}</div>
+          <div>{genresList}</div>
           <div>Additional Information</div>
           <div>
             <div>
