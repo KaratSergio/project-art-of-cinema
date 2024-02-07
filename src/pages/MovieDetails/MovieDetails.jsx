@@ -3,6 +3,8 @@ import { useEffect, useState, Suspense } from 'react';
 import { Link, useLocation, useParams, Outlet } from 'react-router-dom';
 import { fetchMovieDetails } from '../../redux/dataMovie/movieThunks';
 
+import scss from './MovieDetails.module.scss';
+
 export const MovieDetails = () => {
   const [details, setDetails] = useState(null);
   const { id } = useParams();
@@ -15,7 +17,6 @@ export const MovieDetails = () => {
     const fetchDetails = async () => {
       try {
         const response = await dispatch(fetchMovieDetails(id));
-        // console.log('Received movie details:', response.payload);
         setDetails(response.payload);
       } catch (error) {
         console.error('Error fetching movie details:', error);
@@ -26,14 +27,16 @@ export const MovieDetails = () => {
   }, [dispatch, id]);
 
   if (!details) return null;
-  // console.log(details);
 
   const { title, poster_path, release_date, vote_average, overview, genres } =
     details;
   const genresList = genres.map(genre => genre.name).join(', ');
 
   return (
-    <div>
+    <div
+      className={scss.container}
+      style={{ backgroundImage: `url(${ImageURL}${details.backdrop_path})` }}
+    >
       <Link to={from}>Go back</Link>
       <div>
         <div>
