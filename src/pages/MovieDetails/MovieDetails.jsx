@@ -10,7 +10,8 @@ export const MovieDetails = () => {
   const { id } = useParams();
   const location = useLocation();
   const from = location.state?.from || '/';
-  const ImageURL = 'https://image.tmdb.org/t/p/w400';
+  const PosterImageURL = 'https://image.tmdb.org/t/p/w400';
+  const BackdropImageURL = 'https://image.tmdb.org/t/p/w1280';
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,12 +36,14 @@ export const MovieDetails = () => {
   return (
     <div
       className={scss.container}
-      style={{ backgroundImage: `url(${ImageURL}${details.backdrop_path})` }}
+      style={{
+        backgroundImage: `url(${BackdropImageURL}${details.backdrop_path})`,
+      }}
     >
       <Link to={from}>Go back</Link>
       <div>
         <div>
-          <img src={`${ImageURL}${poster_path}`} alt={title} />
+          <img src={`${PosterImageURL}${poster_path}`} alt={title} />
         </div>
         <div>
           <div>
