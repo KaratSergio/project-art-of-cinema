@@ -42,9 +42,9 @@ export const MovieDetails = () => {
 
   if (!details) return null;
 
-  const { title, poster_path, release_date, vote_average, overview, genres } =
-    details;
+  const { title, poster_path, release_date, vote_average, overview, genres } = details;
   const genresList = genres.map(genre => genre.name).join(', ');
+  const releaseYear = release_date.split('-')[0];
 
   return (
     <div
@@ -54,24 +54,22 @@ export const MovieDetails = () => {
       }}
     >
       <Link to={from}>Go back</Link>
-      <div>
-        <div>
+      <div className={scss.movieCard}>
+        <div className={scss.posterImage}>
           <img
             src={`${PosterImageURL}${poster_path}`}
             alt={title}
             className={scss.posterImage}
           />
-          <button onClick={loadTrailer}>Watch Trailer</button>
         </div>
-        <div>
-          <div>
-            {title} ({release_date})
-          </div>
-          <div>Overview</div>
-          <div>{vote_average}</div>
-          <div>{overview}</div>
-          <div>Genres</div>
-          <div>{genresList}</div>
+        <div div className={scss.description}>
+          <h1>
+            {title} ({releaseYear})
+          </h1>
+          <button onClick={loadTrailer}>Watch Trailer</button>
+          <p>Rating {vote_average}</p>
+          <p>{overview}</p>
+          <div>Genres: {genresList}</div>
           <div>Additional Information</div>
           <div>
             <div>
