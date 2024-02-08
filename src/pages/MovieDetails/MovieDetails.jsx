@@ -1,15 +1,16 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect } from 'react';
 import { Link, useLocation, useParams, Outlet } from 'react-router-dom';
 import { fetchMovieDetails } from '../../redux/dataMovie/movieThunks';
 import { fetchTrailer } from '../../redux/dataMovie/movieThunks';
-
+import TrailerModal from '../../components/TrailerModal/TrailerModal';
 import scss from './MovieDetails.module.scss';
 
 export const MovieDetails = () => {
   const [details, setDetails] = useState(null);
-
   const [trailerKey, setTrailerKey] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { id } = useParams();
   const location = useLocation();
@@ -35,6 +36,7 @@ export const MovieDetails = () => {
     try {
       const response = await dispatch(fetchTrailer(id));
       setTrailerKey(response.payload);
+      setIsModalOpen(true);
     } catch (error) {
       console.error('Error fetching trailer:', error);
     }
@@ -42,7 +44,8 @@ export const MovieDetails = () => {
 
   if (!details) return null;
 
-  const { title, poster_path, release_date, vote_average, overview, genres } = details;
+  const { title, poster_path, release_date, vote_average, overview, genres } =
+    details;
   const genresList = genres.map(genre => genre.name).join(', ');
   const releaseYear = release_date.split('-')[0];
 
@@ -85,24 +88,13 @@ export const MovieDetails = () => {
           </div>
         </div>
       </div>
-      <Suspense
-        color={'#301934'}
-        loading={true}
-        fallback={<div aria-label="Loading Spinner" data-testid="loader" />}
-      >
-        {trailerKey && (
-          <iframe
-            className={scss.iframe}
-            width="560"
-            height="315"
-            src={`https://www.youtube.com/embed/${trailerKey}`}
-            title="Trailer"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        )}
-        <Outlet />
-      </Suspense>
+      {isModalOpen && (
+        <TrailerModal
+          trailerKey={trailerKey}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
+      <Outlet />
     </div>
   );
 };
