@@ -2,11 +2,15 @@ import { useDispatch } from 'react-redux';
 import { useEffect, useState, Suspense } from 'react';
 import { Link, useLocation, useParams, Outlet } from 'react-router-dom';
 import { fetchMovieDetails } from '../../redux/dataMovie/movieThunks';
+import { fetchTrailer } from '../../redux/dataMovie/movieThunks';
 
 import scss from './MovieDetails.module.scss';
 
 export const MovieDetails = () => {
   const [details, setDetails] = useState(null);
+
+  const [trailerKey, setTrailerKey] = useState(null);
+
   const { id } = useParams();
   const location = useLocation();
   const from = location.state?.from || '/';
@@ -27,6 +31,15 @@ export const MovieDetails = () => {
     fetchDetails();
   }, [dispatch, id]);
 
+  const loadTrailer = async () => {
+    try {
+      const response = await dispatch(fetchTrailer(id));
+      setTrailerKey(response.payload);
+    } catch (error) {
+      console.error('Error fetching trailer:', error);
+    }
+  };
+
   if (!details) return null;
 
   const { title, poster_path, release_date, vote_average, overview, genres } =
@@ -43,7 +56,12 @@ export const MovieDetails = () => {
       <Link to={from}>Go back</Link>
       <div>
         <div>
-          <img src={`${PosterImageURL}${poster_path}`} alt={title} />
+          <img
+            src={`${PosterImageURL}${poster_path}`}
+            alt={title}
+            className={scss.posterImage}
+          />
+          <button onClick={loadTrailer}>Watch Trailer</button>
         </div>
         <div>
           <div>
@@ -74,6 +92,17 @@ export const MovieDetails = () => {
         loading={true}
         fallback={<div aria-label="Loading Spinner" data-testid="loader" />}
       >
+        {trailerKey && (
+          <iframe
+            className={scss.iframe}
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${trailerKey}`}
+            title="Trailer"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        )}
         <Outlet />
       </Suspense>
     </div>
