@@ -5,6 +5,7 @@ import { Link, useLocation, useParams, Outlet } from 'react-router-dom';
 import { fetchMovieDetails } from '../../redux/dataMovie/movieThunks';
 import { fetchTrailer } from '../../redux/dataMovie/movieThunks';
 import TrailerModal from '../../components/TrailerModal/TrailerModal';
+
 import scss from './MovieDetails.module.scss';
 
 export const MovieDetails = () => {
@@ -34,7 +35,7 @@ export const MovieDetails = () => {
 
   const loadTrailer = async () => {
     try {
-      const response = await dispatch(fetchTrailer(id));
+      const response = await dispatch(fetchTrailer(title));
       setTrailerKey(response.payload);
       setIsModalOpen(true);
     } catch (error) {
