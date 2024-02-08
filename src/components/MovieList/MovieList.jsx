@@ -47,15 +47,17 @@ return (
           movies.slice(0, 18).map(movie => (
             <li className={scss.movieItem} key={movie.id}>
               {movie.poster_path && (
-                // Добавляем Link здесь
                 <Link to={`movie/${movie.id}`}>
                   <img
+                    className={scss.moviePoster}
                     src={`${ImageURL}${movie.poster_path}`}
                     alt={movie.title}
                   />
                 </Link>
               )}
-              <p>{movie.title}</p>
+              <div className={scss.moviePosterTitle}>
+                <p>{movie.title}</p>
+              </div>
             </li>
           ))}
       </ul>

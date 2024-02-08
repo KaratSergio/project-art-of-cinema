@@ -28,7 +28,12 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         <span>1</span>
       ) : (
         <>
-          <button onClick={() => onPageChange(1)}>1</button>
+          <button
+            onClick={() => onPageChange(1)}
+            className={scss.firstBtn}
+          >
+            1
+          </button>
           {currentPage > displayPages && <span>...</span>}
         </>
       )}
@@ -60,7 +65,11 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           {currentPage + Math.floor(displayPages / 2) < maxPages && (
             <span>...</span>
           )}
-          <button onClick={() => onPageChange(maxPages)} disabled={isLastPage}>
+          <button
+            onClick={() => onPageChange(maxPages)}
+            disabled={isLastPage}
+            className={scss.lastBtn}
+          >
             {maxPages}
           </button>
         </>

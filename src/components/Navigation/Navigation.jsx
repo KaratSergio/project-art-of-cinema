@@ -20,7 +20,7 @@ export const Navigation = () => {
     <div className={scss['container']}>
       <NavLink
         to="/"
-        className={activeMenu === '/' ? scss['active'] : ''}
+        className={activeMenu === '/' ? scss.active : ''}
         onClick={() => handleMenuClick('/')}
       >
         Home
@@ -28,7 +28,7 @@ export const Navigation = () => {
 
       <NavLink
         to="/page"
-        className={activeMenu === '/page' ? scss['active'] : ''}
+        className={activeMenu === '/page' ? scss.active : ''}
         onClick={() => handleMenuClick('/page')}
       >
         Page

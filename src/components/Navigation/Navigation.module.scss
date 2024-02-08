@@ -1,10 +1,17 @@
 .container {
   display: flex;
-  flex-direction: column;
-  font-size: 36px;
-  font-weight: 900;
+  gap: 35px;
+  font-size: 32px;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+  a {
+    &:hover,
+    &.active {
+      color: white;
+    }
+  }
 }
-.container a:hover,
-.container a.active {
-  color: white;
-}
+
