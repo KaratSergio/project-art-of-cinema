@@ -3,7 +3,6 @@ import scss from './TrailerModal.module.scss';
 export const TrailerModal = ({ trailerKey, onClose }) => {
 const YouTube_URL = 'https://www.youtube-nocookie.com/embed/';
 
-
   return (
     <div className={scss.modalBackdrop} onClick={onClose}>
       <div className={scss.modalContent} onClick={e => e.stopPropagation()}>
