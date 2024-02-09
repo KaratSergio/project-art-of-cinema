@@ -87,3 +87,5 @@ export const fetchTrailer = createAsyncThunk(
     }
   }
 );
+
+export default fetchMoviesAsync;

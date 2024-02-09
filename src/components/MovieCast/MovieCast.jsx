@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import fetchMoviesAsync from '../../redux/dataMovie/movieThunks'
+
 export const MovieCast = () => {
   const [credits, setCredits] = useState([]);
   const { id } = useParams();
@@ -22,27 +24,23 @@ export const MovieCast = () => {
   if (!credits || credits.length === 0) {
     return (
       <div>
-        <ErrorText>No credits information for this movie</ErrorText>
+        <p>No credits information for this movie</p>
       </div>
     );
   }
   return (
-    <CastContainer>
+    <div>
       {credits.map(({ profile_path, name, character, id }) => {
         return (
-          <ActorCard key={id}>
-            {profile_path ? (
-              <Photo src={`${baseURL}${profile_path}`} alt={name} />
-            ) : (
-              <DefaultPhoto />
-            )}
+          <div key={id}>
+              <img src={`${baseURL}${profile_path}`} alt={name} />
             <div>
-              <ActorName>{name}</ActorName>
-              <ActorRole>Role: {character}</ActorRole>
+              <p>{name}</p>
+              <p>Role: {character}</p>
             </div>
-          </ActorCard>
+          </div>
         );
       })}
-    </CastContainer>
+    </div>
   );
 };

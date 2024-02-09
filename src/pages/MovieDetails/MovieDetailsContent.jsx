@@ -38,12 +38,12 @@ export const MovieDetailsContent = ({
         <div>Additional Information</div>
         <div>
           <div>
-            <Link to={`cast/${id}`} state={{ from }}>
+            <Link to="cast" state={{ from }}>
               Cast
             </Link>
           </div>
           <div>
-            <Link to={`reviews/${id}`} state={{ from }}>
+            <Link to="reviews" state={{ from }}>
               Reviews
             </Link>
           </div>

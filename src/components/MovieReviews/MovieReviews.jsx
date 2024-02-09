@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import {fetchMoviesAsync} from '../../redux/dataMovie/movieThunks';
+
 export const MovieReviews = () => {
   const [reviews, setReviews] = useState();
   const { id } = useParams();
@@ -25,7 +27,7 @@ export const MovieReviews = () => {
   if (!Array.isArray(reviews) || reviews.length === 0) {
     return (
       <div>
-        <ErrorText>No reviews for this movie</ErrorText>
+        <p>No reviews for this movie</p>
       </div>
     );
   }
