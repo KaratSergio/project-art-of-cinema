@@ -65,13 +65,33 @@ export const searchMovies = (query, currentPage) => {
   return fetchMoviesAsync({ endpoint: `search/movie`, query, currentPage });
 };
 
-export const fetchMovieCredits = id => {
-  return fetchMoviesAsync({ endpoint: `movie/${id}/credits` });
-};
+export const fetchMovieCredits = createAsyncThunk(
+  'movies/fetchMovieCredits',
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await instance.get(`movie/${id}/credits`);
+      console.log('Cast received from API:', response.data.results);
+      return response.data.results;
+    } catch (error) {
+      console.error('Error fetching movie credits:', error);
+      throw rejectWithValue(error.message);
+    }
+  }
+);
 
-export const fetchMovieReviews = id => {
-  return fetchMoviesAsync({ endpoint: `movie/${id}/reviews` });
-};
+export const fetchMovieReviews = createAsyncThunk(
+  'movies/fetchMovieReviews',
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await instance.get(`movie/${id}/reviews`);
+      return response.data.results;
+    } catch (error) {
+      console.error('Error fetching movie reviews:', error);
+      throw rejectWithValue(error.message);
+    }
+  }
+);
+
 
 //MovieTrailer (YouTube)
 export const fetchTrailer = createAsyncThunk(
@@ -88,4 +108,3 @@ export const fetchTrailer = createAsyncThunk(
   }
 );
 
-export default fetchMoviesAsync;
