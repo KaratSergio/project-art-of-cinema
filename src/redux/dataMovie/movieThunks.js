@@ -67,7 +67,7 @@ export const searchMovies = (query, currentPage) => {
 
 export const fetchMovieCredits = createAsyncThunk(
   'movies/fetchMovieCredits',
-  async (id, { rejectWithValue }) => {
+  async ({ id }, { rejectWithValue }) => {
     try {
       const response = await instance.get(`movie/${id}/credits`);
       console.log('Cast received from API:', response.data.results);
@@ -78,6 +78,7 @@ export const fetchMovieCredits = createAsyncThunk(
     }
   }
 );
+
 
 export const fetchMovieReviews = createAsyncThunk(
   'movies/fetchMovieReviews',

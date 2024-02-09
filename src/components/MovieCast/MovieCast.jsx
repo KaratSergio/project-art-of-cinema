@@ -9,13 +9,13 @@ export const MovieCast = () => {
   const { id } = useParams();
   const baseURL = 'https://image.tmdb.org/t/p/w200';
   const dispatch = useDispatch();
-  const cast = useSelector(selectMovieCredits);
-  console.log(cast);
+  const cast = useSelector(state => selectMovieCredits(state, id));
 
   useEffect(() => {
     const fetchCredits = async () => {
       try {
-        await dispatch(fetchMovieCredits(id));
+        const creditsData = await dispatch(fetchMovieCredits({ id }));
+        setCredits(creditsData.payload);
       } catch (error) {
         console.error('Something went wrong, please try again');
       }
@@ -37,6 +37,7 @@ export const MovieCast = () => {
       </div>
     );
   }
+
   return (
     <div>
       {credits.map(({ profile_path, name, character, id }) => {
