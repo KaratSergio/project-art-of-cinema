@@ -9,7 +9,9 @@ const movieSlice = createSlice({
   name: 'movies',
   initialState: {
     movies: [],
-    movieCredits: [],
+    movieCredits: {
+      cast: [],
+    },
     movieReviews: [],
     status: 'idle',
     error: null,
