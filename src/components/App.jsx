@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import { Layout } from './Layout/Layout';
 import { Home } from '../pages/Home/Home';
+// import {Footer} from './Footer/Footer'
 
 import { MovieDetails } from '../pages/MovieDetails/MovieDetails';
 import { MovieCast } from '../components/MovieCast/MovieCast';

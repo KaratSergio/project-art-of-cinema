@@ -1,5 +1,10 @@
 $primary-color: #1c1b1b;
 
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   margin: 200px auto;
   display: flex;

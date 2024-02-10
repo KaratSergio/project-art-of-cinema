@@ -6,6 +6,7 @@ import { loadTrailer } from '../../utils/movieUtils';
 import { MovieDetailsContent } from './MovieDetailsContent';
 import { fetchMovieDetails } from '../../redux/dataMovie/movieThunks';
 import { TrailerModal } from '../../components/TrailerModal/TrailerModal';
+import { Footer } from '../../components/Footer/Footer';
 
 import scss from './MovieDetails.module.scss';
 
@@ -66,6 +67,7 @@ export const MovieDetails = () => {
         />
       )}
       <Outlet />
+      <Footer />
     </div>
   );
 };

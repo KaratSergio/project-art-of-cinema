@@ -1,4 +1,5 @@
 import { MovieList } from '../../components/MovieList/MovieList';
+import { Footer } from '../../components/Footer/Footer';
 
 import scss from './Home.module.scss';
 
@@ -8,6 +9,7 @@ export const Home = () => {
       <div>
         <MovieList />
       </div>
+      <Footer />
     </section>
   );
 };
