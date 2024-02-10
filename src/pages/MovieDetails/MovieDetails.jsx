@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { Link, useLocation, useParams, Outlet } from 'react-router-dom';
+import { useLocation, useParams, Outlet } from 'react-router-dom';
 
 import { loadTrailer } from '../../utils/movieUtils';
 import { MovieDetailsContent } from './MovieDetailsContent';
@@ -45,10 +45,9 @@ export const MovieDetails = () => {
       style={{
         backgroundImage: `url(${BackdropImageURL}${details.backdrop_path})`,
         width: '1020px',
-        height: '630px',
+        height: '610px',
       }}
     >
-      <Link to={from}>Go back</Link>
       <MovieDetailsContent
         title={details.title}
         posterPath={details.poster_path}

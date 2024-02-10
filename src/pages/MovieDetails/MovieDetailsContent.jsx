@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 import scss from './MovieDetails.module.scss';
 
 const PosterImageURL = 'https://image.tmdb.org/t/p/w400';
@@ -28,25 +27,33 @@ export const MovieDetailsContent = ({
         />
       </div>
       <div className={scss.description}>
-        <h1>
-          {title} ({releaseYear})
-        </h1>
-        <button onClick={loadTrailer}>Watch Trailer</button>
+        <div className={scss.titleBox}>
+          <h1>
+            {title} ({releaseYear})
+          </h1>
+          <Link className={scss.goBackLink} to={from}>
+            X
+          </Link>
+        </div>
+        <div className={scss.decorLine}></div>
         <p>Rating {voteAverage}</p>
         <p>{overview}</p>
         <div>Genres: {genresList}</div>
-        <div>Additional Information</div>
-        <div>
-          <div>
+        <p>Additional Information</p>
+        <div className={scss.addInfo}>
+          <div className={scss.linkBox}>
             <Link to="cast" state={{ from }}>
-              Cast
+              Actors
             </Link>
           </div>
-          <div>
+          <div className={scss.linkBox}>
             <Link to="reviews" state={{ from }}>
-              Reviews
+              Comments
             </Link>
           </div>
+          <button className={scss.button} onClick={loadTrailer}>
+            Watch Trailer
+          </button>
         </div>
       </div>
     </div>
