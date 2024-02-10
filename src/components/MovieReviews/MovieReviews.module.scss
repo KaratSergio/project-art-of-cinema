@@ -1,0 +1,24 @@
+.container {
+  margin-top: 30px;
+  padding: 10px;
+  color: rgb(234, 240, 240);
+  background-color: #6da4c07e;
+}
+.commentBox {
+  margin: 10px;
+}
+.authorBox {
+   background-color: #46728897; 
+   padding: 8px;
+   width: max-content;
+   border-top-right-radius: 10px;
+   border: 1px solid bisque;
+}
+.contentBox {
+   background-color: #6da4c09f; 
+   padding: 6px 10px;
+   border-top-right-radius: 6px;
+   border-bottom-right-radius: 6px;
+   border: 1px solid bisque;
+   letter-spacing: 0.04em;
+}

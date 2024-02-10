@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from '../../redux/dataMovie/movieThunks';
 import { selectMovieReviews } from '../../redux/dataMovie/movieSelectors';
 
+import scss from './MovieReviews.module.scss';
+
 export const MovieReviews = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -33,13 +35,13 @@ export const MovieReviews = () => {
   }
 
   return (
-    <div>
+    <div className={scss.container}>
       {reviews.map(({ author, content, id }) => (
-        <div key={id}>
-          <div>
-            <div>Author: {author}</div>
+        <div className={scss.commentBox} key={id}>
+          <div className={scss.authorBox}>
+            <p>Author: {author}</p>
           </div>
-          <div>{content}</div>
+          <p className={scss.contentBox}>{content}</p>
         </div>
       ))}
     </div>
