@@ -1,13 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchMoviesAsync, fetchMovieCredits } from './movieThunks';
+import {
+  fetchMoviesAsync,
+  fetchMovieCredits,
+  fetchMovieReviews,
+} from './movieThunks';
 
 const movieSlice = createSlice({
   name: 'movies',
   initialState: {
     movies: [],
-    movieCredits: {
-      cast: [],
-    },
+    movieCredits: [],
+    movieReviews: [],
     status: 'idle',
     error: null,
   },
@@ -33,6 +36,17 @@ const movieSlice = createSlice({
         state.movieCredits.cast = action.payload;
       })
       .addCase(fetchMovieCredits.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+      .addCase(fetchMovieReviews.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(fetchMovieReviews.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.movieReviews = action.payload.results;
+      })
+      .addCase(fetchMovieReviews.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });

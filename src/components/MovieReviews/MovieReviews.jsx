@@ -1,48 +1,47 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
-import {fetchMoviesAsync} from '../../redux/dataMovie/movieThunks';
+import { fetchMovieReviews } from '../../redux/dataMovie/movieThunks';
+import { selectMovieReviews } from '../../redux/dataMovie/movieSelectors';
 
 export const MovieReviews = () => {
-  const [reviews, setReviews] = useState();
+  const dispatch = useDispatch();
   const { id } = useParams();
+  const reviews = useSelector(selectMovieReviews);
 
   useEffect(() => {
-    const fetchMovieRewievs = async () => {
-      try {
-        const response = await fetchMoviesAsync(`movie/${id}/reviews`);
-        const reviewsArray =
-          response.results && Array.isArray(response.results)
-            ? response.results
-            : [];
-        setReviews(reviewsArray);
-      } catch (error) {
-        console.error('Something went wrong, please try again');
-      }
-    };
+    console.log('Dispatching fetchMovieReviews for movie with ID:', id);
+    dispatch(fetchMovieReviews({ id }));
+  }, [dispatch, id]);
 
-    fetchMovieRewievs();
-  }, [id]);
+  console.log('Current movieReviews:', reviews);
 
-  if (!Array.isArray(reviews) || reviews.length === 0) {
+  if (!Array.isArray(reviews)) {
+    return (
+      <div>
+        <p>Invalid data format for movie reviews</p>
+      </div>
+    );
+  }
+
+  if (reviews.length === 0) {
     return (
       <div>
         <p>No reviews for this movie</p>
       </div>
     );
   }
+
   return (
     <div>
-      <div>
-        {reviews.map(({ author, content, id }) => (
-          <div key={id}>
-            <div>
-              <div>Author: {author}</div>
-            </div>
-            <div>{content}</div>
+      {reviews.map(({ author, content, id }) => (
+        <div key={id}>
+          <div>
+            <div>Author: {author}</div>
           </div>
-        ))}
-      </div>
+          <div>{content}</div>
+        </div>
+      ))}
     </div>
   );
 };

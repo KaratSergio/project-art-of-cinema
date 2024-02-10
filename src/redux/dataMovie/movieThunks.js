@@ -17,7 +17,7 @@ const instance = axios.create({
   },
 });
 
-// MovieList
+//================MovieList=======================
 export const fetchMoviesAsync = createAsyncThunk(
   'movies/fetchMovies',
   async ({ endpoint, query, currentPage }, { rejectWithValue }) => {
@@ -45,7 +45,7 @@ export const fetchMoviesAsync = createAsyncThunk(
     }
   }
 );
-// MovieDetails
+//================MovieDetails=====================
 export const fetchMovieDetails = createAsyncThunk(
   'movies/fetchMovieDetails',
   async (id, { rejectWithValue }) => {
@@ -64,7 +64,7 @@ export const fetchMovieDetails = createAsyncThunk(
 export const searchMovies = (query, currentPage) => {
   return fetchMoviesAsync({ endpoint: `search/movie`, query, currentPage });
 };
-
+//================MovieCredits=====================
 export const fetchMovieCredits = createAsyncThunk(
   'movies/fetchMovieCredits',
   async ({ id }, { rejectWithValue }) => {
@@ -78,23 +78,21 @@ export const fetchMovieCredits = createAsyncThunk(
     }
   }
 );
-
-
+//================MovieReviews=====================
 export const fetchMovieReviews = createAsyncThunk(
   'movies/fetchMovieReviews',
-  async (id, { rejectWithValue }) => {
+  async ({id}, { rejectWithValue }) => {
     try {
       const response = await instance.get(`movie/${id}/reviews`);
-      return response.data.results;
+      console.log('Reviews received from API:', response.data);
+      return response.data;
     } catch (error) {
       console.error('Error fetching movie reviews:', error);
       throw rejectWithValue(error.message);
     }
   }
 );
-
-
-//MovieTrailer (YouTube)
+//============MovieTrailer (YouTube)=============
 export const fetchTrailer = createAsyncThunk(
   'movies/fetchTrailer',
   async (filmName, { rejectWithValue }) => {

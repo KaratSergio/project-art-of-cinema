@@ -8,7 +8,7 @@ export const MovieCast = () => {
   const { id } = useParams();
   const baseURL = 'https://image.tmdb.org/t/p/w200';
   const dispatch = useDispatch();
-  const credits = useSelector(state => selectMovieCredits(state, id));
+  const credits = useSelector(selectMovieCredits);
 
   useEffect(() => {
     const fetchCredits = async () => {
@@ -22,7 +22,7 @@ export const MovieCast = () => {
     fetchCredits();
   }, [dispatch, id]);
 
-  if (!credits || credits.length === 0) {
+  if (!credits || (Array.isArray(credits) && credits.length === 0)) {
     return (
       <div>
         <p>Loading...</p>
