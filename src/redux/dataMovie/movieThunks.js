@@ -70,8 +70,8 @@ export const fetchMovieCredits = createAsyncThunk(
   async ({ id }, { rejectWithValue }) => {
     try {
       const response = await instance.get(`movie/${id}/credits`);
-      console.log('Cast received from API:', response.data.results);
-      return response.data.results;
+      console.log('Cast received from API:', response.data);
+      return response.data;
     } catch (error) {
       console.error('Error fetching movie credits:', error);
       throw rejectWithValue(error.message);

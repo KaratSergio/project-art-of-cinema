@@ -1,21 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from '../../redux/dataMovie/movieThunks';
 import { selectMovieCredits } from '../../redux/dataMovie/movieSelectors';
 
 export const MovieCast = () => {
-  const [credits, setCredits] = useState([]);
   const { id } = useParams();
   const baseURL = 'https://image.tmdb.org/t/p/w200';
   const dispatch = useDispatch();
-  const cast = useSelector(state => selectMovieCredits(state, id));
+  const credits = useSelector(state => selectMovieCredits(state, id));
 
   useEffect(() => {
     const fetchCredits = async () => {
       try {
-        const creditsData = await dispatch(fetchMovieCredits({ id }));
-        setCredits(creditsData.payload);
+        await dispatch(fetchMovieCredits({ id }));
       } catch (error) {
         console.error('Something went wrong, please try again');
       }
@@ -24,24 +22,18 @@ export const MovieCast = () => {
     fetchCredits();
   }, [dispatch, id]);
 
-  useEffect(() => {
-    if (cast && cast.length > 0) {
-      setCredits(cast);
-    }
-  }, [cast]);
-
   if (!credits || credits.length === 0) {
     return (
       <div>
-        <p>No credits information for this movie</p>
+        <p>Loading...</p>
       </div>
     );
   }
 
   return (
     <div>
-      {credits.map(({ profile_path, name, character, id }) => {
-        return (
+      {Array.isArray(credits) && credits.length > 0 ? (
+        credits.map(({ profile_path, name, character, id }) => (
           <div key={id}>
             <img src={`${baseURL}${profile_path}`} alt={name} />
             <div>
@@ -49,8 +41,12 @@ export const MovieCast = () => {
               <p>Role: {character}</p>
             </div>
           </div>
-        );
-      })}
+        ))
+      ) : (
+        <div>
+          <p>Loading...</p>
+        </div>
+      )}
     </div>
   );
 };
