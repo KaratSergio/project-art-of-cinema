@@ -44,6 +44,8 @@ export const MovieDetails = () => {
       className={scss.container}
       style={{
         backgroundImage: `url(${BackdropImageURL}${details.backdrop_path})`,
+        width: '1020px',
+        height: '630px',
       }}
     >
       <Link to={from}>Go back</Link>

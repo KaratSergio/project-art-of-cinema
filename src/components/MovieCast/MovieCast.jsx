@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from '../../redux/dataMovie/movieThunks';
 import { selectMovieCredits } from '../../redux/dataMovie/movieSelectors';
 
+import scss from './MovieCast.module.scss';
+
 export const MovieCast = () => {
   const { id } = useParams();
   const baseURL = 'https://image.tmdb.org/t/p/w200';
@@ -22,7 +24,7 @@ export const MovieCast = () => {
     fetchCredits();
   }, [dispatch, id]);
 
-  if (!credits || (Array.isArray(credits) && credits.length === 0)) {
+  if (!credits || credits.length === 0) {
     return (
       <div>
         <p>Loading...</p>
@@ -32,21 +34,27 @@ export const MovieCast = () => {
 
   return (
     <div>
-      {Array.isArray(credits) && credits.length > 0 ? (
-        credits.map(({ profile_path, name, character, id }) => (
-          <div key={id}>
-            <img src={`${baseURL}${profile_path}`} alt={name} />
-            <div>
-              <p>{name}</p>
-              <p>Role: {character}</p>
-            </div>
-          </div>
-        ))
-      ) : (
-        <div>
-          <p>Loading...</p>
-        </div>
-      )}
+      <ul className={scss.container}>
+        {credits.map(
+          ({ profile_path, name, character, id }) =>
+            profile_path && (
+              <li
+                className={scss.actorCard}
+                key={id}
+                style={{
+                  backgroundImage: `url(${baseURL}${profile_path})`,
+                }}
+              >
+                <div className={scss.actorName}>
+                  <p>{name}</p>
+                </div>
+                <div className={scss.actorRole}>
+                  <p>Role: {character}</p>
+                </div>
+              </li>
+            )
+        )}
+      </ul>
     </div>
   );
 };

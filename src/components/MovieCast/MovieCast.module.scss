@@ -1,0 +1,31 @@
+.container {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 1020px;
+  gap: 20px 10px;
+  align-items: center;
+}
+.actorCard {
+  width: 160px;
+  height: 260px;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.actorName {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: bisque;
+  background-color: #6da4c07e;
+}
+.actorRole {
+  background-color: #6da4c07e;
+  width: 150px;
+  border-radius: 8px;
+  padding: 2px 4px;
+  color: bisque;
+}
