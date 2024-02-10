@@ -2,15 +2,19 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { Navigation } from '../Navigation/Navigation';
-// import { Footer } from '../Footer/Footer';
+import Logotype from '../../img/logo.jpg';
 
 import scss from './Layout.module.scss';
 
 export const Layout = () => {
   return (
-    <div className={scss.mainContainer}>
+    <>
       <section className={scss.container}>
-        <div>
+        <div className={scss.navBox}>
+          <div className={scss.logoBox}>
+            <img src={Logotype} alt="Logotype" className={scss.logo} />
+            <p className={scss.logoText}>Filmistry</p>
+          </div>
           <Navigation />
         </div>
         <div>
@@ -19,7 +23,7 @@ export const Layout = () => {
           </Suspense>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 
