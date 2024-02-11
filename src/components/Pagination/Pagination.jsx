@@ -8,7 +8,6 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const maxPages = Math.min(totalPages, 500);
   const displayPages = 9;
 
-  //! масив номерів сторінок навколо поточної сторінки
   const generatePageNumbers = () => {
     const pageNumbers = [];
     const startPage = Math.max(1, currentPage - Math.floor(displayPages / 2));
@@ -28,23 +27,21 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         <span>1</span>
       ) : (
         <>
-          <button
-            onClick={() => onPageChange(1)}
-            className={scss.firstBtn}
-          >
+          <button onClick={() => onPageChange(1)} className={scss.firstBtn}>
             1
           </button>
           {currentPage > displayPages && <span>...</span>}
         </>
       )}
 
-      {/* кнопки з номерами проміжних сторінок */}
+      {/* Кнопки з номерами проміжних сторінок */}
       {generatePageNumbers().map((pageNumber, index, array) => (
         <React.Fragment key={pageNumber}>
           {index !== 0 && pageNumber !== array[index - 1] + 1 && (
             <span>...</span>
           )}
-          {Number.isInteger(pageNumber) &&
+          {typeof pageNumber === 'number' &&
+            !isNaN(pageNumber) &&
             pageNumber !== 1 &&
             pageNumber !== maxPages && (
               <button

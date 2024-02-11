@@ -16,8 +16,20 @@ const movieSlice = createSlice({
     movieReviews: [],
     status: 'idle',
     error: null,
+    filter: null,
+    searchResults: [], 
   },
-  reducers: {},
+  reducers: {
+    setFilter: (state, action) => {
+      state.filter = action.payload;
+    },
+    clearFilter: state => {
+      state.filter = null;
+    },
+    setSearchResults: (state, action) => {
+      state.searchResults = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       // Movie
@@ -70,5 +82,7 @@ const movieSlice = createSlice({
       });
   },
 });
+
+export const { setFilter, clearFilter, setSearchResults } = movieSlice.actions;
 
 export default movieSlice.reducer;
