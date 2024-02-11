@@ -1,10 +1,32 @@
+$primary-color: #33333570;
+$text-color: bisque;
+
 .footer {
-    width: 1020px;
-    background-color: #1c1b1b;
-    border-radius: 8px;
-    padding: 0 20px;
-    margin-top: 30px;
+  width: 1020px;
+  background-color: $primary-color;
+  border-radius: 8px;
+  padding:  20px;
+  margin-top: 30px;
 }
 .footerContent {
-    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  height: 200px;
+}
+.logoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.logo {
+  height: 100px;
+  width: 140px;
+}
+.logoText {
+  color: $text-color;
+  font-size: 34px;
+  font-weight: 400;
 }

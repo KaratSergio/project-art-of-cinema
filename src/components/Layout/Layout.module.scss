@@ -1,7 +1,7 @@
 $primary-color: #33333570;
 $text-color: bisque;
 $container-width: 1020px;
-$container-height: 70px;
+$container-height: 60px;
 $border-radius: 8px;
 $box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
@@ -25,16 +25,16 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .logoBox {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-right: 40px;
 }
 .logo {
-  height: 40px;
-  width: 60px;
+  height: 50px;
+  width: 70px;
 }
 .logoText {
   color: $text-color;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 400;
 }

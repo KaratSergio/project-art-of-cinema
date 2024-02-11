@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { searchMovies } from '../../redux/dataMovie/movieThunks';
 import { useSearchParams } from 'react-router-dom';
 
-import scss from './MovieSearch.module.scss'
+import scss from './MovieSearch.module.scss';
 
 export const MovieSearch = () => {
   const dispatch = useDispatch();

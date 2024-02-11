@@ -32,7 +32,7 @@ export const fetchMoviesAsync = createAsyncThunk(
 
       const response = await instance.get(endpoint, { params });
       const totalPages = response.data.total_pages;
-
+      
       return {
         movies: response.data.results,
         totalPages,
