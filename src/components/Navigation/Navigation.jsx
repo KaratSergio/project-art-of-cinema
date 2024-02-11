@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { MovieSearch} from '../MovieSearch/MovieSearch'
 
 import scss from './Navigation.module.scss';
 
@@ -33,7 +32,6 @@ export const Navigation = () => {
       >
         Page
       </NavLink>
-      <MovieSearch />
     </div>
   );
 };

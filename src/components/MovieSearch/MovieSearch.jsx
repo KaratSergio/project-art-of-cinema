@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { searchMovies } from '../../redux/dataMovie/movieThunks';
 import { useSearchParams } from 'react-router-dom';
 
+import scss from './MovieSearch.module.scss'
+
 export const MovieSearch = () => {
   const dispatch = useDispatch();
   const [query, setQuery] = useState('');
@@ -36,14 +38,17 @@ export const MovieSearch = () => {
   }, [dispatch, movieSearch]);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={scss.form} onSubmit={handleSubmit}>
       <input
+        className={scss.input}
         type="text"
         placeholder="Search movies"
         value={query}
         onChange={handleChange}
       />
-      <button type="submit">🔍</button>
+      <button className={scss.button} type="submit">
+        🔍
+      </button>
     </form>
   );
 };
