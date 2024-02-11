@@ -1,3 +1,7 @@
+$primary-color: #111;
+$secondary-color: #1c1b1b;
+$text-color: bisque;
+
 .container {
   display: flex;
   flex-direction: column;
@@ -8,8 +12,7 @@
 }
 .movieTitle {
   text-align: center;
-  color: #111;
-  // margin-top: 10px;
+  color: $primary-color;
 }
 .movieGallery {
   display: flex;
@@ -21,19 +24,16 @@
 .movieItem {
   width: 160px;
   height: 278px;
-  // padding: 4px;
-  background-color: #1c1b1b;
+  background-color: $secondary-color;
   border-radius: 4px;
 }
-.moviePoster{
+.moviePoster {
   width: 160px;
   height: 220px;
-  // background-position: center;
-  // background-size: cover;
 }
-.moviePosterTitle{
+.moviePosterTitle {
   font-size: 14px;
-  color: bisque;
+  color: $text-color;
   width: 150px;
   height: 50px;
   display: flex;

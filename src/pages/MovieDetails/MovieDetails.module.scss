@@ -1,43 +1,39 @@
+$primary-color: #6da4c07e;
+$text-color: rgb(234, 240, 240);
+$border-radius: 10px;
+
 .container {
   width: 1020px;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: $border-radius;
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  // a {
-  //   // padding: 4px;
-  //   // border-radius: 4px;
-  //   // color: rgb(234, 240, 240);
-  //   // background-color: #6da4c07e;
+  .linkBox, .button {
+    width: 100px;
+    padding: 8px;
+    border-radius: 4px;
+    color: $text-color;
+    background-color: $primary-color;
+  }
 
-  //   &:hover {
-  //     background-color: #5ea2c47e;
-  //   }
-  // }
   .linkBox {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    padding: 8px;
-    border-radius: 4px;
-    color: rgb(234, 240, 240);
-    background-color: #6da4c07e;
   }
+
   .button {
     font-size: 15px;
     width: 110px;
     padding: 4px;
-    border-radius: 4px;
-    color: rgb(234, 240, 240);
-    background-color: #6da4c07e;
     border: none;
   }
 }
+
 .titleBox {
   display: flex;
   position: relative;
@@ -49,8 +45,8 @@
   border-radius: 50px;
   padding: 6px 10px;
   margin: auto;
-  color: rgb(234, 240, 240);
-  background-color: #6da4c07e;
+  color: $text-color;
+  background-color: $primary-color;
 }
 .posterImage {
   width: 400px;
@@ -58,11 +54,11 @@
 }
 .movieCard {
   display: flex;
-  border-radius: 10px;
+  border-radius: $border-radius;
   gap: 15px;
   padding: 6px;
-  color: rgb(234, 240, 240);
-  background-color: #6da4c07e;
+  color: $text-color;
+  background-color: $primary-color;
 }
 .description {
   position: relative;

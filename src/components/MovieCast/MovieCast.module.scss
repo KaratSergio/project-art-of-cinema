@@ -1,3 +1,7 @@
+$primary-color: #6da4c09d;
+$text-color: bisque;
+$border-radius: 8px;
+
 .container {
   margin-top: 50px;
   display: flex;
@@ -9,23 +13,24 @@
 .actorCard {
   width: 160px;
   height: 260px;
-  border-radius: 4px;
+  border-radius: $border-radius;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   flex-direction: column;
 }
+.actorName, .actorRole {
+  padding: 2px 8px;
+  color: $text-color;
+  background-color: $primary-color;
+}
 .actorName {
   font-size: 14px;
-  padding: 4px 8px;
-  border-radius: 8px;
-  color: bisque;
-  background-color: #6da4c07e;
+  border-bottom-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 .actorRole {
-  background-color: #6da4c07e;
-  width: 150px;
-  border-radius: 8px;
-  padding: 2px 4px;
-  color: bisque;
+  width: 144px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }

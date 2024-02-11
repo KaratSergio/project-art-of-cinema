@@ -1,24 +1,30 @@
+$primary-color: #6da4c0;
+$secondary-color: #467288;
+$text-color: rgb(234, 240, 240);
+$border-color: bisque;
+$background-color: rgba($primary-color, 0.5);
+
 .container {
   margin-top: 50px;
   padding: 10px;
-  color: rgb(234, 240, 240);
-  background-color: #6da4c07e;
+  color: $text-color;
+  background-color: $background-color;
 }
 .commentBox {
   margin: 10px;
 }
 .authorBox {
-   background-color: #46728897; 
-   padding: 8px;
-   width: max-content;
-   border-top-right-radius: 10px;
-   border: 1px solid bisque;
+  background-color: rgba($secondary-color, 0.6);
+  padding: 8px;
+  width: max-content;
+  border-top-right-radius: 10px;
+  border: 1px solid $border-color;
 }
 .contentBox {
-   background-color: #6da4c09f; 
-   padding: 6px 10px;
-   border-top-right-radius: 6px;
-   border-bottom-right-radius: 6px;
-   border: 1px solid bisque;
-   letter-spacing: 0.04em;
+  background-color: rgba($primary-color, 0.62);
+  padding: 6px 10px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border: 1px solid $border-color;
+  letter-spacing: 0.04em;
 }

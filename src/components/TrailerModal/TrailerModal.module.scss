@@ -1,10 +1,14 @@
+$backdrop-color: rgba(0, 0, 0, 0.5);
+$content-background-color: #000;
+$close-button-color: #0f0e0e;
+
 .modalBackdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $backdrop-color;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +16,7 @@
 }
 .modalContent {
   position: relative;
-  background-color: #000;
+  background-color: $content-background-color;
   border-radius: 5px;
   max-width: 100%; 
   max-height: 100%; 
@@ -22,8 +26,9 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  color: $close-button-color;
 }
 .iframe {
-    width: 1200px;
-    height: 755px;
+  width: 1200px;
+  height: 755px;
 }

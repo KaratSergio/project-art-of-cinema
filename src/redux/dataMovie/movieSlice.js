@@ -19,6 +19,7 @@ const movieSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
+      // Movie
       .addCase(fetchMoviesAsync.pending, state => {
         state.status = 'loading';
       })
@@ -30,6 +31,7 @@ const movieSlice = createSlice({
         state.status = 'failed';
         state.error = action.error.message;
       })
+      // Actors
       .addCase(fetchMovieCredits.pending, state => {
         state.status = 'loading';
       })
@@ -41,6 +43,7 @@ const movieSlice = createSlice({
         state.status = 'failed';
         state.error = action.error.message;
       })
+      // Commentaries
       .addCase(fetchMovieReviews.pending, state => {
         state.status = 'loading';
       })

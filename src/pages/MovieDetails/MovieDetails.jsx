@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 import { useLocation, useParams, Outlet } from 'react-router-dom';
 
 import { loadTrailer } from '../../utils/movieUtils';
+import { Footer } from '../../components/Footer/Footer';
 import { MovieDetailsContent } from './MovieDetailsContent';
 import { fetchMovieDetails } from '../../redux/dataMovie/movieThunks';
 import { TrailerModal } from '../../components/TrailerModal/TrailerModal';
-import { Footer } from '../../components/Footer/Footer';
 
 import scss from './MovieDetails.module.scss';
 

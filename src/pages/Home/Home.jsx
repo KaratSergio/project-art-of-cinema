@@ -1,5 +1,5 @@
-import { MovieList } from '../../components/MovieList/MovieList';
 import { Footer } from '../../components/Footer/Footer';
+import { MovieList } from '../../components/MovieList/MovieList';
 
 import scss from './Home.module.scss';
 

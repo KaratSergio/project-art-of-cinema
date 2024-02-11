@@ -60,7 +60,7 @@ export const fetchMovieDetails = createAsyncThunk(
     }
   }
 );
-
+//================MovieSearch=====================
 export const searchMovies = (query, currentPage) => {
   return fetchMoviesAsync({ endpoint: `search/movie`, query, currentPage });
 };

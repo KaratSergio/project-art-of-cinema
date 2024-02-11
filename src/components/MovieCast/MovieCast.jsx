@@ -24,14 +24,6 @@ export const MovieCast = () => {
     fetchCredits();
   }, [dispatch, id]);
 
-  if (!credits || credits.length === 0) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
-  }
-
   return (
     <div>
       <ul className={scss.container}>

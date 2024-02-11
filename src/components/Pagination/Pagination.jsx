@@ -1,7 +1,7 @@
 import React from 'react';
 import scss from './Pagination.module.scss';
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
 
