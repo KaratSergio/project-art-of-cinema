@@ -3,6 +3,7 @@ import {
   fetchMoviesAsync,
   fetchMovieCredits,
   fetchMovieReviews,
+  searchMovies,
 } from './movieThunks';
 
 const movieSlice = createSlice({
@@ -28,6 +29,18 @@ const movieSlice = createSlice({
         state.movies = action.payload;
       })
       .addCase(fetchMoviesAsync.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+      // Search
+      .addCase(searchMovies.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(searchMovies.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.movies = action.payload;
+      })
+      .addCase(searchMovies.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       })

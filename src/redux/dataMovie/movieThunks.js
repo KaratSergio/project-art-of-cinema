@@ -61,9 +61,12 @@ export const fetchMovieDetails = createAsyncThunk(
   }
 );
 //================MovieSearch=====================
-export const searchMovies = (query, currentPage) => {
-  return fetchMoviesAsync({ endpoint: `search/movie`, query, currentPage });
-};
+export const searchMovies = createAsyncThunk(
+  'movies/searchMovies',
+  async ({ query, currentPage }) => {
+    return fetchMoviesAsync({ endpoint: `search/movie`, query, currentPage });
+  }
+);
 //================MovieCredits=====================
 export const fetchMovieCredits = createAsyncThunk(
   'movies/fetchMovieCredits',
@@ -106,4 +109,5 @@ export const fetchTrailer = createAsyncThunk(
     }
   }
 );
+
 
