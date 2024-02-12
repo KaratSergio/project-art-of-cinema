@@ -1,4 +1,4 @@
-export const selectMovies = state => state.data.movies;
+export const selectMovies = state => state.data.movies.movies;
 export const selectStatus = state => state.data.status;
 export const selectError = state => state.data.error;
 export const selectMovieReviews = state => state.data.movieReviews;

@@ -10,14 +10,22 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import dataReducer from './dataMovie/movieSlice';
+// import dataReducer from './dataMovie/movieSlice';
+import { combineReducers } from 'redux';
+import movieReducer from './dataMovie/movieSlice';
+import seriesReducer from './dataSeries/seriesSlice';
+
+const rootReducer = combineReducers({
+  movies: movieReducer,
+  series: seriesReducer,
+});
 
 const persistConfig = {
   key: 'root',
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, dataReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: {

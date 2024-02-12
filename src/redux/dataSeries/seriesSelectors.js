@@ -1,1 +1,1 @@
-export const selectSeries = state => state.data.series.series;
+export const selectSeries = state => state.data.series;

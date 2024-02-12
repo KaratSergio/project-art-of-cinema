@@ -24,11 +24,9 @@ export const SeriesList = () => {
       try {
         setLoading(true);
         console.log('Fetching series with parameters:', { currentPage, query });
-        const actionResult = await dispatch(
+        await dispatch(
           fetchSeriesAsync({ endpoint: 'discover/tv', currentPage, query })
         );
-        const seriesData = actionResult.payload;
-        console.log('Fetched series data:', seriesData);
       } catch (error) {
         console.error('Error fetching series:', error);
       } finally {
@@ -66,12 +64,14 @@ export const SeriesList = () => {
             ))}
         </ul>
       </div>
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-        loading={loading}
-      />
+      {totalPages !== undefined && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          loading={loading}
+        />
+      )}
     </div>
   );
 };
