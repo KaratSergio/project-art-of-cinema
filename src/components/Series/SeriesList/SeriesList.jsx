@@ -5,7 +5,7 @@ import { selectSeries } from '../../../redux/dataSeries/seriesSelectors';
 import { fetchSeriesAsync } from '../../../redux/dataSeries/seriesThunks';
 import { Pagination } from '../../Pagination/Pagination';
 
-import scss from './SeriesList.module.scss'
+import scss from './SeriesList.module.scss';
 
 export const SeriesList = () => {
   const dispatch = useDispatch();
@@ -14,6 +14,7 @@ export const SeriesList = () => {
   const [loading, setLoading] = useState(false);
   const [query] = useState('');
   const ImageURL = 'https://image.tmdb.org/t/p/w200';
+
   const handlePageChange = async page => {
     setCurrentPage(page);
   };
@@ -22,9 +23,12 @@ export const SeriesList = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        await dispatch(
+        console.log('Fetching series with parameters:', { currentPage, query });
+        const actionResult = await dispatch(
           fetchSeriesAsync({ endpoint: 'discover/tv', currentPage, query })
         );
+        const seriesData = actionResult.payload;
+        console.log('Fetched series data:', seriesData);
       } catch (error) {
         console.error('Error fetching series:', error);
       } finally {
@@ -35,25 +39,28 @@ export const SeriesList = () => {
     fetchData();
   }, [dispatch, currentPage, query]);
 
+  console.log('Series:', series);
+  console.log('Total Pages:', totalPages);
+
   return (
     <div className={scss.container}>
       <h1 className={scss.seriesTitle}>Series</h1>
       <div>
         <ul className={scss.seriesGallery}>
           {series &&
-            series.slice(0, 18).map(series => (
-              <li className={scss.seriesItem} key={series.id}>
-                {series.poster_path && (
-                  <Link to={`series/${series.id}`}>
+            series.slice(0, 18).map(singleSeries => (
+              <li className={scss.seriesItem} key={singleSeries.id}>
+                {singleSeries.poster_path && (
+                  <Link to={`series/${singleSeries.id}`}>
                     <img
                       className={scss.seriesPoster}
-                      src={`${ImageURL}${series.poster_path}`}
-                      alt={series.title}
+                      src={`${ImageURL}${singleSeries.poster_path}`}
+                      alt={singleSeries.title}
                     />
                   </Link>
                 )}
                 <div className={scss.seriesPosterTitle}>
-                  <p>{series.title}</p>
+                  <p>{singleSeries.title}</p>
                 </div>
               </li>
             ))}

@@ -15,7 +15,7 @@ const instance = axios.create({
 
 //================SeriesList=======================
 export const fetchSeriesAsync = createAsyncThunk(
-  'movies/fetchMovies',
+  'series/fetchSeries',
   async ({ endpoint, query, currentPage }, { rejectWithValue }) => {
     try {
       const params = {
@@ -27,6 +27,7 @@ export const fetchSeriesAsync = createAsyncThunk(
       };
 
       const response = await instance.get(endpoint, { params });
+      console.log(response.data);
       const totalPages = response.data.total_pages;
 
       return {
