@@ -1,9 +1,9 @@
 import { Footer } from '../../components/Footer/Footer';
 import { MovieList } from '../../components/MovieList/MovieList';
 
-import scss from './Home.module.scss';
+import scss from './Movie.module.scss';
 
-export const Home = () => {
+export const Movie = () => {
   return (
     <section className={scss.container}>
       <div>
@@ -14,4 +14,4 @@ export const Home = () => {
   );
 };
 
-export default Home;
+export default Movie;

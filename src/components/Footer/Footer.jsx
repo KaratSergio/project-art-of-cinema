@@ -9,7 +9,14 @@ export const Footer = () => {
           <img src={Logotype} alt="Logotype" className={scss.logo} />
           <p className={scss.logoText}>Filmistry</p>
         </div>
-        <p>© 2024 KaratSergio. All rights reserved.</p>
+        <p>Millions of movies, TV shows and people to discover. Explore now.</p>
+        <p>Made based on The Movie Data Base</p>
+        <div className={scss.byApi}>
+          <p>
+            © 2024 KaratSergio. <span className={scss.tmdb}>TMDB</span>
+          </p>
+          <div className={scss.tmdbAccent}></div>
+        </div>
       </div>
     </footer>
   );

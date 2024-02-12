@@ -4,7 +4,6 @@ import { Navigation } from '../Navigation/Navigation';
 import { MovieSearch } from '../MovieSearch/MovieSearch';
 import Logotype from '../../img/logo.jpg';
 
-
 import scss from './Layout.module.scss';
 
 export const Layout = () => {

@@ -19,14 +19,29 @@ $text-color: bisque;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 .logo {
-  height: 100px;
-  width: 140px;
+  height: 50px;
+  width: 70px;
 }
 .logoText {
   color: $text-color;
-  font-size: 34px;
-  font-weight: 400;
+  font-size: 24px;
+}
+.byApi{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tmdb{
+  font-size: 24px;
+  font-weight: bold;
+  color: bisque;
+}
+.tmdbAccent{
+  margin-left: 10px;
+  width: 60px;
+  height: 25px;
+  border-radius: 50px;
+  background-color: bisque;
 }
