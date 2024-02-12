@@ -17,7 +17,7 @@ export const MovieCast = () => {
       try {
         await dispatch(fetchMovieCredits({ id }));
       } catch (error) {
-        console.error('Something went wrong, please try again');
+        console.error('Error fetching movie credits:', error);
       }
     };
 
