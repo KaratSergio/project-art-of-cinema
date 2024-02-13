@@ -62,6 +62,7 @@ const movieSlice = createSlice({
       })
       .addCase(fetchMovieCredits.fulfilled, (state, action) => {
         state.status = 'succeeded';
+        console.log('Movie credits payload:', action.payload);
         state.movieCredits.cast = action.payload;
       })
       .addCase(fetchMovieCredits.rejected, (state, action) => {

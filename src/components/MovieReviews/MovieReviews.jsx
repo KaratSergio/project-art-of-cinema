@@ -23,16 +23,20 @@ if (reviews.length === 0) {
   );
 }
 
-  return (
-    <div className={scss.container}>
-      {reviews.map(({ author, content, id }) => (
+return (
+  <div className={scss.container}>
+    {reviews.length === 0 ? (
+      <p>No reviews available for this movie</p>
+    ) : (
+      reviews.map(({ author, content, id }) => (
         <div className={scss.commentBox} key={id}>
           <div className={scss.authorBox}>
             <p>Author: {author}</p>
           </div>
           <p className={scss.contentBox}>{content}</p>
         </div>
-      ))}
-    </div>
-  );
+      ))
+    )}
+  </div>
+);
 };

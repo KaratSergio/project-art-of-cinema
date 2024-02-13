@@ -24,29 +24,35 @@ export const MovieCast = () => {
     fetchCredits();
   }, [dispatch, id]);
 
+  
+
   return (
     <div>
-      <ul className={scss.container}>
-        {credits.map(
-          ({ profile_path, name, character, id }) =>
-            profile_path && (
-              <li
-                className={scss.actorCard}
-                key={id}
-                style={{
-                  backgroundImage: `url(${baseURL}${profile_path})`,
-                }}
-              >
-                <div className={scss.actorName}>
-                  <p>{name}</p>
-                </div>
-                <div className={scss.actorRole}>
-                  <p>Role: {character}</p>
-                </div>
-              </li>
-            )
-        )}
-      </ul>
+      {credits.length === 0 ? (
+        <p>No credits available for this movie</p>
+      ) : (
+        <ul className={scss.container}>
+          {credits.map(
+            ({ profile_path, name, character, id }) =>
+              profile_path && (
+                <li
+                  className={scss.actorCard}
+                  key={id}
+                  style={{
+                    backgroundImage: `url(${baseURL}${profile_path})`,
+                  }}
+                >
+                  <div className={scss.actorName}>
+                    <p>{name}</p>
+                  </div>
+                  <div className={scss.actorRole}>
+                    <p>Role: {character}</p>
+                  </div>
+                </li>
+              )
+          )}
+        </ul>
+      )}
     </div>
   );
 };
