@@ -17,7 +17,7 @@ export const MovieReviews = () => {
 
   return (
     <div className={scss.container}>
-      {reviews.length === 0 ? (
+      {reviews && reviews.length === 0 ? (
         <div style={{ color: 'white' }}>
           <p>No reviews for this movie</p>
         </div>
