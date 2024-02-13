@@ -18,7 +18,7 @@ export const MovieCast = () => {
 
 return (
   <div>
-    {credits && credits.length === 0 ? (
+    {credits.length === 0 ? (
       <p>No credits available for this movie</p>
     ) : (
       <ul className={scss.container}>
