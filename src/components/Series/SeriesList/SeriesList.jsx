@@ -23,12 +23,10 @@ export const SeriesList = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        // console.log('Fetching series with parameters:', { currentPage, query });
         await dispatch(
           fetchSeriesAsync({ endpoint: 'discover/tv', currentPage, query })
         );
       } catch (error) {
-        // console.error('Error fetching series:', error);
       } finally {
         setLoading(false);
       }
@@ -37,16 +35,14 @@ export const SeriesList = () => {
     fetchData();
   }, [dispatch, currentPage, query]);
 
-  // console.log('Series:', series);
-  // console.log('Total Pages:', totalPages);
-
   return (
     <div className={scss.container}>
       <h1 className={scss.seriesTitle}>Series</h1>
       <div>
         <ul className={scss.seriesGallery}>
           {series &&
-            series.slice(0, 18).map(singleSeries => (
+            series.filter(singleSeries => singleSeries.poster_path)
+              .slice(0, 18).map(singleSeries => (
               <li className={scss.seriesItem} key={singleSeries.id}>
                 {singleSeries.poster_path && (
                   <Link to={`/series/${singleSeries.id}`}>

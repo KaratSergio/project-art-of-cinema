@@ -4,39 +4,35 @@ import scss from './SeriesDetails.module.scss';
 const PosterImageURL = 'https://image.tmdb.org/t/p/w400';
 
 export const SeriesDetailsContent = ({
-  title,
+  name,
   posterPath,
-  // releaseDate,
-  voteAverage,
+  vote_average,
   overview,
   genres,
-  id,
   from,
   loadTrailer,
+  goBack,
 }) => {
   const genresList = genres.map(genre => genre.name).join(', ');
-  // const releaseYear = releaseDate.split('-')[0];
 
   return (
     <div className={scss.seriesCard}>
       <div className={scss.posterImage}>
         <img
           src={`${PosterImageURL}${posterPath}`}
-          alt={title}
+          alt={name}
           className={scss.posterImage}
         />
       </div>
       <div className={scss.description}>
         <div className={scss.titleBox}>
-          {/* <h1>
-            {title} ({releaseYear})
-          </h1> */}
-          <Link className={scss.goBackLink} to={from}>
+          <h1>{name}</h1>
+          <Link className={scss.goBackLink} onClick={goBack} to={from}>
             X
           </Link>
         </div>
         <div className={scss.decorLine}></div>
-        <p>Rating {voteAverage}</p>
+        <p>Rating {vote_average}</p>
         <p>{overview}</p>
         <div>Genres: {genresList}</div>
         <p>Additional Information</p>

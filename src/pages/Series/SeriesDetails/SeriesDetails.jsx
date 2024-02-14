@@ -17,7 +17,6 @@ export const SeriesDetails = () => {
   const [trailerKey, setTrailerKey] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { id } = useParams();
-    console.log('ID:', id); 
   const location = useLocation();
   const from = location.state?.from || '/';
   const dispatch = useDispatch();
@@ -25,9 +24,7 @@ export const SeriesDetails = () => {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-          console.log('ID:', id);
         const response = await dispatch(fetchSeriesDetails(id));
-          console.log('ID:', id);
         setDetails(response.payload);
       } catch (error) {
         console.error('Error fetching series details:', error);
@@ -53,13 +50,11 @@ export const SeriesDetails = () => {
       }}
     >
       <SeriesDetailsContent
-        title={details.title}
+        name={details.name}
         posterPath={details.poster_path}
-        // releaseDate={details.release_date}
-        voteAverage={details.vote_average}
+        vote_average={details.vote_average}
         overview={details.overview}
         genres={details.genres}
-        id={id}
         from={from}
         loadTrailer={handleLoadTrailer}
       />
