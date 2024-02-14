@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Movie } from '../pages/Movie/Movie';
 import { Series } from '../pages/Series/Series';
+import { SeriesDetails } from '../pages/Series/SeriesDetails/SeriesDetails';
 import { Layout } from './Layout/Layout';
 import { MovieCast } from '../components/MovieCast/MovieCast';
 import { MovieDetails } from '../pages/MovieDetails/MovieDetails';
@@ -15,9 +16,11 @@ export const App = () => {
           <Route path="cast" element={<MovieCast />} />
           <Route path="reviews" element={<MovieReviews />} />
         </Route>
-        <Route path="series" element={<Series />}>
-          {/* <Route path="cast" element={<MovieCast />} />
-          <Route path="reviews" element={<MovieReviews />} /> */}
+
+        <Route path="series" element={<Series />} />
+        <Route path="series/:id" element={<SeriesDetails />}>
+          {/* <Route path="cast" element={<SeriesCast />} />
+          <Route path="reviews" element={<SeriesReviews />} /> */}
         </Route>
       </Route>
     </Routes>

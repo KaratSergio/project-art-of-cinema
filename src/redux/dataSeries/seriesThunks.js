@@ -27,7 +27,7 @@ export const fetchSeriesAsync = createAsyncThunk(
       };
 
       const response = await instance.get(endpoint, { params });
-      console.log(response.data);
+      // console.log(response.data);
       const totalPages = response.data.total_pages;
 
       return {
@@ -42,4 +42,19 @@ export const fetchSeriesAsync = createAsyncThunk(
     }
   }
 );
-
+//================SeriesDetails=====================
+export const fetchSeriesDetails = createAsyncThunk(
+  'series/fetchSeriesDetails',
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await instance.get(`tv/${id}`);
+      console.log("Details", response.data);
+      return response.data;
+    } catch (error) {
+      if (!error.response) {
+        throw error;
+      }
+      return rejectWithValue(error.response.data);
+    }
+  }
+);

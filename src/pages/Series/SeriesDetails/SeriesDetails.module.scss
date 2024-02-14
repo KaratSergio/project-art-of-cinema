@@ -1,0 +1,81 @@
+$primary-color: #6da4c07e;
+$text-color: rgb(234, 240, 240);
+$border-radius: 10px;
+
+.container {
+  width: 1020px;
+  padding: 20px;
+  border-radius: $border-radius;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .linkBox, .button {
+    width: 100px;
+    padding: 8px;
+    border-radius: 4px;
+    color: $text-color;
+    background-color: $primary-color;
+  }
+
+  .linkBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button {
+    font-size: 15px;
+    width: 110px;
+    padding: 4px;
+    border: none;
+  }
+}
+
+.titleBox {
+  display: flex;
+  position: relative;
+}
+.goBackLink {
+  position: absolute;
+  left: 565px;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 6px 10px;
+  margin: auto;
+  color: $text-color;
+  background-color: $primary-color;
+}
+.posterImage {
+  width: 400px;
+  height: 600px;
+}
+.seriesCard {
+  display: flex;
+  border-radius: $border-radius;
+  gap: 15px;
+  padding: 6px;
+  color: $text-color;
+  background-color: $primary-color;
+}
+.description {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.decorLine {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+.addInfo {
+  display: flex;
+  width: 400px;
+  gap: 20px;
+}

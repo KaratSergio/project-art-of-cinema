@@ -29,11 +29,10 @@ const seriesSlice = createSlice({
     builder
       // Series
       .addCase(fetchSeriesAsync.pending, state => {
-        console.log('Fetching series...');
         state.status = 'loading';
       })
       .addCase(fetchSeriesAsync.fulfilled, (state, action) => {
-        console.log('Series fetched successfully:', action.payload);
+        // console.log('Series fetched successfully:', action.payload);
         state.status = 'succeeded';
         state.series = action.payload.series;
         state.totalPages = action.payload.totalPages;
@@ -42,7 +41,7 @@ const seriesSlice = createSlice({
         console.error('Failed to fetch series:', action.error.message);
         state.status = 'failed';
         state.error = action.error.message;
-      });
+      });    
   },
 });
 

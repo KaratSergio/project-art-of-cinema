@@ -42,7 +42,7 @@ export const MovieSearch = () => {
       <input
         className={scss.input}
         type="text"
-        placeholder="Search movies"
+        placeholder="Search"
         value={query}
         onChange={handleChange}
       />
