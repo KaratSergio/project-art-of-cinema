@@ -1,12 +1,13 @@
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useLocation, useParams, Outlet } from 'react-router-dom';
 
-import { loadTrailer } from '../../utils/movieUtils';
-import { Footer } from '../../components/Footer/Footer';
+import { loadTrailer } from '../../../utils/loadTrailer';
+import { Footer } from '../../../components/Footer/Footer';
 import { MovieDetailsContent } from './MovieDetailsContent';
-import { fetchMovieDetails } from '../../redux/dataMovie/movieThunks';
-import { TrailerModal } from '../../components/TrailerModal/TrailerModal';
+import { fetchMovieDetails } from '../../../redux/dataMovie/movieThunks';
+import { TrailerModal } from '../../../components/TrailerModal/TrailerModal';
 
 import scss from './MovieDetails.module.scss';
 

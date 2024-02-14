@@ -1,11 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
-import { Movie } from '../pages/Movie/Movie';
+import { Layout } from './Layout/Layout';
+
 import { Series } from '../pages/Series/Series';
 import { SeriesDetails } from '../pages/Series/SeriesDetails/SeriesDetails';
-import { Layout } from './Layout/Layout';
-import { MovieCast } from '../components/MovieCast/MovieCast';
-import { MovieDetails } from '../pages/MovieDetails/MovieDetails';
-import { MovieReviews } from '../components/MovieReviews/MovieReviews';
+import { SeriesReviews } from './Series/SeriesReviews/SeriesReviews';
+import { SeriesCast } from './Series/SeriesCast/SeriesCast';
+
+import { Movie } from '../pages/Movie/Movie';
+import { MovieDetails } from '../pages/Movie/MovieDetails/MovieDetails';
+import { MovieReviews } from './Movies/MovieReviews/MovieReviews';
+import { MovieCast } from './Movies/MovieCast/MovieCast';
+
+import { NoPageFound } from '../pages/PageNotFound/PageNotFound';
 
 export const App = () => {
   return (
@@ -19,12 +25,18 @@ export const App = () => {
 
         <Route path="series" element={<Series />} />
         <Route path="series/:id" element={<SeriesDetails />}>
-          {/* <Route path="cast" element={<SeriesCast />} />
-          <Route path="reviews" element={<SeriesReviews />} /> */}
+          <Route path="cast" element={<SeriesCast />} />
+          <Route path="reviews" element={<SeriesReviews />} />
         </Route>
+
+        <Route element={<NoPageFound />} />
       </Route>
     </Routes>
   );
 };
 
 export default App;
+
+
+
+

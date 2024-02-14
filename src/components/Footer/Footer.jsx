@@ -1,3 +1,4 @@
+import React from 'react';
 import Logotype from '../../img/logo.jpg';
 import scss from './Footer.module.scss';
 

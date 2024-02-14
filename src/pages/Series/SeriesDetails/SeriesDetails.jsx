@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useLocation, useParams, Outlet } from 'react-router-dom';
 
-import { loadTrailer } from '../../../utils/movieUtils';
+import { loadTrailer } from '../../../utils/loadTrailer';
 import { Footer } from '../../../components/Footer/Footer';
 import { SeriesDetailsContent } from './SeriesDetailsContent';
 import { fetchSeriesDetails } from '../../../redux/dataSeries/seriesThunks';

@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchMovies } from '../../redux/dataMovie/movieThunks';
 import { useSearchParams } from 'react-router-dom';
 
-import scss from './MovieSearch.module.scss';
+import scss from './Search.module.scss';
 
 export const MovieSearch = () => {
   const dispatch = useDispatch();

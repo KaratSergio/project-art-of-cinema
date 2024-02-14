@@ -1,9 +1,10 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectMovies } from '../../redux/dataMovie/movieSelectors';
-import { fetchMoviesAsync } from '../../redux/dataMovie/movieThunks';
-import { Pagination } from '../Pagination/Pagination';
+import { selectMovies } from '../../../redux/dataMovie/movieSelectors';
+import { fetchMoviesAsync } from '../../../redux/dataMovie/movieThunks';
+import { Pagination } from '../../Pagination/Pagination';
 
 import scss from './MovieList.module.scss';
 

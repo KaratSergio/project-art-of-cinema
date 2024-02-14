@@ -1,5 +1,6 @@
+import React from 'react';
 import { Footer } from '../../components/Footer/Footer';
-import { MovieList } from '../../components/MovieList/MovieList';
+import { MovieList } from '../../components/Movies/MovieList/MovieList';
 
 import scss from './Movie.module.scss';
 

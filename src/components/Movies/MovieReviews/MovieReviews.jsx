@@ -1,8 +1,9 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMovieReviews } from '../../redux/dataMovie/movieThunks';
-import { selectMovieReviews } from '../../redux/dataMovie/movieSelectors';
+import { fetchMovieReviews } from '../../../redux/dataMovie/movieThunks';
+import { selectMovieReviews } from '../../../redux/dataMovie/movieSelectors';
 
 import scss from './MovieReviews.module.scss';
 
@@ -34,4 +35,3 @@ export const MovieReviews = () => {
     </div>
   );
 };
-
