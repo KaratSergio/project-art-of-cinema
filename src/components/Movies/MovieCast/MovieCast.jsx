@@ -20,7 +20,7 @@ export const MovieCast = () => {
   return (
     <div>
       {credits.length === 0 ? (
-        <p>No credits available for this movie</p>
+        <p className={scss.textSms}>No credits available for this movie</p>
       ) : (
         <ul className={scss.container}>
           {credits.map(

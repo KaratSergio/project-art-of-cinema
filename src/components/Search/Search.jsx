@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import scss from './Search.module.scss';
 
-export const MovieSearch = () => {
+export const Search = () => {
   const dispatch = useDispatch();
   const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
@@ -53,4 +53,4 @@ export const MovieSearch = () => {
   );
 };
 
-export default MovieSearch;
+export default Search;

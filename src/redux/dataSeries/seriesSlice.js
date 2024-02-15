@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchSeriesAsync } from './seriesThunks';
+import {
+  fetchSeriesAsync,
+  fetchSeriesCredits,
+  fetchSeriesReviews,
+  searchSeries,
+} from './seriesThunks';
 
 const seriesSlice = createSlice({
   name: 'series',
@@ -41,7 +46,46 @@ const seriesSlice = createSlice({
         console.error('Failed to fetch series:', action.error.message);
         state.status = 'failed';
         state.error = action.error.message;
-      });    
+      }) 
+      // Search
+      .addCase(searchSeries.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(searchSeries.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.movies = action.payload;
+      })
+      .addCase(searchSeries.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+      // Actors
+      .addCase(fetchSeriesCredits.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(fetchSeriesCredits.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        console.log('Movie credits payload:', action.payload);
+        if (action.payload) {
+          state.seriesCredits = action.payload;
+        }
+      })
+      .addCase(fetchSeriesCredits.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+      // Commentaries
+      .addCase(fetchSeriesReviews.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(fetchSeriesReviews.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.seriesReviews = action.payload.results;
+      })
+      .addCase(fetchSeriesReviews.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
   },
 });
 

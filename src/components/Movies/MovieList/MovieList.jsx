@@ -24,7 +24,11 @@ export const MovieList = () => {
       try {
         setLoading(true);
         await dispatch(
-          fetchMoviesAsync({ endpoint: 'discover/movie', currentPage, query })
+          fetchMoviesAsync({
+            endpoint: 'discover/movie',
+            currentPage,
+            query,
+          })
         );
       } catch (error) {
         console.error('Error fetching movies:', error);

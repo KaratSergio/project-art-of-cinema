@@ -39,7 +39,7 @@ export const SeriesDetailsContent = ({
         <div className={scss.addInfo}>
           <div className={scss.linkBox}>
             <Link to="cast" state={{ from }}>
-              Actors
+              Cast
             </Link>
           </div>
           <div className={scss.linkBox}>
