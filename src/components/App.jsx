@@ -34,7 +34,7 @@ export const App = () => {
             <Route path="reviews" element={<SeriesReviews />} />
           </Route>
 
-          <Route element={<NoPageFound />} />
+          <Route path="*" element={<NoPageFound />} />
         </Route>
       </Routes>
     </SearchProvider>
