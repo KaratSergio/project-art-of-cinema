@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Navigation } from '../Navigation/Navigation';
+
 import { Search } from '../Search/Search';
-import Logotype from '../../img/logo.jpg';
+import { Footer } from '../Footer/Footer'; 
+import { Navigation } from '../Navigation/Navigation';
 import { Pagination } from '../Pagination/Pagination';
 
 import scss from './Layout.module.scss';
+import Logotype from '../../img/logo.jpg';
 
 export const Layout = () => {
   const [searchResults, setSearchResults] = useState(null);
@@ -49,9 +51,10 @@ export const Layout = () => {
               </ul>
               <Pagination
                 currentPage={currentPage}
-                totalPages={10} 
+                totalPages={10}
                 onPageChange={handlePageChange}
               />
+            <Footer />
             </>
           ) : (
             <Outlet />
