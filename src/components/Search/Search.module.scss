@@ -1,20 +1,23 @@
+$primary-color: #111;
+$text-color: bisque;
+
 .form {
-    position: relative;
-    margin-left: 400px;
-    display: flex;
+  position: relative;
+  margin-left: 400px;
+  display: flex;
 }
 .input {
-    background-color: #111;
-    height: 30px;
-    border: none;
-    padding-left: 8px;
-    width: 200px;
-    color: bisque;
+  background-color: $primary-color;
+  height: 30px;
+  border: none;
+  padding-left: 8px;
+  width: 200px;
+  color: $text-color;
 }
 .button {
-    position: absolute;
-   background-color: #111; 
-   right: 1px;
-   border: none;
-   height: 32px;
+  position: absolute;
+  background-color: $primary-color;
+  right: 1px;
+  border: none;
+  height: 32px;
 }

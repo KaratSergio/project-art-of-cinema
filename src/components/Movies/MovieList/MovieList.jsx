@@ -15,6 +15,7 @@ export const MovieList = () => {
   const [loading, setLoading] = useState(false);
   const [query] = useState('');
   const ImageURL = 'https://image.tmdb.org/t/p/w200';
+  
   const handlePageChange = async page => {
     setCurrentPage(page);
   };

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { searchMovies } from '../../redux/dataMovie/movieThunks';
+import { fetchGlobalSearchAsync } from '../../redux/globalSearch/globalSearch';
 import { useSearchParams } from 'react-router-dom';
 
 import scss from './Search.module.scss';
 
-export const Search = () => {
+export const Search = ({ setSearchResults }) => {
   const dispatch = useDispatch();
   const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
-  const movieSearch = searchParams.get('query') ?? '';
+  const globalSearchQuery = searchParams.get('query') ?? '';
 
   const handleChange = e => {
     setQuery(e.currentTarget.value.toLowerCase());
@@ -20,36 +20,47 @@ export const Search = () => {
     if (query.trim() === '') return;
     setSearchParams({ query: query });
     setQuery('');
-    dispatch(searchMovies({ query: query, currentPage: 1 }))
+    console.log('Submitting search query:', query);
+    dispatch(fetchGlobalSearchAsync({ query: query, currentPage: 1 }))
       .unwrap()
+      .then(data => {
+        setSearchResults(data.results);
+      })
       .catch(() => {
-        console.error('Something went wrong, please try again');
+        console.error('Something went wrong. Please try again');
       });
   };
 
   useEffect(() => {
-    if (movieSearch) {
-      dispatch(searchMovies({ query: movieSearch, currentPage: 1 }))
+    if (globalSearchQuery) {
+      dispatch(
+        fetchGlobalSearchAsync({ query: globalSearchQuery, currentPage: 1 })
+      )
         .unwrap()
+        .then(data => {
+          setSearchResults(data.results);
+        })
         .catch(() => {
-          console.error('Something went wrong, please try again');
+          console.error('Something went wrong. Please try again');
         });
     }
-  }, [dispatch, movieSearch]);
+  }, [dispatch, globalSearchQuery, setSearchResults]);
 
   return (
-    <form className={scss.form} onSubmit={handleSubmit}>
-      <input
-        className={scss.input}
-        type="text"
-        placeholder="Search"
-        value={query}
-        onChange={handleChange}
-      />
-      <button className={scss.button} type="submit">
-        🔍
-      </button>
-    </form>
+    <div className={scss.searchBox}>
+      <form className={scss.form} onSubmit={handleSubmit}>
+        <input
+          className={scss.input}
+          type="text"
+          placeholder="Search"
+          value={query}
+          onChange={handleChange}
+        />
+        <button className={scss.button} type="submit">
+          🔍
+        </button>
+      </form>
+    </div>
   );
 };
 

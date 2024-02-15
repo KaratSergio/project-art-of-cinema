@@ -1,12 +1,21 @@
-import React, { Suspense } from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Navigation } from '../Navigation/Navigation';
 import { Search } from '../Search/Search';
 import Logotype from '../../img/logo.jpg';
+import { Pagination } from '../Pagination/Pagination';
 
 import scss from './Layout.module.scss';
 
 export const Layout = () => {
+  const [searchResults, setSearchResults] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1); 
+  const ImageURL = 'https://image.tmdb.org/t/p/w200';
+
+  const handlePageChange = page => {
+    setCurrentPage(page); 
+  };
+
   return (
     <>
       <section className={scss.container}>
@@ -16,12 +25,37 @@ export const Layout = () => {
             <p className={scss.logoText}>Filmistry</p>
           </div>
           <Navigation />
-          <Search />
+          <Search setSearchResults={setSearchResults} />
         </div>
         <div>
-          <Suspense fallback={null}>
+          {searchResults ? (
+            <>
+              <ul className={scss.searchResults}>
+                {searchResults.map(
+                  result =>
+                    result.poster_path && (
+                      <li className={scss.movieItem} key={result.id}>
+                        <img
+                          className={scss.moviePoster}
+                          src={`${ImageURL}${result.poster_path}`}
+                          alt={result.title || result.name}
+                        />
+                        <p className={scss.moviePosterTitle}>
+                          {result.title || result.name}
+                        </p>
+                      </li>
+                    )
+                )}
+              </ul>
+              <Pagination
+                currentPage={currentPage}
+                totalPages={10} 
+                onPageChange={handlePageChange}
+              />
+            </>
+          ) : (
             <Outlet />
-          </Suspense>
+          )}
         </div>
       </section>
     </>
