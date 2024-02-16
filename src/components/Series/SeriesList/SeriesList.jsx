@@ -25,7 +25,7 @@ export const SeriesList = () => {
       try {
         setLoading(true);
         await dispatch(
-          fetchSeriesAsync({ endpoint: 'discover/tv', currentPage, query })
+          fetchSeriesAsync({ endpoint: 'tv/top_rated', currentPage, query })
         );
       } catch (error) {
       } finally {
