@@ -14,10 +14,8 @@ import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
 import movieReducer from './dataMovie/movieSlice';
 import seriesReducer from './dataSeries/seriesSlice';
-import globalSearchReducer from './globalSearch/globalSearchSlice';
 
 const rootReducer = combineReducers({
-  globalSearch: globalSearchReducer,
   movies: movieReducer,
   series: seriesReducer,
 });
@@ -25,7 +23,6 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['globalSearch'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
-import { SearchProvider, useSearch } from '../utils/searchContext';
 
 import { Series } from '../pages/Series/Series';
 import { SeriesDetails } from '../pages/Series/SeriesDetails/SeriesDetails';
@@ -16,12 +15,9 @@ import { MovieCast } from './Movies/MovieCast/MovieCast';
 import { NoPageFound } from '../pages/PageNotFound/PageNotFound';
 
 export const App = () => {
-  const { searchResults } = useSearch() ?? { searchResults: [] };
-
   return (
-    <SearchProvider>
       <Routes>
-        <Route path="/" element={<Layout searchResults={searchResults} />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Movie />} />
           <Route path="movie/:id" element={<MovieDetails />}>
             <Route path="cast" element={<MovieCast />} />
@@ -37,7 +33,6 @@ export const App = () => {
           <Route path="*" element={<NoPageFound />} />
         </Route>
       </Routes>
-    </SearchProvider>
   );
 };
 
