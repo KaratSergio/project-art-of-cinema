@@ -31,7 +31,6 @@ export const fetchSeriesAsync = createAsyncThunk(
       };
 
       const response = await instance.get(endpoint, { params });
-      // console.log(response.data);
       const totalPages = response.data.total_pages;
 
       return {
@@ -49,10 +48,11 @@ export const fetchSeriesAsync = createAsyncThunk(
 //================SeriesDetails=====================
 export const fetchSeriesDetails = createAsyncThunk(
   'series/fetchSeriesDetails',
-  async (id, { rejectWithValue }) => {
+  async (id, { dispatch, rejectWithValue }) => {
     try {
       const response = await instance.get(`tv/${id}`);
-      console.log("Details", response.data);
+      const seriesName = response.data.name;
+      await dispatch(fetchSeriesTrailer(seriesName));
       return response.data;
     } catch (error) {
       if (!error.response) {
@@ -102,14 +102,14 @@ export const fetchSeriesReviews = createAsyncThunk(
   }
 );
 //============MovieTrailer (YouTube)=============
-export const fetchTrailer = createAsyncThunk(
+export const fetchSeriesTrailer = createAsyncThunk(
   'series/fetchTrailer',
-  async (filmName, { rejectWithValue }) => {
+  async (seriesName, { rejectWithValue }) => {
     try {
-      const url = `${YouTube_URL}?part=snippet&type=video&maxResults=1&q=${filmName}+trailer&key=${YouTube_KEY}`;
+      const url = `${YouTube_URL}?part=snippet&type=video&maxResults=1&q=${seriesName}+trailer&key=${YouTube_KEY}`;
       const response = await axios.get(url);
       const data = response.data;
-      return data.items[0]?.id?.videoId || null;
+      return data.items.length > 0 ? data.items[0].id.videoId : null;
     } catch (error) {
       throw rejectWithValue(error.message);
     }

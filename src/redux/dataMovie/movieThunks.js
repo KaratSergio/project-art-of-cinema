@@ -100,7 +100,7 @@ export const fetchMovieReviews = createAsyncThunk(
   }
 );
 //============MovieTrailer (YouTube)=============
-export const fetchTrailer = createAsyncThunk(
+export const fetchMovieTrailer = createAsyncThunk(
   'movies/fetchTrailer',
   async (filmName, { rejectWithValue }) => {
     try {

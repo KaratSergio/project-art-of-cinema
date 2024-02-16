@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useLocation, useParams, Outlet } from 'react-router-dom';
 
-import { loadTrailer } from '../../../utils/loadTrailer';
+import { loadMovieTrailer } from '../../../utils/loadTrailer';
 import { Footer } from '../../../components/Footer/Footer';
 import { MovieDetailsContent } from './MovieDetailsContent';
 import { fetchMovieDetails } from '../../../redux/dataMovie/movieThunks';
@@ -36,7 +36,7 @@ export const MovieDetails = () => {
   }, [dispatch, id]);
 
   const handleLoadTrailer = async () => {
-    await loadTrailer(dispatch, details, setTrailerKey, setIsModalOpen);
+    await loadMovieTrailer(dispatch, details, setTrailerKey, setIsModalOpen);
   };
 
   if (!details) return null;
