@@ -5,14 +5,16 @@ import { useSearchParams } from 'react-router-dom';
 
 import scss from './Search.module.scss';
 
-export const Search = ({ setSearchResults }) => {
+export const Search = () => {
   const dispatch = useDispatch();
   const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const globalSearchQuery = searchParams.get('query') ?? '';
 
   const handleChange = e => {
-    setQuery(e.currentTarget.value.toLowerCase());
+    const value = e.currentTarget.value.toLowerCase();
+    console.log('New query:', value);
+    setQuery(value);
   };
 
   const handleSubmit = e => {
@@ -21,30 +23,17 @@ export const Search = ({ setSearchResults }) => {
     setSearchParams({ query: query });
     setQuery('');
     console.log('Submitting search query:', query);
-    dispatch(fetchGlobalSearchAsync({ query: query, currentPage: 1 }))
-      .unwrap()
-      .then(data => {
-        setSearchResults(data.results);
-      })
-      .catch(() => {
-        console.error('Something went wrong. Please try again');
-      });
+    dispatch(fetchGlobalSearchAsync({ query: query, currentPage: 1 }));
   };
 
   useEffect(() => {
+    console.log('Global search query:', globalSearchQuery);
     if (globalSearchQuery) {
       dispatch(
         fetchGlobalSearchAsync({ query: globalSearchQuery, currentPage: 1 })
-      )
-        .unwrap()
-        .then(data => {
-          setSearchResults(data.results);
-        })
-        .catch(() => {
-          console.error('Something went wrong. Please try again');
-        });
+      );
     }
-  }, [dispatch, globalSearchQuery, setSearchResults]);
+  }, [dispatch, globalSearchQuery]);
 
   return (
     <div className={scss.searchBox}>
