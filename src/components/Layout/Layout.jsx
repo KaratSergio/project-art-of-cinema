@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom'; 
 
-import { MovieSearch } from '../Search/MovieSearch';
 import { Navigation } from '../Navigation/Navigation';
 
 import scss from './Layout.module.scss';
@@ -17,7 +16,6 @@ export const Layout = () => {
             <p className={scss.logoText}>Filmistry</p>
           </div>
           <Navigation />
-          <MovieSearch />
         </div>
         <div>
           <Suspense fallback={null}>

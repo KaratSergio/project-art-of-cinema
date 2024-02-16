@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectSeries } from '../../../redux/dataSeries/seriesSelectors';
 import { fetchSeriesAsync } from '../../../redux/dataSeries/seriesThunks';
 import { Pagination } from '../../Pagination/Pagination';
+import { SeriesSearch } from '../../Search/SeriesSearch'
 
 import scss from './SeriesList.module.scss';
 
@@ -37,6 +38,7 @@ export const SeriesList = () => {
 
   return (
     <div className={scss.container}>
+      <SeriesSearch />
       <h1 className={scss.seriesTitle}>Series</h1>
       <div>
         <ul className={scss.seriesGallery}>

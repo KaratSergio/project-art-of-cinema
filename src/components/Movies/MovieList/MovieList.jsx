@@ -6,6 +6,8 @@ import { selectMovies } from '../../../redux/dataMovie/movieSelectors';
 import { fetchMoviesAsync } from '../../../redux/dataMovie/movieThunks';
 import { Pagination } from '../../Pagination/Pagination';
 
+import { MovieSearch } from '../../Search/MovieSearch';
+
 import scss from './MovieList.module.scss';
 
 export const MovieList = () => {
@@ -43,6 +45,7 @@ export const MovieList = () => {
 
   return (
     <div className={scss.container}>
+      <MovieSearch />
       <h1 className={scss.movieTitle}>Movies</h1>
       <div>
         <ul className={scss.movieGallery}>

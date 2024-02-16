@@ -1,6 +1,9 @@
-$primary-color: #111;
+$primary-color: #1b1a1a;
 $text-color: bisque;
-
+.searchBox{
+  display: flex;
+  position: relative;
+}
 .form {
   position: relative;
   margin-left: 400px;

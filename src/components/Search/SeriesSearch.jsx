@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { searchMovies } from '../../redux/dataMovie/movieThunks';
+import { searchSeries } from '../../redux/dataSeries/seriesThunks';
 import { useSearchParams } from 'react-router-dom';
 
-import scss from './Search.module.scss'
+import scss from './Search.module.scss';
 
-export const MovieSearch = () => {
+export const SeriesSearch = () => {
   const dispatch = useDispatch();
   const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
-  const movieSearch = searchParams.get('query') ?? '';
+  const seriesSearch = searchParams.get('query') ?? '';
 
   const handleChange = e => {
     setQuery(e.currentTarget.value.toLowerCase());
@@ -20,7 +20,7 @@ export const MovieSearch = () => {
     if (query.trim() === '') return;
     setSearchParams({ query: query });
     setQuery('');
-    dispatch(searchMovies({ query: query, currentPage: 1 }))
+    dispatch(searchSeries({ query: query, currentPage: 1 }))
       .unwrap()
       .catch(() => {
         console.error('Something went wrong, please try again');
@@ -28,28 +28,31 @@ export const MovieSearch = () => {
   };
 
   useEffect(() => {
-    if (movieSearch) {
-      dispatch(searchMovies({ query: movieSearch, currentPage: 1 }))
+    if (seriesSearch) {
+      dispatch(searchSeries({ query: seriesSearch, currentPage: 1 }))
         .unwrap()
         .catch(() => {
           console.error('Something went wrong, please try again');
         });
     }
-  }, [dispatch, movieSearch]);
+  }, [dispatch, seriesSearch]);
 
   return (
     <div className={scss.searchBox}>
       <form className={scss.from} onSubmit={handleSubmit}>
-        <input className={scss.input}
+        <input
+          className={scss.input}
           type="text"
-          placeholder="Search movies"
+          placeholder="Search series"
           value={query}
           onChange={handleChange}
         />
-        <button className={scss.button} type="submit">🔍</button>
+        <button className={scss.button} type="submit">
+          🔍
+        </button>
       </form>
     </div>
   );
 };
 
-export default MovieSearch;
+export default SeriesSearch;

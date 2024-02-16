@@ -68,7 +68,7 @@ export const searchSeries = createAsyncThunk(
   async ({ query, currentPage }, { dispatch }) => {
     try {
       const result = await dispatch(
-        fetchSeriesAsync({ endpoint: 'search/series', query, currentPage })
+        fetchSeriesAsync({ endpoint: 'search/tv', query, currentPage })
       );
       return result.payload;
     } catch (error) {
