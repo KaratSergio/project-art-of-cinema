@@ -12,7 +12,8 @@ $border-radius: 10px;
   flex-direction: column;
   align-items: center;
 
-  .linkBox, .button {
+  .linkBox,
+  .button {
     width: 100px;
     padding: 8px;
     border-radius: 4px;
@@ -33,16 +34,16 @@ $border-radius: 10px;
     border: none;
   }
 }
-  .backgroundImageContainer {
+.backgroundImageContainer {
   width: 335px;
-  height: 320px;
+  height: 395px;
 }
 .titleBox {
   display: flex;
   position: relative;
 }
 .titleBox h1 {
-font-size: 26px;
+  font-size: 26px;
 }
 .goBackLink {
   position: absolute;
@@ -61,29 +62,35 @@ font-size: 26px;
 }
 .movieCard {
   width: 350px;
+  // height: 520px;
   display: flex;
   border-radius: $border-radius;
   gap: 15px;
   padding: 6px;
   color: $text-color;
   background-color: $primary-color;
-  margin-bottom: 100px;
+  margin-bottom: 5px;
 }
 .description {
-  position: relative;
+  // position: relative;
+  height: 380px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: space-between;
+  // gap: 8px;
 }
-.decorLine {
-  position: absolute;
-  top: 35px;
-  width: 348px;
-  height: 2px;
-  background-color: #fff;
-  border: 1px solid #000;
+.info {
+  display: flex;
+  height: 380px;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 8px;
 }
-.overview{
+.ratingBox {
+  margin-bottom: 10px;
+}
+
+.overview {
   width: 350px;
 }
 .addInfo {
@@ -100,34 +107,49 @@ font-size: 26px;
 } */
 
 @media screen and (min-width: 1440px) {
-.container {
-  width: 1020px;
-}
+  .container {
+    width: 1020px;
+  }
   .backgroundImageContainer {
-  width:  1020px;
-  height: 610px;
+    width: 1020px;
+    height: 610px;
+  }
+  .description{
+    height: 600px;
+  }
+  .info {
+    // height: 600px;
+  }
+  .posterImage {
+    display: block;
+  }
+  .movieCard {
+    width: 100%;
+  }
+  .goBackLink {
+    left: 577px;
+  }
+  .titleBox{
+    display: flex;
+    flex-direction: column;
+  }
+  .titleBox h1 {
+    width: 500px;
+    font-size: 32px;
+  }
+  .overview {
+    width: 100%;
+  }
+  .decorLine {
+    // position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border: 1px solid #000;
+  }
+  .addInfo {
+    width: 400px;
+    gap: 20px;
+  }
 }
-.posterImage {
-  display: block;
-}
-.movieCard {
-width: 100%;
-}
-.goBackLink {
-  left: 577px;
-}
-.titleBox h1 {
-font-size: 32px;
-}
-.overview{
-  width: 100%;
-}
-.decorLine {
-  top: 40px;
-  width: 100%;
-}
-.addInfo {
-  width: 400px;
-  gap: 20px;
-}
-} 

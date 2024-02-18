@@ -7,8 +7,9 @@ $background-color: rgba($primary-color, 0.5);
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
-  width: 1020px;
+  width: 375px;
   gap: 20px 10px;
+  justify-content: center;
   align-items: center;
 }
 .textSms{
@@ -41,3 +42,17 @@ $background-color: rgba($primary-color, 0.5);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
+//==========================================
+/* @media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+} */
+
+@media screen and (min-width: 1440px) {
+  .container {
+  width: 1020px;
+}
+}
+

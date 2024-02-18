@@ -32,7 +32,7 @@ export const SeriesDetailsContent = ({
           </Link>
         </div>
         <div className={scss.decorLine}></div>
-        <p>Rating {vote_average}</p>
+        <p>Rating {vote_average.toFixed(1)}</p>
         <p>{overview}</p>
         <div>Genres: {genresList}</div>
         <p>Additional Information</p>

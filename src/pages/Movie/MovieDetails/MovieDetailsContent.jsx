@@ -28,19 +28,25 @@ export const MovieDetailsContent = ({
         />
       </div>
       <div className={scss.description}>
-        <div className={scss.titleBox}>
-          <h1>
-            {title} ({releaseYear})
-          </h1>
-          <Link className={scss.goBackLink} to={from}>
-            X
-          </Link>
+        <div className={scss.info}>
+          <div className={scss.titleBox}>
+            <h1>
+              {title} ({releaseYear})
+            </h1>
+            <Link className={scss.goBackLink} to={from}>
+              X
+            </Link>
+          <div className={scss.decorLine}></div>
+          </div>
         </div>
-        <div className={scss.decorLine}></div>
-        <p>Rating {voteAverage}</p>
-        <p className={scss.overview}>{overview}</p>
-        <div>Genres: {genresList}</div>
-        <p>Additional Information</p>
+          <div>
+            <div className={scss.ratingBox}>
+              <p>Rating {voteAverage.toFixed(1)}</p>
+              <div>Genres: {genresList}</div>
+            </div>
+            <p className={scss.overview}>{overview}</p>
+          </div>
+        {/* <p>Additional Information</p> */}
         <div className={scss.addInfo}>
           <div className={scss.linkBox}>
             <Link to="cast" state={{ from }}>
