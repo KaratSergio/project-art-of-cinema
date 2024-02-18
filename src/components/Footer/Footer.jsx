@@ -25,22 +25,22 @@ export const Footer = () => {
           </a>
         </div>
       </div>
-      <div className={scss.footerNavBox}>
+      {/* <div className={scss.footerNavBox}>
         <div className={scss.NavBox}>
-          <h2>Movies</h2>
+          <h2 className={scss.NavText}>Movies</h2>
           <p>popular</p>
           <p>top rated</p>
           <p>upcoming</p>
           <p>now playing</p>
         </div>
-        <div>
-          <h2>Series</h2>
+        <div className={scss.NavBox}>
+          <h2 className={scss.NavText}>Series</h2>
           <p>popular</p>
           <p>top rated</p>
           <p>upcoming</p>
           <p>now playing</p>
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 };
