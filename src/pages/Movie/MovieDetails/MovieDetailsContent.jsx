@@ -46,7 +46,6 @@ export const MovieDetailsContent = ({
             </div>
             <p className={scss.overview}>{overview}</p>
           </div>
-        {/* <p>Additional Information</p> */}
         <div className={scss.addInfo}>
           <div className={scss.linkBox}>
             <Link to="cast" state={{ from }}>

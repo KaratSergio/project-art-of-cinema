@@ -115,11 +115,12 @@ $border-radius: 10px;
     height: 610px;
   }
   .description{
+    justify-content: initial;
     height: 600px;
   }
   .info {
-    // height: 600px;
-  }
+  height: auto;
+}
   .posterImage {
     display: block;
   }
@@ -139,6 +140,7 @@ $border-radius: 10px;
   }
   .overview {
     width: 100%;
+    margin-bottom: 10px;
   }
   .decorLine {
     // position: absolute;
