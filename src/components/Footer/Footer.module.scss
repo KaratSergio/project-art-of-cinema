@@ -2,9 +2,9 @@ $primary-color: #33333570;
 $text-color: bisque;
 
 .footer {
-  position: fixed;
+  position: static;
   bottom: 0;
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   background-color: $primary-color;
@@ -73,7 +73,9 @@ $text-color: bisque;
 // }
 
 @media screen and (min-width: 1440px) {
-.footer {
-  width: 1020px;
+  .footer {
+    width: 1020px;
+    position: static;
+    bottom: auto;
+  }
 }
-} 
