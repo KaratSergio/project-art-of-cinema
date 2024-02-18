@@ -7,7 +7,7 @@ $text-color: bisque;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 1060px;
+  width: 375px;
   height: 100%;
 }
 .seriesTitle {
@@ -43,3 +43,16 @@ $text-color: bisque;
   justify-content: center;
   text-align: center;
 }
+//==========================================
+/* @media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+} */
+
+@media screen and (min-width: 1440px) {
+.container {
+  width: 1060px;
+}
+} 

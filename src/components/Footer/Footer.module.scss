@@ -2,12 +2,13 @@ $primary-color: #33333570;
 $text-color: bisque;
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  width: 90%;
   display: flex;
   justify-content: space-between;
-  width: 335px;
   background-color: $primary-color;
   border-radius: 8px;
-  padding: 20px;
   margin-top: 30px;
 }
 .footerContent {
@@ -16,6 +17,7 @@ $text-color: bisque;
   justify-content: space-between;
   align-items: flex-start;
   height: 200px;
+  padding: 20px;
 }
 .logoBox {
   display: flex;

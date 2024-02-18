@@ -1,5 +1,6 @@
 .container {
   margin: 40px 40px 10px;
+  width: 320px;
 
   button {
     padding: 8px 16px;
@@ -15,14 +16,6 @@
       cursor: not-allowed;
     }
   }
-
-//   .firstBtn,
-//   .lastBtn {
-//     background-color: #294d61;
-//     color: #fff;
-//     border-radius: 4px;
-//   }
-
   span {
     color: bisque;
     padding: 3px 14px 7px 14px;
@@ -32,4 +25,16 @@
     margin: 0 4px; /*"..."*/
   }
 }
+//==========================================
+/* @media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+} */
 
+@media screen and (min-width: 1440px) {
+  .container {
+  width: 1020px;
+}
+}

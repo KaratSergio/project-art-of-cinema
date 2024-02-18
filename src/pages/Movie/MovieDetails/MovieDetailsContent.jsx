@@ -38,7 +38,7 @@ export const MovieDetailsContent = ({
         </div>
         <div className={scss.decorLine}></div>
         <p>Rating {voteAverage}</p>
-        <p>{overview}</p>
+        <p className={scss.overview}>{overview}</p>
         <div>Genres: {genresList}</div>
         <p>Additional Information</p>
         <div className={scss.addInfo}>

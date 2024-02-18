@@ -3,7 +3,7 @@ $text-color: rgb(234, 240, 240);
 $border-radius: 10px;
 
 .container {
-  width: 1020px;
+  width: 375px;
   padding: 20px;
   border-radius: $border-radius;
   background-size: cover;
@@ -33,14 +33,20 @@ $border-radius: 10px;
     border: none;
   }
 }
-
+  .backgroundImageContainer {
+  width: 335px;
+  height: 320px;
+}
 .titleBox {
   display: flex;
   position: relative;
 }
+.titleBox h1 {
+font-size: 26px;
+}
 .goBackLink {
   position: absolute;
-  left: 565px;
+  left: 320px;
   font-weight: 600;
   border-radius: 50px;
   padding: 6px 10px;
@@ -49,16 +55,19 @@ $border-radius: 10px;
   background-color: $primary-color;
 }
 .posterImage {
+  display: none;
   width: 400px;
   height: 600px;
 }
 .movieCard {
+  width: 350px;
   display: flex;
   border-radius: $border-radius;
   gap: 15px;
   padding: 6px;
   color: $text-color;
   background-color: $primary-color;
+  margin-bottom: 100px;
 }
 .description {
   position: relative;
@@ -68,14 +77,57 @@ $border-radius: 10px;
 }
 .decorLine {
   position: absolute;
-  top: 40px;
-  width: 100%;
+  top: 35px;
+  width: 348px;
   height: 2px;
   background-color: #fff;
   border: 1px solid #000;
 }
+.overview{
+  width: 350px;
+}
 .addInfo {
   display: flex;
+  width: 350px;
+  gap: 10px;
+}
+//==========================================
+/* @media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+} */
+
+@media screen and (min-width: 1440px) {
+.container {
+  width: 1020px;
+}
+  .backgroundImageContainer {
+  width:  1020px;
+  height: 610px;
+}
+.posterImage {
+  display: block;
+}
+.movieCard {
+width: 100%;
+}
+.goBackLink {
+  left: 577px;
+}
+.titleBox h1 {
+font-size: 32px;
+}
+.overview{
+  width: 100%;
+}
+.decorLine {
+  top: 40px;
+  width: 100%;
+}
+.addInfo {
   width: 400px;
   gap: 20px;
 }
+} 
