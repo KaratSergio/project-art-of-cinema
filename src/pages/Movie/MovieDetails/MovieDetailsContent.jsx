@@ -30,9 +30,7 @@ export const MovieDetailsContent = ({
       <div className={scss.description}>
         <div className={scss.info}>
           <div className={scss.titleBox}>
-            <h1>
-              {title} ({releaseYear})
-            </h1>
+            <h1>{title} ({releaseYear})</h1>
             <Link className={scss.goBackLink} to={from}>
               X
             </Link>

@@ -25,17 +25,22 @@ export const SeriesDetailsContent = ({
         />
       </div>
       <div className={scss.description}>
-        <div className={scss.titleBox}>
-          <h1>{name}</h1>
-          <Link className={scss.goBackLink} onClick={goBack} to={from}>
-            X
-          </Link>
+        <div className={scss.info}>
+          <div className={scss.titleBox}>
+            <h1>{name}</h1>
+            <Link className={scss.goBackLink} onClick={goBack} to={from}>
+              X
+            </Link>
+            <div className={scss.decorLine}></div>
+          </div>
         </div>
-        <div className={scss.decorLine}></div>
-        <p>Rating {vote_average.toFixed(1)}</p>
-        <p>{overview}</p>
-        <div>Genres: {genresList}</div>
-        <p>Additional Information</p>
+        <div>
+          <div className={scss.ratingBox}>
+            <p>Rating {vote_average.toFixed(1)}</p>
+            <div>Genres: {genresList}</div>
+          </div>
+          <p className={scss.overview}>{overview}</p>
+        </div>
         <div className={scss.addInfo}>
           <div className={scss.linkBox}>
             <Link to="cast" state={{ from }}>
