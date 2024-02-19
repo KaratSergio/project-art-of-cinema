@@ -11,7 +11,7 @@ export const Footer = () => {
           <p className={scss.logoText}>Filmistry</p>
         </div>
         <p>Millions of movies, TV shows and people to discover. Explore now.</p>
-        <p>Made based on The Movie Data Base</p>
+        <p>based on The Movie Data Base</p>
         <div className={scss.byApi}>
           <p>© 2024 KaratSergio.</p>
           <a
