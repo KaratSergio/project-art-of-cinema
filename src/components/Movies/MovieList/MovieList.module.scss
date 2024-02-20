@@ -11,46 +11,45 @@ $text-color: bisque;
   height: 100%;
 }
 .movieTitle {
-  text-align: center;
   font-size: 14px;
+  text-align: center;
   color: $primary-color;
 }
 .movieGallery {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   gap: 18px 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .movieItem {
   width: 160px;
   height: 278px;
-  background-color: $secondary-color;
   border-radius: 4px;
+  background-color: $secondary-color;
 }
 .moviePoster {
   width: 160px;
   height: 220px;
 }
 .moviePosterTitle {
+  display: flex;
   font-size: 14px;
-  color: $text-color;
   width: 150px;
   height: 50px;
-  display: flex;
   padding: 4px;
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: $text-color;
 }
 //==========================================
-/* @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .container {
-    max-width: 768px;
-    padding: 0 32px;
+    width: 768px;
   }
-} */
-
+}
+//==========================================
 @media screen and (min-width: 1440px) {
 .container {
   width: 1060px;
