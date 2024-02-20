@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { fetchMovieCredits } from '../../../redux/dataMovie/movieThunks';
 import { selectMovieCredits } from '../../../redux/dataMovie/movieSelectors';
 

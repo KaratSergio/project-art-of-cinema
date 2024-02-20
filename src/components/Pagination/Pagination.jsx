@@ -22,7 +22,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
   return (
     <div className={scss.container}>
-      {/* Кнопки для першої сторінки */}
+      {/* First Page */}
       {isFirstPage ? (
         <span>1</span>
       ) : (
@@ -34,7 +34,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         </>
       )}
 
-      {/* Кнопки з номерами проміжних сторінок */}
+      {/* Middle Pages */}
       {generatePageNumbers().map((pageNumber, index, array) => (
         <React.Fragment key={pageNumber}>
           {index !== 0 && pageNumber !== array[index - 1] + 1 && (
@@ -54,7 +54,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         </React.Fragment>
       ))}
 
-      {/* Кнопки для останньої сторінки */}
+      {/* Last Page */}
       {isLastPage ? (
         <span>{maxPages}</span>
       ) : (

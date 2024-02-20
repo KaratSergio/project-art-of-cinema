@@ -71,8 +71,6 @@ $border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  // position: relative;
-  // gap: 8px;
 }
 .info {
   display: flex;
@@ -137,7 +135,6 @@ $border-radius: 10px;
     margin-bottom: 10px;
   }
   .decorLine {
-    // position: absolute;
     top: 40px;
     width: 100%;
     height: 2px;

@@ -5,7 +5,7 @@ $border-radius: 8px;
 $box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 .container {
-  margin:  auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,32 +37,24 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-weight: 400;
 }
 //=========================================
-/* @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .container {
-    max-width: 768px;
-    padding: 0 32px;
+    width: 768px;
   }
-} */
-
+  .navBox {
+    width: 768px;
+  }
+}
+//=========================================
 @media screen and (min-width: 1440px) {
-.container {
-  margin: 200px auto;
-  width: 1020px;
+  .container {
+    margin: 200px auto;
+    width: 1020px;
+  }
+  .navBox {
+    width: 1020px;
+  }
+  .logoBox {
+    margin-right: 40px;
+  }
 }
-.navBox {
-  width: 1020px;
-}
-.logoBox {
-  margin-right: 40px;
-}
-.logo {
-  height: 50px;
-  width: 70px;
-}
-.logoText {
-  color: $text-color;
-  font-size: 24px;
-  font-weight: 400;
-}
-} 
-

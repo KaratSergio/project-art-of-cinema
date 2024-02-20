@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { selectMovies } from '../../../redux/dataMovie/movieSelectors';
 import { fetchMoviesAsync } from '../../../redux/dataMovie/movieThunks';
-import { Pagination } from '../../Pagination/Pagination';
 
+import { Pagination } from '../../Pagination/Pagination';
 import { MovieSearch } from '../../Search/MovieSearch';
 
 import scss from './MovieList.module.scss';
@@ -27,12 +28,7 @@ export const MovieList = () => {
       try {
         setLoading(true);
         await dispatch(
-          fetchMoviesAsync({
-            endpoint: 'discover/movie',
-            currentPage,
-            query,
-          })
-        );
+          fetchMoviesAsync({endpoint: 'discover/movie',currentPage,query,}));
       } catch (error) {
         console.error('Error fetching movies:', error);
       } finally {

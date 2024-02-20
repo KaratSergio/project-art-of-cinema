@@ -34,12 +34,17 @@ export const SeriesDetails = () => {
     fetchDetails();
   }, [dispatch, id]);
 
-const handleLoadTrailer = async () => {
-  if (details) {
-    const seriesName = details.name;
-    await loadSeriesTrailer(dispatch, seriesName, setTrailerKey, setIsModalOpen);
-  }
-};
+  const handleLoadTrailer = async () => {
+    if (details) {
+      const seriesName = details.name;
+      await loadSeriesTrailer(
+        dispatch,
+        seriesName,
+        setTrailerKey,
+        setIsModalOpen
+      );
+    }
+  };
 
   if (!details) return null;
 
@@ -48,8 +53,6 @@ const handleLoadTrailer = async () => {
       className={`${scss.container} ${scss.backgroundImageContainer}`}
       style={{
         backgroundImage: `url(${BackdropImageURL}${details.backdrop_path})`,
-        // width: '1020px',
-        // height: '610px',
       }}
     >
       <SeriesDetailsContent
