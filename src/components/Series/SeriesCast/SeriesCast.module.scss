@@ -14,7 +14,7 @@ $background-color: rgba($primary-color, 0.5);
   justify-content: center;
   align-items: center;
 }
-.textSms{
+.textSms {
   padding: 10px;
   margin: auto;
   color: white;
@@ -29,7 +29,8 @@ $background-color: rgba($primary-color, 0.5);
   justify-content: space-between;
   flex-direction: column;
 }
-.actorName, .actorRole {
+.actorName,
+.actorRole {
   padding: 2px 8px;
   color: $text-color;
   background-color: $primary-color;
@@ -45,15 +46,14 @@ $background-color: rgba($primary-color, 0.5);
   border-bottom-right-radius: 8px;
 }
 //==========================================
-/* @media screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-    padding: 0 32px;
+@media screen and (min-width: 768px) {
+  .container .listActors {
+  width: 768px;
   }
-} */
-
+}
+//==========================================
 @media screen and (min-width: 1440px) {
   .container {
-  width: 1020px;
-}
+    width: 1020px;
+  }
 }

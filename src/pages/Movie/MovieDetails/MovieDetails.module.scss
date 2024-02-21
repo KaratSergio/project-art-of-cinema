@@ -96,13 +96,31 @@ $border-radius: 10px;
   gap: 10px;
 }
 //==========================================
-/* @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .container {
-    max-width: 768px;
-    padding: 0 32px;
+    width: 768px;
   }
-} */
-
+  .movieCard {
+    width: 768px;
+  }
+  .posterImage {
+    display: block;
+    width: 260px;
+    height: 385px;
+  }
+  .description{
+    justify-content: initial;
+    width: 600px;
+  }
+  .overview {
+  width: 480px;
+  margin-bottom: 20px;
+}
+.goBackLink {
+    left: 462px;
+  }
+} 
+//==========================================
 @media screen and (min-width: 1440px) {
   .container {
     width: 1020px;

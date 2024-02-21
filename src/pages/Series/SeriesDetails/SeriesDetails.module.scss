@@ -12,7 +12,8 @@ $border-radius: 10px;
   flex-direction: column;
   align-items: center;
 
-  .linkBox, .button {
+  .linkBox,
+  .button {
     width: 100px;
     padding: 8px;
     border-radius: 4px;
@@ -91,13 +92,31 @@ $border-radius: 10px;
   gap: 10px;
 }
 //==========================================
-/* @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .container {
-    max-width: 768px;
-    padding: 0 32px;
+    width: 768px;
   }
-} */
-
+  .seriesCard {
+    width: 768px;
+  }
+  .posterImage {
+    display: block;
+    width: 260px;
+    height: 385px;
+  }
+  .description {
+    justify-content: initial;
+    width: 600px;
+  }
+  .overview {
+    width: 480px;
+    margin-bottom: 20px;
+  }
+  .goBackLink {
+    left: 462px;
+  }
+}
+//==========================================
 @media screen and (min-width: 1440px) {
   .container {
     width: 1020px;
@@ -106,13 +125,13 @@ $border-radius: 10px;
     width: 1020px;
     height: 610px;
   }
-  .description{
+  .description {
     justify-content: initial;
     height: 600px;
   }
   .info {
-  height: auto;
-}
+    height: auto;
+  }
   .posterImage {
     display: block;
   }
@@ -122,7 +141,7 @@ $border-radius: 10px;
   .goBackLink {
     left: 577px;
   }
-  .titleBox{
+  .titleBox {
     display: flex;
     flex-direction: column;
   }
