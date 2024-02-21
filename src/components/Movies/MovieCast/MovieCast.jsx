@@ -1,7 +1,9 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.scss';
+import 'slick-carousel/slick/slick-theme.scss';
 
 import { fetchMovieCredits } from '../../../redux/dataMovie/movieThunks';
 import { selectMovieCredits } from '../../../redux/dataMovie/movieSelectors';
@@ -18,33 +20,48 @@ export const MovieCast = () => {
     dispatch(fetchMovieCredits({ id }));
   }, [dispatch, id]);
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4, 
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768, 
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
+  };
+
   return (
-    <div>
+    <div className={scss.slickList}>
       {credits.length === 0 ? (
         <p className={scss.textSms}>No credits available for this movie</p>
       ) : (
-        <ul className={scss.container}>
+        <Slider {...settings}>
           {credits.map(
             ({ profile_path, name, character, id }) =>
               profile_path && (
-                <li
-                  className={scss.actorCard}
-                  key={id}
-                  style={{
-                    backgroundImage: `url(${baseURL}${profile_path})`,
-                  }}
-                >
-                  <div className={scss.actorName}>
-                    <p>{name}</p>
+                <div key={id} className={scss.actorCard}>
+                  <img
+                    src={`${baseURL}${profile_path}`}
+                    alt={name}
+                    className={scss.actorImage}
+                  />
+                  <div className={scss.actorInfo}>
+                    <p className={scss.actorName}>{name}</p>
+                    <p className={scss.actorRole}>Role: {character}</p>
                   </div>
-                  <div className={scss.actorRole}>
-                    <p>Role: {character}</p>
-                  </div>
-                </li>
+                </div>
               )
           )}
-        </ul>
+        </Slider>
       )}
     </div>
   );
 };
+
+export default MovieCast;

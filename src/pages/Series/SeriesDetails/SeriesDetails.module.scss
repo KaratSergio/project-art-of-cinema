@@ -62,6 +62,9 @@ $border-radius: 10px;
   background-color: $primary-color;
   margin-bottom: 5px;
 }
+ .posterImage {
+  display: none;
+  }
 .description {
   height: 380px;
   display: flex;
@@ -95,6 +98,7 @@ $border-radius: 10px;
     width: 768px;
   }
   .posterImage {
+    display: block;
     width: 260px;
     height: 385px;
   }
