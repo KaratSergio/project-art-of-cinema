@@ -29,6 +29,20 @@ $close-button-color: #0f0e0e;
   color: $close-button-color;
 }
 .iframe {
+  width: 320px;
+  height: 240px;
+}
+//==========================================
+ @media screen and (min-width: 768px) {
+.iframe {
+  width: 720px;
+  height: 480px;
+}
+} 
+//==========================================
+@media screen and (min-width: 1440px) {
+.iframe {
   width: 1200px;
   height: 755px;
+}
 }

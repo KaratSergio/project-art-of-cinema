@@ -52,11 +52,6 @@ $border-radius: 10px;
   color: $text-color;
   background-color: $primary-color;
 }
-.posterImage {
-  display: none;
-  width: 400px;
-  height: 600px;
-}
 .seriesCard {
   width: 350px;
   display: flex;
@@ -100,7 +95,6 @@ $border-radius: 10px;
     width: 768px;
   }
   .posterImage {
-    display: block;
     width: 260px;
     height: 385px;
   }
@@ -133,7 +127,8 @@ $border-radius: 10px;
     height: auto;
   }
   .posterImage {
-    display: block;
+    width: 400px;
+    height: 600px;
   }
   .seriesCard {
     width: 100%;

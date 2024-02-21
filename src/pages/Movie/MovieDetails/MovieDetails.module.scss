@@ -55,11 +55,6 @@ $border-radius: 10px;
   color: $text-color;
   background-color: $primary-color;
 }
-.posterImage {
-  display: none;
-  width: 400px;
-  height: 600px;
-}
 .movieCard {
   width: 350px;
   display: flex;
@@ -104,22 +99,21 @@ $border-radius: 10px;
     width: 768px;
   }
   .posterImage {
-    display: block;
     width: 260px;
     height: 385px;
   }
-  .description{
+  .description {
     justify-content: initial;
     width: 600px;
   }
   .overview {
-  width: 480px;
-  margin-bottom: 20px;
-}
-.goBackLink {
+    width: 480px;
+    margin-bottom: 20px;
+  }
+  .goBackLink {
     left: 462px;
   }
-} 
+}
 //==========================================
 @media screen and (min-width: 1440px) {
   .container {
@@ -129,15 +123,16 @@ $border-radius: 10px;
     width: 1020px;
     height: 610px;
   }
-  .description{
+  .description {
     justify-content: initial;
     height: 600px;
   }
   .info {
-  height: auto;
-}
+    height: auto;
+  }
   .posterImage {
-    display: block;
+    width: 400px;
+    height: 600px;
   }
   .movieCard {
     width: 100%;
@@ -145,7 +140,7 @@ $border-radius: 10px;
   .goBackLink {
     left: 577px;
   }
-  .titleBox{
+  .titleBox {
     display: flex;
     flex-direction: column;
   }
