@@ -18,7 +18,7 @@ export const SeriesDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { id } = useParams();
   const location = useLocation();
-  const from = location.state?.from || '/';
+  const from = location.state?.from || '/series';
   const dispatch = useDispatch();
 
   useEffect(() => {

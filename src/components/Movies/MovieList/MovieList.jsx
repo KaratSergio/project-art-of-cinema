@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectMovies } from '../../../redux/dataMovie/movieSelectors';
@@ -17,8 +16,9 @@ export const MovieList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [query] = useState('');
+  const [itemsPerPage, setItemsPerPage] = useState(18);
   const ImageURL = 'https://image.tmdb.org/t/p/w200';
-  
+
   const handlePageChange = async page => {
     setCurrentPage(page);
   };
@@ -28,7 +28,8 @@ export const MovieList = () => {
       try {
         setLoading(true);
         await dispatch(
-          fetchMoviesAsync({endpoint: 'discover/movie',currentPage,query,}));
+          fetchMoviesAsync({ endpoint: 'discover/movie', currentPage, query })
+        );
       } catch (error) {
         console.error('Error fetching movies:', error);
       } finally {
@@ -39,6 +40,21 @@ export const MovieList = () => {
     fetchData();
   }, [dispatch, currentPage, query]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1440) {
+        setItemsPerPage(20);
+      } else {
+        setItemsPerPage(18);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className={scss.container}>
       <MovieSearch />
@@ -46,7 +62,7 @@ export const MovieList = () => {
       <div>
         <ul className={scss.movieGallery}>
           {movies &&
-            movies.slice(0, 18).map(movie => (
+            movies.slice(0, itemsPerPage).map(movie => (
               <li className={scss.movieItem} key={movie.id}>
                 {movie.poster_path && (
                   <Link to={`movie/${movie.id}`}>

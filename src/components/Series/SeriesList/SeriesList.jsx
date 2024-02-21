@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { selectSeries } from '../../../redux/dataSeries/seriesSelectors';
 import { fetchSeriesAsync } from '../../../redux/dataSeries/seriesThunks';
+
 import { Pagination } from '../../Pagination/Pagination';
 import { SeriesSearch } from '../../Search/SeriesSearch'
 
@@ -14,6 +16,7 @@ export const SeriesList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [query] = useState('');
+  const [itemsPerPage, setItemsPerPage] = useState(18);
   const ImageURL = 'https://image.tmdb.org/t/p/w200';
 
   const handlePageChange = async page => {
@@ -36,6 +39,21 @@ export const SeriesList = () => {
     fetchData();
   }, [dispatch, currentPage, query]);
 
+    useEffect(() => {
+      const handleResize = () => {
+        if (window.innerWidth <= 1440) {
+          setItemsPerPage(20);
+        } else {
+          setItemsPerPage(18);
+        }
+      };
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+
   return (
     <div className={scss.container}>
       <SeriesSearch />
@@ -43,8 +61,7 @@ export const SeriesList = () => {
       <div>
         <ul className={scss.seriesGallery}>
           {series &&
-            series.filter(singleSeries => singleSeries.poster_path)
-              .slice(0, 18).map(singleSeries => (
+            series.slice(0, itemsPerPage).map(singleSeries => (
               <li className={scss.seriesItem} key={singleSeries.id}>
                 {singleSeries.poster_path && (
                   <Link to={`/series/${singleSeries.id}`}>
