@@ -2,8 +2,8 @@ const sliderSettings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 5,
-  slidesToScroll: 5,
+  slidesToShow: 6,
+  slidesToScroll: 6,
   responsive: [
     {
       breakpoint: 1440,
@@ -17,7 +17,14 @@ const sliderSettings = {
       settings: {
         dots: false,
         slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToScroll: 4,
+        className: 'center',
+        centerMode: true,
+        infinite: true,
+        centerPadding: '4px',
+        speed: 500,
+        rows: 2,
+        slidesPerRow: 1,
       },
     },
   ],

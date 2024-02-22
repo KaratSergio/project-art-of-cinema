@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.scss';
 import 'slick-carousel/slick/slick-theme.scss';
-import sliderSettings from '../../../utils/sliderSettings'
+import  sliderSettings from '../../../utils/sliderSettings'
 // api & selector
 import { fetchMovieCredits } from '../../../redux/dataMovie/movieThunks';
 import { selectMovieCredits } from '../../../redux/dataMovie/movieSelectors';
@@ -39,7 +39,7 @@ export const MovieCast = () => {
                   />
                   <div className={scss.actorInfo}>
                     <p className={scss.actorName}>{name}</p>
-                    <p className={scss.actorRole}>Role: {character}</p>
+                    <p className={scss.actorRole}>Role: {character ? character : "minor"}</p>
                   </div>
                 </div>
               )
