@@ -4,81 +4,65 @@ $border-radius: 8px;
 $background-color: rgba($primary-color, 0.5);
 
 .slickList {
-  width: 880px;
+  width: 320px;
   margin-top: 50px;
-  
-}
-
-.slick-initialized  {
-        display: flex;
-  justify-content: center;
 }
 .slickSlide {
-  display: flex;
+  display: flex !important;
   justify-content: center;
+  flex-direction: column;
+  position: relative !important;
+  align-items: center;
 }
-
 .actorImage {
-  position: relative;
+  width: 155px;
+  height: 220px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .actorInfo {
-
-
-
-
-}
-
-// .container {
-//   margin-top: 50px;
-//   display: flex;
-//   flex-wrap: wrap;
-//   width: 375px;
-//   gap: 20px 10px;
-//   justify-content: center;
-//   align-items: center;
-// }
-// .textSms{
-//   padding: 10px;
-//   margin: auto;
-//   color: white;
-//   background-color: $background-color;
-// }
-.actorCard {
-  position: relative;
-  width: 160px;
-  height: 260px;
-  border-radius: $border-radius;
+  position: absolute;
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: space-between;
+  width: 155px;
+  height: 220px;
 }
-.actorName, .actorRole {
+.actorName,
+.actorRole {
   padding: 2px 8px;
   color: $text-color;
   background-color: $primary-color;
 }
 .actorName {
-  width: 144px;
+  width: 140px;
   font-size: 14px;
   border-bottom-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 .actorRole {
-  width: 144px;
+  width: 140px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
-// //==========================================
-//  @media screen and (min-width: 768px) {
-//   .container {
-//     width: 768px;
-//   }
-// } 
-// //==========================================
-// @media screen and (min-width: 1440px) {
-//   .container {
-//   width: 1020px;
-// }
-// }
-
+//==========================================
+@media screen and (min-width: 768px) {
+  .slickList {
+    width: 660px;
+  }
+  .actorImage,
+  .actorInfo {
+    width: 160px;
+  }
+  .actorName,
+  .actorRole {
+    width: 144px;
+  }
+}
+//==========================================
+@media screen and (min-width: 1440px) {
+  .slickList {
+    width: 820px;
+  }
+}

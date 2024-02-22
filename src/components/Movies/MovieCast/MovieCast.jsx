@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+// Slider react-slick
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.scss';
 import 'slick-carousel/slick/slick-theme.scss';
-
+import sliderSettings from '../../../utils/sliderSettings'
+// api & selector
 import { fetchMovieCredits } from '../../../redux/dataMovie/movieThunks';
 import { selectMovieCredits } from '../../../redux/dataMovie/movieSelectors';
 
@@ -20,32 +22,16 @@ export const MovieCast = () => {
     dispatch(fetchMovieCredits({ id }));
   }, [dispatch, id]);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4, 
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 768, 
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-    ],
-  };
-
   return (
     <div className={scss.slickList}>
       {credits.length === 0 ? (
         <p className={scss.textSms}>No credits available for this movie</p>
       ) : (
-        <Slider {...settings}>
+        <Slider {...sliderSettings}>
           {credits.map(
             ({ profile_path, name, character, id }) =>
               profile_path && (
-                <div key={id} className={scss.actorCard}>
+                <div key={id} className={scss.slickSlide}>
                   <img
                     src={`${baseURL}${profile_path}`}
                     alt={name}
