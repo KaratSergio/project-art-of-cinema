@@ -9,9 +9,9 @@ $background-color: rgba($primary-color, 0.5);
 }
 .slickSlide {
   display: flex !important;
+  position: relative !important;
   justify-content: center;
   flex-direction: column;
-  position: relative !important;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -24,6 +24,7 @@ $background-color: rgba($primary-color, 0.5);
 }
 .actorInfo {
   position: absolute;
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -44,6 +45,17 @@ $background-color: rgba($primary-color, 0.5);
 }
 .actorRole {
   border-bottom-right-radius: 8px;
+}
+//if slider off
+.actorList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.actorCard {
+  position: relative;
 }
 //==========================================
 @media screen and (min-width: 768px) {
