@@ -46,8 +46,6 @@ export const MovieDetails = () => {
       className={`${scss.container} ${scss.backgroundImageContainer}`}
       style={{
         backgroundImage: `url(${BackdropImageURL}${details.backdrop_path})`,
-        // width: '1020px',
-        // height: '610px',
       }}
     >
       <MovieDetailsContent

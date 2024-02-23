@@ -62,9 +62,9 @@ $border-radius: 10px;
   background-color: $primary-color;
   margin-bottom: 5px;
 }
- .posterImage {
+.posterImage {
   display: none;
-  }
+}
 .description {
   height: 380px;
   display: flex;
@@ -83,6 +83,9 @@ $border-radius: 10px;
 }
 .overview {
   width: 350px;
+  max-height: 230px;
+  overflow-y: auto;
+  margin-bottom: 10px;
 }
 .addInfo {
   display: flex;
@@ -107,7 +110,8 @@ $border-radius: 10px;
     width: 600px;
   }
   .overview {
-    width: 480px;
+    overflow-y: hidden;
+    width: 495px;
     margin-bottom: 20px;
   }
   .goBackLink {
@@ -149,7 +153,7 @@ $border-radius: 10px;
     font-size: 32px;
   }
   .overview {
-    width: 100%;
+    width: 530px;
     margin-bottom: 10px;
   }
   .decorLine {

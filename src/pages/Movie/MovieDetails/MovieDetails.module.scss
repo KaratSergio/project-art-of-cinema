@@ -65,9 +65,9 @@ $border-radius: 10px;
   background-color: $primary-color;
   margin-bottom: 5px;
 }
- .posterImage {
+.posterImage {
   display: none;
-  }
+}
 .description {
   height: 380px;
   display: flex;
@@ -84,9 +84,11 @@ $border-radius: 10px;
 .ratingBox {
   margin-bottom: 10px;
 }
-
 .overview {
   width: 350px;
+  max-height: 220px;
+  overflow-y: auto;
+  margin-bottom: 10px;
 }
 .addInfo {
   display: flex;
@@ -112,6 +114,7 @@ $border-radius: 10px;
   }
   .overview {
     width: 480px;
+    overflow-y: hidden;
     margin-bottom: 20px;
   }
   .goBackLink {
