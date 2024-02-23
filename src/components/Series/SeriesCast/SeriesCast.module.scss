@@ -3,57 +3,65 @@ $text-color: bisque;
 $border-radius: 8px;
 $background-color: rgba($primary-color, 0.5);
 
-.container {
+.slickList {
+  width: 320px;
   margin-top: 50px;
 }
-.listActors {
-  display: flex;
-  flex-wrap: wrap;
-  width: 375px;
-  gap: 20px 10px;
+.slickSlide {
+  display: flex !important;
   justify-content: center;
-  align-items: center;
-}
-.textSms {
-  padding: 10px;
-  margin: auto;
-  color: white;
-  background-color: $background-color;
-}
-.actorCard {
-  width: 160px;
-  height: 260px;
-  border-radius: $border-radius;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
   flex-direction: column;
+  position: relative !important;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.actorImage {
+  width: 145px;
+  height: 210px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.actorInfo {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 145px;
+  height: 210px;
 }
 .actorName,
 .actorRole {
+  width: 129px;
   padding: 2px 8px;
   color: $text-color;
   background-color: $primary-color;
+  border-bottom-left-radius: 8px;
 }
 .actorName {
   font-size: 14px;
-  border-bottom-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 .actorRole {
-  width: 144px;
-  border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
 //==========================================
 @media screen and (min-width: 768px) {
-  .container .listActors {
-  width: 768px;
+  .slickList {
+    width: 660px;
+  }
+  .actorImage,
+  .actorInfo {
+    width: 155px;
+  }
+  .actorName,
+  .actorRole {
+    width: 139px;
   }
 }
 //==========================================
 @media screen and (min-width: 1440px) {
-  .container {
-    width: 1020px;
+  .slickList {
+    width: 980px;
   }
 }
