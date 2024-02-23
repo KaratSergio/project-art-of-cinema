@@ -10,6 +10,13 @@ $background-color: rgba($primary-color, 0.5);
   color: $text-color;
   background-color: $background-color;
 }
+.commentsWrapper {
+  max-height: 300px; 
+  overflow-y: auto; 
+}
+.commentsWrapper.hasReviews {
+  overflow-y: hidden; 
+}
 .commentBox {
   margin: 10px;
 }
@@ -27,4 +34,8 @@ $background-color: rgba($primary-color, 0.5);
   border-bottom-right-radius: 6px;
   border: 1px solid $border-color;
   letter-spacing: 0.04em;
+}
+.noReviewSms {
+  color: white;
+  font-weight: bold;
 }

@@ -18,20 +18,26 @@ export const SeriesReviews = () => {
 
   return (
     <div className={scss.container}>
-      {reviews && reviews.length === 0 ? (
-        <div style={{ color: 'white', borderRadius: '8px' }}>
-          <p>No reviews for this show</p>
-        </div>
-      ) : (
-        reviews.map(({ author, content, id }) => (
-          <div className={scss.commentBox} key={id}>
-            <div className={scss.authorBox}>
-              <p>Author: {author}</p>
-            </div>
-            <p className={scss.contentBox}>{content}</p>
+      <div
+        className={`${scss.commentsWrapper} ${
+          reviews && reviews.length === 0 ? scss.hasReviews : ''
+        }`}
+      >
+        {reviews && reviews.length === 0 ? (
+          <div className={scss.noReviewSms}>
+            <p>No reviews for this show</p>
           </div>
-        ))
-      )}
+        ) : (
+          reviews.map(({ author, content, id }) => (
+            <div className={scss.commentBox} key={id}>
+              <div className={scss.authorBox}>
+                <p>Author: {author}</p>
+              </div>
+              <p className={scss.contentBox}>{content}</p>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };
