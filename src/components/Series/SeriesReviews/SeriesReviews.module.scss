@@ -14,6 +14,19 @@ $background-color: rgba($primary-color, 0.5);
   max-height: 300px; 
   overflow-y: auto; 
 }
+.commentsWrapper::-webkit-scrollbar {
+  width: 8px; 
+}
+.commentsWrapper::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+.commentsWrapper::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 6px; 
+}
+.commentsWrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 .commentsWrapper.hasReviews {
   overflow-y: hidden; 
 }
