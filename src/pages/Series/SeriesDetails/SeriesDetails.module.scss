@@ -1,6 +1,7 @@
 $primary-color: #6da4c07e;
 $text-color: rgb(234, 240, 240);
 $border-radius: 10px;
+$background-color: rgba(69, 78, 83, 0.6);
 
 .container {
   width: 375px;
@@ -59,7 +60,7 @@ $border-radius: 10px;
   gap: 15px;
   padding: 6px;
   color: $text-color;
-  background-color: $primary-color;
+  background-color: $background-color;
   margin-bottom: 5px;
 }
 .posterImage {
@@ -126,6 +127,8 @@ $border-radius: 10px;
   .backgroundImageContainer {
     width: 1020px;
     height: 610px;
+    background-repeat: no-repeat; 
+    background-position: 140px;
   }
   .description {
     justify-content: initial;
