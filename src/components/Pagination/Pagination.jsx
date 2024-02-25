@@ -6,7 +6,13 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const isLastPage = currentPage === totalPages;
 
   const maxPages = Math.min(totalPages, 500);
-  const displayPages = 9;
+  let displayPages = 9; 
+
+  if (window.innerWidth <= 768) {
+    displayPages = 3;
+  } else if (window.innerWidth <= 1050) {
+    displayPages = 6;
+  }
 
   const generatePageNumbers = () => {
     const pageNumbers = [];
