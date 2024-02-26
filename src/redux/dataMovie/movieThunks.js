@@ -99,6 +99,18 @@ export const fetchMovieReviews = createAsyncThunk(
     }
   }
 );
+//================MoviesTop=====================
+// export const fetchMoviesTop = createAsyncThunk(
+//   'movies/fetchMoviesTop',
+//   async ({id}, { rejectWithValue }) => {
+//     try {
+//       const response = await instance.get(`movie/${id}/reviews`);
+//       return response.data;
+//     } catch (error) {
+//       throw rejectWithValue(error.message);
+//     }
+//   }
+// );
 //============MovieTrailer (YouTube)=============
 export const fetchMovieTrailer = createAsyncThunk(
   'movies/fetchTrailer',
