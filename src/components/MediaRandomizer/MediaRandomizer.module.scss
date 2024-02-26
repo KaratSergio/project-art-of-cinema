@@ -1,6 +1,6 @@
 $primary-color: #111;
 $secondary-color: #1c1b1b;
-$text-color: rgb(23, 23, 22);
+$text-color: rgb(162, 162, 53);
 
 .container {
   display: flex;
@@ -8,43 +8,59 @@ $text-color: rgb(23, 23, 22);
   justify-content: center;
   width: 375px;
   height: 100%;
+  margin-top: 14px;
 }
 .posterBox {
   position: relative;
 }
-.moviePoster {
-  width: 1020px;
-  height: 580px;
-  filter: grayscale(100%);
-}
+.moviePoster,
 .seriesPoster {
-  width: 1020px;
-  height: 580px;
+  width: 375px;
+  height: 220px;
   filter: grayscale(100%);
+  border-radius: 8px;
 }
 .moviePosterTitle {
   position: absolute;
-  bottom: 0px;
+  bottom: 5px;
   right: 5px;
-  font-size: 34px;
-  font-weight: bold;
-  color: $text-color;
-  // background-color: #111;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: normal;
+  color: bisque;
+  background-color: #111;
+  border-radius: 15px;
 }
 //==========================================
 @media screen and (min-width: 768px) {
   .container {
     width: 768px;
   }
+  .moviePoster,
+  .seriesPoster {
+    width: 768px;
+    height: 420px;
+    filter: grayscale(100%);
+  }
+  .moviePosterTitle {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-size: 34px;
+    font-weight: bold;
+    color: $text-color;
+    background-color: transparent;
+  }
 }
 //==========================================
 @media screen and (min-width: 1440px) {
-.container {
-  width: 1060px;
+  .container {
+    width: 1060px;
+  }
+  .moviePoster,
+  .seriesPoster {
+    width: 1020px;
+    height: 540px;
+    filter: grayscale(100%);
+  }
 }
-.moviePoster {
-  width: 1020px;
-  height: 580px;
-  filter: grayscale(100%);
-}
-} 

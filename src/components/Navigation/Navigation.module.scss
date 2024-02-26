@@ -1,11 +1,11 @@
 .container {
   display: flex;
   gap: 20px;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: normal;
   justify-content: center;
   align-items: center;
-  padding: 16px;
+  padding: 14px;
 
   a {
     &:hover,
@@ -15,14 +15,23 @@
   }
 }
 //========================================
-/* @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .container {
-    max-width: 768px;
-    padding: 0 32px;
+    gap: 35px;
+    font-size: 24px;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
   }
-} */
-@media screen and (min-width: 1440px) {
-.container{
-  gap: 35px;
 }
-} 
+// @media screen and (min-width: 1440px) {
+//   .container {
+//     gap: 35px;
+//     font-size: 24px;
+//     font-weight: 600;
+//     justify-content: center;
+//     align-items: center;
+//     padding: 16px;
+//   }
+// }
