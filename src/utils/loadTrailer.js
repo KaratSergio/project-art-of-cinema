@@ -11,12 +11,7 @@ export const loadMovieTrailer = async (dispatch, details, setTrailerKey, setIsMo
   }
 };
 
-export const loadSeriesTrailer = async (
-  dispatch,
-  seriesName,
-  setTrailerKey,
-  setIsModalOpen
-) => {
+export const loadSeriesTrailer = async (dispatch,seriesName,setTrailerKey,setIsModalOpen) => {
   try {
     const response = await dispatch(fetchSeriesTrailer(seriesName));
     setTrailerKey(response.payload);

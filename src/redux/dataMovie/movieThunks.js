@@ -114,4 +114,15 @@ export const fetchMovieTrailer = createAsyncThunk(
   }
 );
 
-
+// //================MovieTrailers TMDB=====================
+// export const fetchMovieTrailers = createAsyncThunk(
+//   'movies/fetchMovieTrailers',
+//   async (id, { rejectWithValue }) => {
+//     try {
+//       const response = await instance.get(`movie/${id}/videos`);
+//       return response.data.results;
+//     } catch (error) {
+//       throw rejectWithValue(error.message);
+//     }
+//   }
+// );
