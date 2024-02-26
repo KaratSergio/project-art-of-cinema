@@ -65,7 +65,7 @@ export const MovieList = () => {
             movies.slice(0, itemsPerPage).map(movie => (
               <li className={scss.movieItem} key={movie.id}>
                 {movie.poster_path && (
-                  <Link to={`movie/${movie.id}`}>
+                  <Link to={`/movie/${movie.id}`}>
                     <img
                       className={scss.moviePoster}
                       src={`${ImageURL}${movie.poster_path}`}

@@ -19,7 +19,7 @@ export const MovieDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { id } = useParams();
   const location = useLocation();
-  const from = location.state?.from || '/';
+  const from = location.state?.from || '/movies';
   const dispatch = useDispatch();
 
   useEffect(() => {
