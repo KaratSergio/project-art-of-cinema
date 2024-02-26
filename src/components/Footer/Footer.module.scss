@@ -3,17 +3,17 @@ $text-color: bisque;
 
 .footer {
   position: static;
-  bottom: 0;
-  width: 375px;
+  width: 100%;
+  max-width: 375px;
   display: flex;
   justify-content: space-between;
   background-color: $primary-color;
   border-radius: 8px;
   margin-top: 30px;
-  // padding: 0 20px;
 }
 .footerContent {
   display: flex;
+  max-width: 375px;
   color: bisque;
   flex-direction: column;
   justify-content: space-between;
@@ -69,15 +69,12 @@ $text-color: bisque;
 //=======================================
 @media screen and (min-width: 768px) {
   .footer {
-    width: 768px;
-    bottom: auto;
-    padding: 0 20px;
+    max-width: 768px;
   }
 }
 //=======================================
 @media screen and (min-width: 1440px) {
   .footer {
-    width: 1020px;
-    padding: 0 20px;
+    max-width: 1060px;
   }
 }
