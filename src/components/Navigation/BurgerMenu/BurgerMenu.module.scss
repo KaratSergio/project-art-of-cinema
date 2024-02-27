@@ -1,10 +1,11 @@
 .burger {
   display: none;
+  position: relative;
 
   @media screen and (max-width: 767px) {
-    position: fixed;
-    top: 2%;
-    right: 5%;
+    position: absolute;
+    top: 14px;
+    right: 14px;
     width: 30px;
     height: 20px;
     cursor: pointer;
@@ -51,9 +52,9 @@
 }
 
 .menuContainer {
-  position: fixed;
-  top: 0;
-  right: 0;
+  position: absolute;
+  top: -11px;
+  right: -14px;
   height: 50px;
   width: 375px;
   border-radius: 8px;

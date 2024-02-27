@@ -1,11 +1,7 @@
 .container {
   position: relative;
-  display: flex;
-  gap: 20px;
   font-size: 14px;
   font-weight: normal;
-  justify-content: center;
-  align-items: center;
   padding: 14px;
 
   a {
@@ -15,14 +11,16 @@
     }
   }
 }
+.menu {
+  display: flex;
+  gap: 50px;
+}
+
 //========================================
 @media screen and (min-width: 768px) {
   .container {
-    gap: 35px;
     font-size: 24px;
     font-weight: 600;
-    justify-content: center;
-    align-items: center;
     padding: 16px;
   }
 }
