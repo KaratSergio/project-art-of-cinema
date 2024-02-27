@@ -1,11 +1,10 @@
 .burger {
   display: none;
-  position: relative;
 
   @media screen and (max-width: 767px) {
     position: absolute;
     top: 14px;
-    right: 14px;
+    right: 22px;
     width: 30px;
     height: 20px;
     cursor: pointer;
@@ -83,5 +82,12 @@
         border-radius: 50px;
       }
     }
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .menuContainer {
+    top: -111px;
+    right: -114px;
   }
 }
