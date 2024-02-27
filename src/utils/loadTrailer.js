@@ -20,3 +20,16 @@ export const loadSeriesTrailer = async (dispatch,seriesName,setTrailerKey,setIsM
     console.error('Error fetching trailer:', error);
   }
 };
+
+
+
+// import { fetchMovieTrailers } from '../redux/dataMovie/movieThunks';
+// export const loadMovieTrailer = async (dispatch, details, setTrailerKey, setIsModalOpen) => {
+//   try {
+//     const response = await dispatch(fetchMovieTrailers({ id: details.id }));
+//     setTrailerKey(response.payload);
+//     setIsModalOpen(true);
+//   } catch (error) {
+//     console.error('Error fetching trailer:', error);
+//   }
+// };

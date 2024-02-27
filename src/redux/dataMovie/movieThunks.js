@@ -32,7 +32,7 @@ export const fetchMoviesAsync = createAsyncThunk(
 
       const response = await instance.get(endpoint, { params });
       const totalPages = response.data.total_pages;
-      
+
       return {
         movies: response.data.results,
         totalPages,
@@ -90,7 +90,7 @@ export const fetchMovieCredits = createAsyncThunk(
 //================MovieReviews=====================
 export const fetchMovieReviews = createAsyncThunk(
   'movies/fetchMovieReviews',
-  async ({id}, { rejectWithValue }) => {
+  async ({ id }, { rejectWithValue }) => {
     try {
       const response = await instance.get(`movie/${id}/reviews`);
       return response.data;
@@ -99,18 +99,6 @@ export const fetchMovieReviews = createAsyncThunk(
     }
   }
 );
-//================MoviesTop=====================
-// export const fetchMoviesTop = createAsyncThunk(
-//   'movies/fetchMoviesTop',
-//   async ({id}, { rejectWithValue }) => {
-//     try {
-//       const response = await instance.get(`movie/${id}/reviews`);
-//       return response.data;
-//     } catch (error) {
-//       throw rejectWithValue(error.message);
-//     }
-//   }
-// );
 //============MovieTrailer (YouTube)=============
 export const fetchMovieTrailer = createAsyncThunk(
   'movies/fetchTrailer',
@@ -129,11 +117,14 @@ export const fetchMovieTrailer = createAsyncThunk(
 // //================MovieTrailers TMDB=====================
 // export const fetchMovieTrailers = createAsyncThunk(
 //   'movies/fetchMovieTrailers',
-//   async (id, { rejectWithValue }) => {
+//   async ({id}, { rejectWithValue }) => {
 //     try {
+//       console.log('Fetching trailers for movie with ID:', id);
 //       const response = await instance.get(`movie/${id}/videos`);
+//       console.log('Received response:', response);
 //       return response.data.results;
 //     } catch (error) {
+//       console.error('Error fetching trailers:', error);
 //       throw rejectWithValue(error.message);
 //     }
 //   }
