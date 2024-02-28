@@ -43,7 +43,7 @@ $background-color: rgba(69, 78, 83, 0.6);
 }
 .goBackLink {
   position: absolute;
-  left: 320px;
+  left: 326px;
   font-weight: 600;
   border-radius: 50px;
   padding: 6px 10px;
@@ -52,8 +52,9 @@ $background-color: rgba(69, 78, 83, 0.6);
   background-color: $primary-color;
 }
 .seriesCard {
-  width: 350px;
+  width: 362px;
   display: flex;
+  justify-content: center;
   border-radius: $border-radius;
   gap: 15px;
   padding: 6px;
@@ -138,8 +139,8 @@ $background-color: rgba(69, 78, 83, 0.6);
     width: 1020px;
   }
   .backgroundImageContainer {
-    width: 1020px;
-    height: 610px;
+    width: 1025px;
+    height: 600px;
     background-repeat: no-repeat;
     background-position: 140px;
   }
@@ -153,18 +154,23 @@ $background-color: rgba(69, 78, 83, 0.6);
   .posterImage {
     width: 400px;
     height: 600px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
   }
   .seriesCard {
+    padding: 0;
     width: 100%;
   }
   .goBackLink {
-    left: 577px;
+    top: 6px;
+    left: 572px;
   }
   .titleBox {
     display: flex;
     flex-direction: column;
   }
   .titleBox h1 {
+    margin-top: 10px;
     width: 500px;
     font-size: 32px;
   }
@@ -173,9 +179,9 @@ $background-color: rgba(69, 78, 83, 0.6);
     margin-bottom: 10px;
   }
   .decorLine {
-    top: 40px;
-    width: 100%;
+    width: 600px;
     height: 2px;
+    margin-top: 5px;
     background-color: #fff;
     border: 1px solid #000;
   }
