@@ -4,7 +4,6 @@ $border-radius: 10px;
 $background-color: rgba(69, 78, 83, 0.6);
 
 .container {
-  // width: 345px;
   border-radius: $border-radius;
   background-size: cover;
   background-position: center;
@@ -36,7 +35,7 @@ $background-color: rgba(69, 78, 83, 0.6);
 }
 .backgroundImageContainer {
   width: 100%;
-  height: 395px;
+  height: 391px;
 }
 .titleBox {
   display: flex;
@@ -99,26 +98,41 @@ $background-color: rgba(69, 78, 83, 0.6);
 @media screen and (min-width: 768px) {
   .container {
     width: 768px;
+    height: 402px;
+  }
+  .backgroundImageContainer {
+    width: 768px;
+    background-repeat: no-repeat;
+    background-position: 140px;
   }
   .movieCard {
-    width: 768px;
+    width: 758px;
+    margin-bottom: -15px;
+    background: linear-gradient(
+      to right,
+      rgba(69, 78, 83, 0.96) 30%,
+      rgba(69, 78, 83, 0.6) 70%
+    );
+  }
+  .titleBox {
+    width: 420px;
   }
   .posterImage {
     display: block;
     width: 260px;
-    height: 385px;
+    height: 390px;
   }
   .description {
     justify-content: initial;
     width: 600px;
   }
   .overview {
-    width: 480px;
+    width: 466px;
     overflow-y: hidden;
     margin-bottom: 20px;
   }
   .goBackLink {
-    left: 462px;
+    left: 452px;
   }
 }
 //==========================================
@@ -129,7 +143,7 @@ $background-color: rgba(69, 78, 83, 0.6);
   .backgroundImageContainer {
     width: 1020px;
     height: 610px;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-position: 140px;
   }
   .description {

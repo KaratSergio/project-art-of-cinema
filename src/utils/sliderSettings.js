@@ -25,6 +25,7 @@ const sliderSettings = {
         speed: 500,
         rows: 2,
         slidesPerRow: 1,
+        arrows: false,
       },
     },
   ],
