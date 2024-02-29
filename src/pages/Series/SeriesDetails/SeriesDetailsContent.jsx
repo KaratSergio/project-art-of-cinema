@@ -53,7 +53,7 @@ export const SeriesDetailsContent = ({
             </Link>
           </div>
           <button className={scss.button} onClick={loadTrailer}>
-            Watch Trailer
+            Trailer
           </button>
         </div>
       </div>

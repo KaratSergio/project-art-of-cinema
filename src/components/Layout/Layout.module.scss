@@ -16,16 +16,21 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: $primary-color;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
+  margin-top: 15px;
+  padding: 10px 0 5px;
 }
 .navBox {
+  width: 100%;
+  max-width: 345px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .logoBox {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 160px;
+  // margin-right: 160px;
 }
 .logo {
   height: 50px;
