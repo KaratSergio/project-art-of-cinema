@@ -4,17 +4,18 @@ $border-radius: 10px;
 $background-color: rgba(69, 78, 83, 0.6);
 
 .container {
-  border-radius: $border-radius;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-size: cover;
   background-position: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-radius: $border-radius;
 
   .linkBox,
   .button {
-    width: 100px;
-    padding: 8px;
+    width: 60px;
+    padding: 6px;
+    font-size: 12px;
     border-radius: 4px;
     color: $text-color;
     background-color: $primary-color;
@@ -27,23 +28,26 @@ $background-color: rgba(69, 78, 83, 0.6);
   }
 
   .button {
-    font-size: 15px;
-    width: 110px;
-    padding: 4px;
+    width: 72px;
     border: none;
   }
 }
 .backgroundImageContainer {
   width: 100%;
-  height: 391px;
+  max-height: 375px;
 }
 .titleBox {
   display: flex;
-  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+.titleBox h1 {
+  font-size: 26px;
 }
 .goBackLink {
   position: absolute;
-  left: 326px;
+  top: 10px;
+  right: 10px;
   font-weight: 600;
   border-radius: 50px;
   padding: 6px 10px;
@@ -52,21 +56,22 @@ $background-color: rgba(69, 78, 83, 0.6);
   background-color: $primary-color;
 }
 .seriesCard {
-  width: 362px;
+  position: relative;
   display: flex;
+  align-items: center;
   justify-content: center;
-  border-radius: $border-radius;
   gap: 15px;
-  padding: 6px;
-  color: $text-color;
-  background-color: $background-color;
+  padding: 20px;
   margin-bottom: 5px;
+  color: $text-color;
+  border-radius: $border-radius;
+  background-color: $background-color;
 }
 .posterImage {
   display: none;
 }
 .description {
-  height: 380px;
+  height: 335px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -82,14 +87,15 @@ $background-color: rgba(69, 78, 83, 0.6);
   margin-bottom: 10px;
 }
 .overview {
-  width: 350px;
-  max-height: 230px;
+  width: 100%;
+  max-width: 350px;
   overflow-y: auto;
   margin-bottom: 10px;
 }
 .addInfo {
   display: flex;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   gap: 10px;
 }
 //==========================================

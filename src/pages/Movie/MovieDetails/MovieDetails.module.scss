@@ -7,6 +7,8 @@ $background-color: rgba(69, 78, 83, 0.6);
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-size: cover;
+  background-position: center;
   border-radius: $border-radius;
 
   .linkBox,
@@ -38,7 +40,6 @@ $background-color: rgba(69, 78, 83, 0.6);
   display: flex;
   width: 100%;
   max-width: 320px;
-  // position: relative;
 }
 .titleBox h1 {
   font-size: 26px;
@@ -55,18 +56,16 @@ $background-color: rgba(69, 78, 83, 0.6);
   background-color: $primary-color;
 }
 .movieCard {
-  // width: 100%;
-  // max-width: 335px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: $border-radius;
   gap: 15px;
   padding: 20px;
-  color: $text-color;
-  background-color: $background-color;
   margin-bottom: 5px;
+  color: $text-color;
+  border-radius: $border-radius;
+  background-color: $background-color;
 }
 .posterImage {
   display: none;
@@ -90,7 +89,6 @@ $background-color: rgba(69, 78, 83, 0.6);
 .overview {
   width: 100%;
   max-width: 350px;
-  height: 220px;
   overflow-y: auto;
   margin-bottom: 10px;
 }

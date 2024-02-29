@@ -32,16 +32,12 @@ $text-color: rgb(162, 162, 53);
 }
 //==========================================
 @media screen and (min-width: 768px) {
-  // .container {
-  //   max-width: 768px;
-  // }
   .moviePoster,
   .seriesPoster {
     max-width: 748px;
     filter: grayscale(100%);
   }
   .moviePosterTitle {
-    // top: 0px;
     right: 5px;
     font-size: 34px;
     font-weight: bold;
@@ -51,9 +47,6 @@ $text-color: rgb(162, 162, 53);
 }
 //==========================================
 @media screen and (min-width: 1440px) {
-  // .container {
-  //   width: 1040px;
-  // }
   .moviePoster,
   .seriesPoster {
     max-width: 1020px;
