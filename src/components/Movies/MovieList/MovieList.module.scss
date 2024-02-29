@@ -47,7 +47,7 @@ $text-color: bisque;
 //==========================================
 @media screen and (min-width: 768px) {
   .container {
-    width: 768px;
+    max-width: 768px;
   }
   .movieGallery {
   gap: 18px 10px;
@@ -56,6 +56,6 @@ $text-color: bisque;
 //==========================================
 @media screen and (min-width: 1440px) {
 .container {
-  width: 1060px;
+  max-width: 1060px;
 }
 } 

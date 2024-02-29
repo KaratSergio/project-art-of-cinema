@@ -45,10 +45,14 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   .container {
     height: 60px;
     max-width: 768px;
+    padding: 0;
   }
   .navBox {
-    width: 768px;
+    max-width: 768px;
   }
+  .logo {
+  padding-left: 10px;
+}
 }
 //=========================================
 @media screen and (min-width: 1440px) {

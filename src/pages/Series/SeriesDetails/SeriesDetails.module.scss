@@ -102,22 +102,36 @@ $background-color: rgba(69, 78, 83, 0.6);
 //==========================================
 @media screen and (min-width: 768px) {
   .container {
-    width: 768px;
-    height: 402px;
+    max-width: 768px;
+    max-height: 410px;
+
+    .linkBox,
+    .button {
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      width: 80px;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    .button {
+      width: 96px;
+    }
   }
   .backgroundImageContainer {
-    width: 768px;
+    max-width: 746px;
+    max-height: 410px;
     background-repeat: no-repeat;
     background-position: 140px;
   }
   .seriesCard {
-    width: 758px;
+    max-width: 729px;
     margin-bottom: -15px;
     background: linear-gradient(
       to right,
       rgba(69, 78, 83, 0.96) 30%,
       rgba(69, 78, 83, 0.6) 70%
     );
+    padding: 10px;
   }
   .titleBox {
     width: 420px;
@@ -132,12 +146,9 @@ $background-color: rgba(69, 78, 83, 0.6);
     width: 600px;
   }
   .overview {
-    overflow-y: hidden;
     width: 466px;
+    overflow-y: hidden;
     margin-bottom: 20px;
-  }
-  .goBackLink {
-    left: 452px;
   }
 }
 //==========================================
