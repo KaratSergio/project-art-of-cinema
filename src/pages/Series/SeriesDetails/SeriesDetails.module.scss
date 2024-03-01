@@ -154,11 +154,11 @@ $background-color: rgba(69, 78, 83, 0.6);
 //==========================================
 @media screen and (min-width: 1440px) {
   .container {
-    width: 1020px;
+    max-width: 1020px;
   }
   .backgroundImageContainer {
-    width: 1025px;
-    height: 600px;
+    max-width: 1025px;
+    max-height: 600px;
     background-repeat: no-repeat;
     background-position: 140px;
   }
@@ -178,10 +178,7 @@ $background-color: rgba(69, 78, 83, 0.6);
   .seriesCard {
     padding: 0;
     width: 100%;
-  }
-  .goBackLink {
-    top: 6px;
-    left: 562px;
+    max-width: 1025px;
   }
   .titleBox {
     display: flex;
@@ -193,7 +190,8 @@ $background-color: rgba(69, 78, 83, 0.6);
     font-size: 32px;
   }
   .overview {
-    width: 530px;
+    max-width: 530px;
+    height: auto;
     margin-bottom: 10px;
   }
   .decorLine {
