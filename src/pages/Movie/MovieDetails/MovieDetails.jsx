@@ -17,9 +17,12 @@ export const MovieDetails = () => {
   const [details, setDetails] = useState(null);
   const [trailerKey, setTrailerKey] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { id } = useParams();
+  const { id, currentPage } = useParams();
   const location = useLocation();
-  const from = location.state?.from || '/movies';
+  const from = location.state?.from || `/movies/page${currentPage}`;
+
+  console.log('Previous URL:', location.state?.from); 
+
   const dispatch = useDispatch();
 
   useEffect(() => {

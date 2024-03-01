@@ -24,6 +24,14 @@ export const MovieList = () => {
   };
 
   useEffect(() => {
+    window.history.pushState(
+      null,
+      null,
+      `/project-art-of-cinema/movies/page${currentPage}`
+    );
+  }, [currentPage]);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
@@ -55,6 +63,14 @@ export const MovieList = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const currentPageFromURL = window.location.pathname.match(/\/page(\d+)/);
+
+    if (currentPageFromURL && currentPageFromURL[1]) {
+      setCurrentPage(parseInt(currentPageFromURL[1]));
+    }
+  }, []);
+
   return (
     <div className={scss.container}>
       <MovieSearch />
@@ -65,7 +81,7 @@ export const MovieList = () => {
             movies.slice(0, itemsPerPage).map(movie => (
               <li className={scss.movieItem} key={movie.id}>
                 {movie.poster_path && (
-                  <Link to={`/movie/${movie.id}`}>
+                  <Link to={`/movie/page${currentPage}/${movie.id}`}>
                     <img
                       className={scss.moviePoster}
                       src={`${ImageURL}${movie.poster_path}`}

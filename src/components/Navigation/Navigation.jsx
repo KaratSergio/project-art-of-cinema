@@ -47,9 +47,9 @@ export const Navigation = () => {
             HOME
           </NavLink>
           <NavLink
-            to="/movies"
-            className={activeMenu === '/movies' ? scss.active : ''}
-            onClick={() => handleMenuClick('/movies')}
+            to="/movies/page:page"
+            className={activeMenu === '/movies/page:page' ? scss.active : ''}
+            onClick={() => handleMenuClick('/movies/page:page')}
           >
             MOVIES
           </NavLink>
