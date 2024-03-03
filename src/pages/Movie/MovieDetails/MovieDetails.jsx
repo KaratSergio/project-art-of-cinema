@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useLocation, useParams, Outlet } from 'react-router-dom';
@@ -20,9 +19,6 @@ export const MovieDetails = () => {
   const { id, currentPage } = useParams();
   const location = useLocation();
   const from = location.state?.from || `/movies/page${currentPage}`;
-
-  console.log('Previous URL:', location.state?.from); 
-
   const dispatch = useDispatch();
 
   useEffect(() => {

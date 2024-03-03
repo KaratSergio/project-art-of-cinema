@@ -6,7 +6,7 @@ import { selectSeries } from '../../../redux/dataSeries/seriesSelectors';
 import { fetchSeriesAsync } from '../../../redux/dataSeries/seriesThunks';
 
 import { Pagination } from '../../Pagination/Pagination';
-import { SeriesSearch } from '../../Search/SeriesSearch'
+import { SeriesSearch } from '../../Search/SeriesSearch';
 
 import scss from './SeriesList.module.scss';
 
@@ -24,6 +24,14 @@ export const SeriesList = () => {
   };
 
   useEffect(() => {
+    window.history.pushState(
+      null,
+      null,
+      `/project-art-of-cinema/series/page${currentPage}`
+    );
+  }, [currentPage]);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
@@ -39,20 +47,28 @@ export const SeriesList = () => {
     fetchData();
   }, [dispatch, currentPage, query]);
 
-    useEffect(() => {
-      const handleResize = () => {
-        if (window.innerWidth <= 1440) {
-          setItemsPerPage(20);
-        } else {
-          setItemsPerPage(18);
-        }
-      };
-      handleResize();
-      window.addEventListener('resize', handleResize);
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1440) {
+        setItemsPerPage(20);
+      } else {
+        setItemsPerPage(18);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const currentPageFromURL = window.location.pathname.match(/\/page(\d+)/);
+
+    if (currentPageFromURL && currentPageFromURL[1]) {
+      setCurrentPage(parseInt(currentPageFromURL[1]));
+    }
+  }, []);
 
   return (
     <div className={scss.container}>
@@ -64,7 +80,7 @@ export const SeriesList = () => {
             series.slice(0, itemsPerPage).map(singleSeries => (
               <li className={scss.seriesItem} key={singleSeries.id}>
                 {singleSeries.poster_path && (
-                  <Link to={`/series/${singleSeries.id}`}>
+                  <Link to={`/series/page${currentPage}/${singleSeries.id}`}>
                     <img
                       className={scss.seriesPoster}
                       src={`${ImageURL}${singleSeries.poster_path}`}

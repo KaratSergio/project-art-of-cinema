@@ -16,9 +16,9 @@ export const SeriesDetails = () => {
   const [details, setDetails] = useState(null);
   const [trailerKey, setTrailerKey] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { id } = useParams();
+  const { id, currentPage } = useParams();
   const location = useLocation();
-  const from = location.state?.from || '/series';
+  const from = location.state?.from || `/series/page${currentPage}`;
   const dispatch = useDispatch();
 
   useEffect(() => {

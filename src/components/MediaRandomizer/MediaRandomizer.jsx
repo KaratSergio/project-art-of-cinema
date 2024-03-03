@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { selectMovies } from '../../redux/dataMovie/movieSelectors';
 import { fetchMoviesAsync } from '../../redux/dataMovie/movieThunks';
-
 import scss from './MediaRandomizer.module.scss';
 
 export const MediaRandomizer = () => {
   const dispatch = useDispatch();
   const { movies } = useSelector(selectMovies);
+  const location = useLocation();
 
   const ImageURL = 'https://image.tmdb.org/t/p/w1280';
 
@@ -34,12 +33,14 @@ export const MediaRandomizer = () => {
       ? movies[Math.floor(Math.random() * movies.length)]
       : null;
 
+  const currentPage = location.pathname.match(/\/page(\d+)/)?.[1] || 1;
+
   const getContentLink = () => {
     if (randomContent) {
       if (randomContent.media_type === 'movie') {
-        return `movie/${randomContent.id}`;
+        return `/movie/page${currentPage}/${randomContent.id}`;
       } else if (randomContent.media_type === 'tv') {
-        return `series/${randomContent.id}`;
+        return `/series/page${currentPage}/${randomContent.id}`;
       }
     }
     return '/';

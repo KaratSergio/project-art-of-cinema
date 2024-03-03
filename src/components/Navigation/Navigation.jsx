@@ -47,16 +47,16 @@ export const Navigation = () => {
             HOME
           </NavLink>
           <NavLink
-            to="/movies/page:page"
-            className={activeMenu === '/movies/page:page' ? scss.active : ''}
-            onClick={() => handleMenuClick('/movies/page:page')}
+            to="/movies/page"
+            className={activeMenu === '/movies/page' ? scss.active : ''}
+            onClick={() => handleMenuClick('/movies/page')}
           >
             MOVIES
           </NavLink>
           <NavLink
-            to="/series"
-            className={activeMenu === '/series' ? scss.active : ''}
-            onClick={() => handleMenuClick('/series')}
+            to="/series/page"
+            className={activeMenu === '/series/page' ? scss.active : ''}
+            onClick={() => handleMenuClick('/series/page')}
           >
             SERIES
           </NavLink>

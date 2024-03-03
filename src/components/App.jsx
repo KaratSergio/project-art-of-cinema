@@ -28,8 +28,8 @@ export const App = () => {
           <Route path="reviews" element={<MovieReviews />} />
         </Route>
 
-        <Route path="series" element={<Series />} />
-        <Route path="series/:id" element={<SeriesDetails />}>
+        <Route path="series/:page" element={<Series />} />
+        <Route path="series/:page/:id" element={<SeriesDetails />}>
           <Route path="cast" element={<SeriesCast />} />
           <Route path="reviews" element={<SeriesReviews />} />
         </Route>
