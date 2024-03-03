@@ -91,7 +91,7 @@ export const SeriesList = () => {
             ))}
         </ul>
       </div>
-      {totalPages !== undefined && (
+      {totalPages > 1 && (
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
