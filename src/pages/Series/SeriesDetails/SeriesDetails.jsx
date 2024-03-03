@@ -16,10 +16,11 @@ export const SeriesDetails = () => {
   const [details, setDetails] = useState(null);
   const [trailerKey, setTrailerKey] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { id, currentPage } = useParams();
+  const { id } = useParams();
   const location = useLocation();
-  const from = location.state?.from || `/series/page${currentPage}`;
   const dispatch = useDispatch();
+
+  const currentPage = localStorage.getItem('currentPage' || 1);
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -46,6 +47,10 @@ export const SeriesDetails = () => {
     }
   };
 
+  useEffect(() => {
+    localStorage.setItem('currentPage', location.state?.currentPage || 1);
+  }, [location.state?.currentPage]);
+
   if (!details) return null;
 
   return (
@@ -61,7 +66,7 @@ export const SeriesDetails = () => {
         vote_average={details.vote_average}
         overview={details.overview}
         genres={details.genres}
-        from={from}
+        from={`/series/page${currentPage}`}
         loadTrailer={handleLoadTrailer}
       />
       {isModalOpen && (

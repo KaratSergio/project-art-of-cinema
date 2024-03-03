@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { useLocation, useParams, Outlet } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import { loadMovieTrailer } from '../../../utils/loadTrailer';
 import { Footer } from '../../../components/Footer/Footer';
@@ -16,10 +16,11 @@ export const MovieDetails = () => {
   const [details, setDetails] = useState(null);
   const [trailerKey, setTrailerKey] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { id, currentPage } = useParams();
+  const { id } = useParams();
   const location = useLocation();
-  const from = location.state?.from || `/movies/page${currentPage}`;
   const dispatch = useDispatch();
+
+  const currentPage = localStorage.getItem('currentPage') || 1;
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -38,6 +39,10 @@ export const MovieDetails = () => {
     await loadMovieTrailer(dispatch, details, setTrailerKey, setIsModalOpen);
   };
 
+  useEffect(() => {
+    localStorage.setItem('currentPage', location.state?.currentPage || 1);
+  }, [location.state?.currentPage]);
+
   if (!details) return null;
 
   return (
@@ -55,7 +60,7 @@ export const MovieDetails = () => {
         overview={details.overview}
         genres={details.genres}
         id={id}
-        from={from}
+        from={`/movies/page${currentPage}`}
         loadTrailer={handleLoadTrailer}
       />
       {isModalOpen && (
@@ -64,7 +69,6 @@ export const MovieDetails = () => {
           onClose={() => setIsModalOpen(false)}
         />
       )}
-      <Outlet />
       <Footer />
     </div>
   );

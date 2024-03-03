@@ -24,12 +24,13 @@ export const SeriesList = () => {
   };
 
   useEffect(() => {
-    window.history.pushState(
-      null,
-      null,
-      `/project-art-of-cinema/series/page${currentPage}`
-    );
-  }, [currentPage]);
+    setCurrentPage(1);
+    const currentPageFromURL = window.location.pathname.match(/\/page(\d+)/);
+
+    if (currentPageFromURL && currentPageFromURL[1]) {
+      setCurrentPage(parseInt(currentPageFromURL[1]));
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,14 +63,6 @@ export const SeriesList = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const currentPageFromURL = window.location.pathname.match(/\/page(\d+)/);
-
-    if (currentPageFromURL && currentPageFromURL[1]) {
-      setCurrentPage(parseInt(currentPageFromURL[1]));
-    }
-  }, []);
-
   return (
     <div className={scss.container}>
       <SeriesSearch />
@@ -80,7 +73,10 @@ export const SeriesList = () => {
             series.slice(0, itemsPerPage).map(singleSeries => (
               <li className={scss.seriesItem} key={singleSeries.id}>
                 {singleSeries.poster_path && (
-                  <Link to={`/series/page${currentPage}/${singleSeries.id}`}>
+                  <Link
+                    to={`/series/page${currentPage}/${singleSeries.id}`}
+                    state={{ currentPage }}
+                  >
                     <img
                       className={scss.seriesPoster}
                       src={`${ImageURL}${singleSeries.poster_path}`}
