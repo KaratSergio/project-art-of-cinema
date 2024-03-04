@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchMovieReviews } from '../../../redux/dataMovie/movieThunks';
-import { selectMovieReviews } from '../../../redux/dataMovie/movieSelectors';
+import { fetchMovieReviews } from '../../../redux/dataMovie/actions';
+import { selectMovieReviews } from '../../../redux/dataMovie/selectors';
 
 import scss from './MovieReviews.module.scss';
 

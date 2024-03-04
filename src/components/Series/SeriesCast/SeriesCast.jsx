@@ -7,8 +7,8 @@ import 'slick-carousel/slick/slick.scss';
 import 'slick-carousel/slick/slick-theme.scss';
 import sliderSettings from '../../../utils/sliderSettings';
 // api & selector
-import { fetchSeriesCredits } from '../../../redux/dataSeries/seriesThunks';
-import { selectSeriesCredits } from '../../../redux/dataSeries/seriesSelectors';
+import { fetchSeriesCredits } from '../../../redux/dataSeries/actions';
+import { selectSeriesCredits } from '../../../redux/dataSeries/selectors';
 
 import scss from './SeriesCast.module.scss';
 

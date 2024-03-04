@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { searchSeries } from '../../redux/dataSeries/seriesThunks';
+import { searchSeries } from '../../redux/dataSeries/actions';
 import { useSearchParams } from 'react-router-dom';
 
 import scss from './Search.module.scss';

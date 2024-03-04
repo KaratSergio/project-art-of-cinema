@@ -2,8 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSeriesReviews } from '../../../redux/dataSeries/seriesThunks';
-import { selectSeriesReviews } from '../../../redux/dataSeries/seriesSelectors';
+import { fetchSeriesReviews } from '../../../redux/dataSeries/actions';
+import { selectSeriesReviews } from '../../../redux/dataSeries/selectors';
 
 import scss from './SeriesReviews.module.scss';
 

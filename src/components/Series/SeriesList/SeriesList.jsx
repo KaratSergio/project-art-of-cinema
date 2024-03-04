@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectSeries } from '../../../redux/dataSeries/seriesSelectors';
-import { fetchSeriesAsync } from '../../../redux/dataSeries/seriesThunks';
+import { selectSeries } from '../../../redux/dataSeries/selectors';
+import { fetchSeriesAsync } from '../../../redux/dataSeries/actions';
 
 import { Pagination } from '../../Pagination/Pagination';
 import { SeriesSearch } from '../../Search/SeriesSearch';
@@ -40,6 +40,7 @@ export const SeriesList = () => {
           fetchSeriesAsync({ endpoint: 'tv/top_rated', currentPage, query })
         );
       } catch (error) {
+        console.error('Error fetching series:', error);
       } finally {
         setLoading(false);
       }

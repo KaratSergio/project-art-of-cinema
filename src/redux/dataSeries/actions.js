@@ -5,10 +5,6 @@ import axios from 'axios';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '6167a2fbe619d64566c427d4bc6ed1cb';
 
-// youTube
-const YouTube_KEY = 'AIzaSyAX8f4ov49tTjdKJ89Pom1aYTR3hXFvaN0';
-const YouTube_URL = 'https://youtube.googleapis.com/youtube/v3/search';
-
 const instance = axios.create({
   baseURL: BASE_URL,
   params: {
@@ -48,11 +44,9 @@ export const fetchSeriesAsync = createAsyncThunk(
 //================SeriesDetails=====================
 export const fetchSeriesDetails = createAsyncThunk(
   'series/fetchSeriesDetails',
-  async (id, { dispatch, rejectWithValue }) => {
+  async (id, { rejectWithValue }) => {
     try {
       const response = await instance.get(`tv/${id}`);
-      const seriesName = response.data.name;
-      await dispatch(fetchSeriesTrailer(seriesName));
       return response.data;
     } catch (error) {
       if (!error.response) {
@@ -92,24 +86,10 @@ export const fetchSeriesCredits = createAsyncThunk(
 //================SeriesReviews=====================
 export const fetchSeriesReviews = createAsyncThunk(
   'series/fetchSeriesReviews',
-  async ({id}, { rejectWithValue }) => {
+  async ({ id }, { rejectWithValue }) => {
     try {
       const response = await instance.get(`tv/${id}/reviews`);
       return response.data;
-    } catch (error) {
-      throw rejectWithValue(error.message);
-    }
-  }
-);
-//============MovieTrailer (YouTube)=============
-export const fetchSeriesTrailer = createAsyncThunk(
-  'series/fetchTrailer',
-  async (seriesName, { rejectWithValue }) => {
-    try {
-      const url = `${YouTube_URL}?part=snippet&type=video&maxResults=1&q=${seriesName}+trailer&key=${YouTube_KEY}`;
-      const response = await axios.get(url);
-      const data = response.data;
-      return data.items.length > 0 ? data.items[0].id.videoId : null;
     } catch (error) {
       throw rejectWithValue(error.message);
     }

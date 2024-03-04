@@ -11,9 +11,9 @@ export const MovieDetailsContent = ({
   voteAverage,
   overview,
   genres,
-  id,
   from,
   loadTrailer,
+  currentPage,
 }) => {
   const genresList = genres.map(genre => genre.name).join(', ');
   const releaseYear = releaseDate.split('-')[0];
@@ -48,12 +48,12 @@ export const MovieDetailsContent = ({
         </div>
         <div className={scss.addInfo}>
           <div className={scss.linkBox}>
-            <Link to="cast" state={{ from }}>
+            <Link to="cast" state={{ currentPage }}>
               Actors
             </Link>
           </div>
           <div className={scss.linkBox}>
-            <Link to="reviews" state={{ from }}>
+            <Link to="reviews" state={{ currentPage }}>
               Comments
             </Link>
           </div>

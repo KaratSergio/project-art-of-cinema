@@ -17,7 +17,7 @@ const sliderSettings = {
       settings: {
         dots: false,
         slidesToShow: 2,
-        slidesToScroll: 4,
+        slidesToScroll: 1,
         className: 'center',
         centerMode: true,
         infinite: true,

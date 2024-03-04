@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { searchMovies } from '../../redux/dataMovie/movieThunks';
+import { searchMovies } from '../../redux/dataMovie/actions';
 import { useSearchParams } from 'react-router-dom';
 
-import scss from './Search.module.scss'
+import scss from './Search.module.scss';
 
 export const MovieSearch = () => {
   const dispatch = useDispatch();
@@ -40,13 +40,16 @@ export const MovieSearch = () => {
   return (
     <div className={scss.searchBox}>
       <form className={scss.from} onSubmit={handleSubmit}>
-        <input className={scss.input}
+        <input
+          className={scss.input}
           type="text"
           placeholder="Search movies"
           value={query}
           onChange={handleChange}
         />
-        <button className={scss.button} type="submit">🔍</button>
+        <button className={scss.button} type="submit">
+          🔍
+        </button>
       </form>
     </div>
   );

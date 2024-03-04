@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectMovies } from '../../redux/dataMovie/movieSelectors';
-import { fetchMoviesAsync } from '../../redux/dataMovie/movieThunks';
+import { selectMovies } from '../../redux/dataMovie/selectors';
+import { fetchMoviesAsync } from '../../redux/dataMovie/actions';
 import scss from './MediaRandomizer.module.scss';
 
 export const MediaRandomizer = () => {

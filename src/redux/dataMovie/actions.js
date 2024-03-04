@@ -5,10 +5,6 @@ import axios from 'axios';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '6167a2fbe619d64566c427d4bc6ed1cb';
 
-// youTube
-const YouTube_KEY = 'AIzaSyAX8f4ov49tTjdKJ89Pom1aYTR3hXFvaN0';
-const YouTube_URL = 'https://youtube.googleapis.com/youtube/v3/search';
-
 const instance = axios.create({
   baseURL: BASE_URL,
   params: {
@@ -99,33 +95,3 @@ export const fetchMovieReviews = createAsyncThunk(
     }
   }
 );
-//============MovieTrailer (YouTube)=============
-export const fetchMovieTrailer = createAsyncThunk(
-  'movies/fetchTrailer',
-  async (filmName, { rejectWithValue }) => {
-    try {
-      const url = `${YouTube_URL}?part=snippet&type=video&maxResults=1&q=${filmName}+trailer&key=${YouTube_KEY}`;
-      const response = await axios.get(url);
-      const data = response.data;
-      return data.items[0]?.id?.videoId || null;
-    } catch (error) {
-      throw rejectWithValue(error.message);
-    }
-  }
-);
-
-// //================MovieTrailers TMDB=====================
-// export const fetchMovieTrailers = createAsyncThunk(
-//   'movies/fetchMovieTrailers',
-//   async ({id}, { rejectWithValue }) => {
-//     try {
-//       console.log('Fetching trailers for movie with ID:', id);
-//       const response = await instance.get(`movie/${id}/videos`);
-//       console.log('Received response:', response);
-//       return response.data.results;
-//     } catch (error) {
-//       console.error('Error fetching trailers:', error);
-//       throw rejectWithValue(error.message);
-//     }
-//   }
-// );

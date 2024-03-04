@@ -4,9 +4,9 @@ import {
   fetchMovieCredits,
   fetchMovieReviews,
   searchMovies,
-} from './movieThunks';
+} from './actions';
 
-const movieSlice = createSlice({
+export const movieSlice = createSlice({
   name: 'movies',
   initialState: {
     movies: [],
@@ -17,7 +17,7 @@ const movieSlice = createSlice({
     status: 'idle',
     error: null,
     filter: null,
-    searchResults: [], 
+    searchResults: [],
   },
   reducers: {
     setFilter: (state, action) => {
@@ -62,7 +62,6 @@ const movieSlice = createSlice({
       })
       .addCase(fetchMovieCredits.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        console.log('Movie credits payload:', action.payload);
         if (action.payload) {
           state.movieCredits = action.payload;
         }

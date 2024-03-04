@@ -12,8 +12,8 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { combineReducers } from 'redux';
-import movieReducer from './dataMovie/movieSlice';
-import seriesReducer from './dataSeries/seriesSlice';
+import movieReducer from './dataMovie/reducers';
+import seriesReducer from './dataSeries/reducers';
 
 const rootReducer = combineReducers({
   movies: movieReducer,

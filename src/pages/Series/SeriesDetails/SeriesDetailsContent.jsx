@@ -12,6 +12,7 @@ export const SeriesDetailsContent = ({
   from,
   loadTrailer,
   goBack,
+  currentPage,
 }) => {
   const genresList = genres.map(genre => genre.name).join(', ');
 
@@ -43,12 +44,12 @@ export const SeriesDetailsContent = ({
         </div>
         <div className={scss.addInfo}>
           <div className={scss.linkBox}>
-            <Link to="cast" state={{ from }}>
+            <Link to="cast" state={{ currentPage }}>
               Actors
             </Link>
           </div>
           <div className={scss.linkBox}>
-            <Link to="reviews" state={{ from }}>
+            <Link to="reviews" state={{ currentPage }}>
               Comments
             </Link>
           </div>

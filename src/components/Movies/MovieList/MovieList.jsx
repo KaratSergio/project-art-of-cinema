@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectMovies } from '../../../redux/dataMovie/movieSelectors';
-import { fetchMoviesAsync } from '../../../redux/dataMovie/movieThunks';
+import { selectMovies } from '../../../redux/dataMovie/selectors';
+import { fetchMoviesAsync } from '../../../redux/dataMovie/actions';
 
 import { Pagination } from '../../Pagination/Pagination';
 import { MovieSearch } from '../../Search/MovieSearch';

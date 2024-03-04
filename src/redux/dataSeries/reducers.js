@@ -4,9 +4,9 @@ import {
   fetchSeriesCredits,
   fetchSeriesReviews,
   searchSeries,
-} from './seriesThunks';
+} from './actions';
 
-const seriesSlice = createSlice({
+export const seriesSlice = createSlice({
   name: 'series',
   initialState: {
     series: [],
@@ -37,7 +37,6 @@ const seriesSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(fetchSeriesAsync.fulfilled, (state, action) => {
-        // console.log('Series fetched successfully:', action.payload);
         state.status = 'succeeded';
         state.series = action.payload.series;
         state.totalPages = action.payload.totalPages;
@@ -46,7 +45,7 @@ const seriesSlice = createSlice({
         console.error('Failed to fetch series:', action.error.message);
         state.status = 'failed';
         state.error = action.error.message;
-      }) 
+      })
       // Search
       .addCase(searchSeries.pending, state => {
         state.status = 'loading';
@@ -65,7 +64,6 @@ const seriesSlice = createSlice({
       })
       .addCase(fetchSeriesCredits.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        console.log('Movie credits payload:', action.payload);
         if (action.payload) {
           state.seriesCredits = action.payload;
         }
