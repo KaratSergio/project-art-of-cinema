@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { RatingBar } from 'components/RatingBar/RatingBar';
+
 import scss from './MovieDetails.module.scss';
 
 const PosterImageURL = 'https://image.tmdb.org/t/p/w400';
@@ -41,7 +43,7 @@ export const MovieDetailsContent = ({
         </div>
         <div>
           <div className={scss.ratingBox}>
-            <p>Rating {voteAverage.toFixed(1)}</p>
+            <RatingBar rating={voteAverage.toFixed(1)} />
             <div>Genres: {genresList}</div>
           </div>
           <p className={`${scss.overview} ${scss.scroll}`}>{overview}</p>

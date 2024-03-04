@@ -1,4 +1,7 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { RatingBar } from 'components/RatingBar/RatingBar';
+
 import scss from './SeriesDetails.module.scss';
 
 const PosterImageURL = 'https://image.tmdb.org/t/p/w400';
@@ -11,7 +14,6 @@ export const SeriesDetailsContent = ({
   genres,
   from,
   loadTrailer,
-  goBack,
   currentPage,
 }) => {
   const genresList = genres.map(genre => genre.name).join(', ');
@@ -29,7 +31,7 @@ export const SeriesDetailsContent = ({
         <div className={scss.info}>
           <div className={scss.titleBox}>
             <h1>{name}</h1>
-            <Link className={scss.goBackLink} onClick={goBack} to={from}>
+            <Link className={scss.goBackLink} to={from}>
               X
             </Link>
             <div className={scss.decorLine}></div>
@@ -37,7 +39,7 @@ export const SeriesDetailsContent = ({
         </div>
         <div>
           <div className={scss.ratingBox}>
-            <p>Rating {vote_average.toFixed(1)}</p>
+            <RatingBar rating={vote_average.toFixed(1)} />
             <div>Genres: {genresList}</div>
           </div>
           <p className={scss.overview}>{overview}</p>
