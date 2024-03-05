@@ -1,13 +1,38 @@
-.ratingBar {
-  display: flex;
-  width: 100px;
-  height: 20px;
-  background: rgba(109, 164, 192, 0.494);
-}
+$background-color: #ddd;
+$fill-color: #21d4e8ad;
+$text-color: #e5e1e1;
 
-.ratingFill {
-  display: flex;
-  height: 100%;
-  color: #111;
-  background: #ebece8;
+.ratingBar {
+  position: relative;
+
+  .ratingCircle {
+    position: relative;
+    width: 48px;
+    height: 48px;
+
+    &__background {
+      fill: none;
+      stroke: $background-color;
+      stroke-width: 4;
+    }
+
+    &__fill {
+      fill: none;
+      stroke: $fill-color;
+      stroke-width: 4;
+      stroke-linecap: round;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+  }
+
+  .ratingText {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-weight: bold;
+    color: $text-color;
+  }
 }
