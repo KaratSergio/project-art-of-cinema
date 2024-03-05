@@ -56,6 +56,7 @@ export const SeriesDetails = () => {
         name={details.name}
         posterPath={details.poster_path}
         vote_average={details.vote_average}
+        releaseDate={details.first_air_date}
         overview={details.overview}
         genres={details.genres}
         from={`/series/page${currentPage}`}

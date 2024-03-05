@@ -88,6 +88,7 @@ $background-color: rgba(69, 78, 83, 0.6);
   margin-bottom: 8px;
 }
 .ratingBox {
+  position: relative;
   margin-bottom: 10px;
 }
 .overview {
@@ -102,6 +103,15 @@ $background-color: rgba(69, 78, 83, 0.6);
   width: 100%;
   max-width: 350px;
   gap: 10px;
+}
+.releaseYear {
+  position: absolute;
+  top: 5px;
+  left: 115px;
+  font-family: Anta;
+  font-weight: bold;
+  font-size: 35px;
+  color: rgba(255, 228, 196, 0.471);
 }
 //==========================================
 @media screen and (min-width: 768px) {

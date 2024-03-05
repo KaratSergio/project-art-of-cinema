@@ -33,9 +33,7 @@ export const MovieDetailsContent = ({
         <div>
           <div className={scss.info}>
             <div className={scss.titleBox}>
-              <h1>
-                {title} ({releaseYear})
-              </h1>
+              <h1>{title}</h1>
               <Link className={scss.goBackLink} to={from}>
                 X
               </Link>
@@ -45,7 +43,8 @@ export const MovieDetailsContent = ({
           <div>
             <div className={scss.ratingBox}>
               <RatingBar rating={voteAverage.toFixed(1)} />
-              <div>Genres: {genresList}</div>
+              <p className={scss.releaseYear}>{releaseYear}</p>
+              <div>{genresList}</div>
             </div>
             <p className={`${scss.overview} ${scss.scroll}`}>{overview}</p>
           </div>
@@ -59,6 +58,11 @@ export const MovieDetailsContent = ({
           <div className={scss.linkBox}>
             <Link to="reviews" state={{ currentPage }}>
               Comments
+            </Link>
+          </div>
+          <div className={scss.linkBox}>
+            <Link to="gallery" state={{ currentPage }}>
+              Gallery
             </Link>
           </div>
           <button className={scss.button} onClick={loadTrailer}>

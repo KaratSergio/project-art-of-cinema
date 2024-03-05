@@ -10,6 +10,7 @@ export const SeriesDetailsContent = ({
   name,
   posterPath,
   vote_average,
+  releaseDate,
   overview,
   genres,
   from,
@@ -17,6 +18,7 @@ export const SeriesDetailsContent = ({
   currentPage,
 }) => {
   const genresList = genres.map(genre => genre.name).join(', ');
+  const releaseYear = releaseDate.split('-')[0];
 
   return (
     <div className={scss.seriesCard}>
@@ -41,7 +43,8 @@ export const SeriesDetailsContent = ({
           <div>
             <div className={scss.ratingBox}>
               <RatingBar rating={vote_average.toFixed(1)} />
-              <div>Genres: {genresList}</div>
+              <p className={scss.releaseYear}>{releaseYear}</p>
+              <div>{genresList}</div>
             </div>
             <p className={scss.overview}>{overview}</p>
           </div>
@@ -55,6 +58,11 @@ export const SeriesDetailsContent = ({
           <div className={scss.linkBox}>
             <Link to="reviews" state={{ currentPage }}>
               Comments
+            </Link>
+          </div>
+          <div className={scss.linkBox}>
+            <Link to="gallery" state={{ currentPage }}>
+              Gallery
             </Link>
           </div>
           <button className={scss.button} onClick={loadTrailer}>
