@@ -26,16 +26,15 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   align-items: center;
   justify-content: space-between;
 }
-.logoBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .logo {
   height: 50px;
   width: 70px;
 }
-.logoText {
+.logoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Anta;
   color: $text-color;
   font-size: 24px;
   font-weight: 400;
@@ -51,8 +50,8 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 768px;
   }
   .logo {
-  padding-left: 10px;
-}
+    padding-left: 10px;
+  }
 }
 //=========================================
 @media screen and (min-width: 1440px) {

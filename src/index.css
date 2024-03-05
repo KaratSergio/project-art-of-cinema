@@ -3,9 +3,7 @@
 body {
   background-color: #111;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Figtree;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -42,3 +40,48 @@ button {
   cursor: pointer;
 }
 
+/* FONTS */
+@font-face {
+  font-family: 'Anta';
+  src: url('./fonts/Anta-Regular.woff2') format('woff2'),
+    url('./fonts/Anta-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Figtree';
+  src: url('./fonts/Figtree-Regular.woff2') format('woff2'),
+    url('./fonts/Figtree-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Figtree';
+  src: url('./fonts/Figtree-Medium.woff2') format('woff2'),
+    url('./fonts/Figtree-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Figtree';
+  src: url('./fonts/Figtree-SemiBold.woff2') format('woff2'),
+    url('./fonts/Figtree-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Figtree';
+  src: url('./fonts/Figtree-Bold.woff2') format('woff2'),
+    url('./fonts/Figtree-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

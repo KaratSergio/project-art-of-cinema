@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logotype from '../../img/logo.jpg';
 import scss from './Footer.module.scss';
 
@@ -6,41 +7,44 @@ export const Footer = () => {
   return (
     <footer className={scss.footer}>
       <div className={scss.footerContent}>
-        <div className={scss.logoBox}>
-          <img src={Logotype} alt="Logotype" className={scss.logo} />
-          <p className={scss.logoText}>Filmistry</p>
-        </div>
         <p>Millions of movies, TV shows and people to discover. Explore now.</p>
-        <p>based on The Movie Data Base</p>
-        <div className={scss.byApi}>
-          <p>© 2024 KaratSergio.</p>
-          <a
-            className={scss.tmdb}
-            href="https://www.themoviedb.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            TMDB
-            <div className={scss.tmdbAccent}></div>
-          </a>
+        <p>
+          Cinema turns out to be the first artistic medium that can show how
+          matter plays along with man.
+          <br /> © Walter Benjamin
+        </p>
+        <div>
+          <p>based on API The Movie Data Base</p>
+          <div className={scss.byApi}>
+            <p>© 2024 KaratSergio.</p>
+            <a
+              className={scss.tmdb}
+              href="https://www.themoviedb.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              TMDB
+              <div className={scss.tmdbAccent}></div>
+            </a>
+          </div>
         </div>
       </div>
-      {/* <div className={scss.footerNavBox}>
-        <div className={scss.NavBox}>
-          <h2 className={scss.NavText}>Movies</h2>
-          <p>popular</p>
-          <p>top rated</p>
-          <p>upcoming</p>
-          <p>now playing</p>
+      <div className={scss.footerNavBox}>
+        <div>
+          <ul className={scss.navList}>
+            <li>Movies</li>
+            <li>Series</li>
+            <li>Gallery</li>
+            <li>Person</li>
+          </ul>
         </div>
-        <div className={scss.NavBox}>
-          <h2 className={scss.NavText}>Series</h2>
-          <p>popular</p>
-          <p>top rated</p>
-          <p>upcoming</p>
-          <p>now playing</p>
+        <div className={scss.logoBox}>
+          <Link to="/" className={scss.logoText}>
+            <img src={Logotype} alt="Logotype" className={scss.logo} />
+            Filmistry
+          </Link>
         </div>
-      </div> */}
+      </div>
     </footer>
   );
 };
