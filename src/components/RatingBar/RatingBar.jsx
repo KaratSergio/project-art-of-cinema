@@ -28,6 +28,11 @@ export const RatingBar = ({ rating }) => {
         ></circle>
       </svg>
       <div className={scss.ratingText}>{rating}</div>
+      <div>
+        <p className={scss.accentText}>
+          user <br /> score
+        </p>
+      </div>
     </div>
   );
 };

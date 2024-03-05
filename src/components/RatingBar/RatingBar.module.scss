@@ -4,6 +4,11 @@ $text-color: #e5e1e1;
 
 .ratingBar {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 105px;
+  gap: 8px;
 
   .ratingCircle {
     position: relative;
@@ -34,5 +39,10 @@ $text-color: #e5e1e1;
     font-size: 16px;
     font-weight: bold;
     color: $text-color;
+  }
+  .accentText {
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: #dddddd86;
   }
 }
