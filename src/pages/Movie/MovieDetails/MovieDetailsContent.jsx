@@ -30,23 +30,25 @@ export const MovieDetailsContent = ({
         />
       </div>
       <div className={scss.description}>
-        <div className={scss.info}>
-          <div className={scss.titleBox}>
-            <h1>
-              {title} ({releaseYear})
-            </h1>
-            <Link className={scss.goBackLink} to={from}>
-              X
-            </Link>
-            <div className={scss.decorLine}></div>
-          </div>
-        </div>
         <div>
-          <div className={scss.ratingBox}>
-            <RatingBar rating={voteAverage.toFixed(1)} />
-            <div>Genres: {genresList}</div>
+          <div className={scss.info}>
+            <div className={scss.titleBox}>
+              <h1>
+                {title} ({releaseYear})
+              </h1>
+              <Link className={scss.goBackLink} to={from}>
+                X
+              </Link>
+              <div className={scss.decorLine}></div>
+            </div>
           </div>
-          <p className={`${scss.overview} ${scss.scroll}`}>{overview}</p>
+          <div>
+            <div className={scss.ratingBox}>
+              <RatingBar rating={voteAverage.toFixed(1)} />
+              <div>Genres: {genresList}</div>
+            </div>
+            <p className={`${scss.overview} ${scss.scroll}`}>{overview}</p>
+          </div>
         </div>
         <div className={scss.addInfo}>
           <div className={scss.linkBox}>

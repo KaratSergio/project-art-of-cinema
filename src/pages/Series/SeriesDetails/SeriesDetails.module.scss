@@ -13,10 +13,11 @@ $background-color: rgba(69, 78, 83, 0.6);
 
   .linkBox,
   .button {
-    width: 60px;
+    width: 65px;
     padding: 6px;
     font-size: 12px;
     border-radius: 4px;
+    letter-spacing: 0.1em;
     color: $text-color;
     background-color: $primary-color;
   }
@@ -28,13 +29,17 @@ $background-color: rgba(69, 78, 83, 0.6);
   }
 
   .button {
-    width: 72px;
+    width: 77px;
     border: none;
   }
 }
 .backgroundImageContainer {
   width: 100%;
-  max-height: 375px;
+  max-height: 388px;
+  background-size: cover;
+  background-position: center;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .titleBox {
   display: flex;
@@ -61,7 +66,7 @@ $background-color: rgba(69, 78, 83, 0.6);
   align-items: center;
   justify-content: center;
   gap: 15px;
-  padding: 20px;
+  padding: 20px 20px 10px;
   margin-bottom: 5px;
   color: $text-color;
   border-radius: $border-radius;
@@ -71,14 +76,13 @@ $background-color: rgba(69, 78, 83, 0.6);
   display: none;
 }
 .description {
-  height: 335px;
+  height: 405px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .info {
   display: flex;
-  height: 380px;
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 8px;
@@ -111,7 +115,6 @@ $background-color: rgba(69, 78, 83, 0.6);
       letter-spacing: 0.1em;
       width: 80px;
       padding: 8px;
-      border-radius: 4px;
     }
     .button {
       width: 96px;
@@ -119,9 +122,11 @@ $background-color: rgba(69, 78, 83, 0.6);
   }
   .backgroundImageContainer {
     max-width: 746px;
-    max-height: 410px;
+    max-height: 425px;
     background-repeat: no-repeat;
     background-position: 140px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
   }
   .seriesCard {
     max-width: 729px;
