@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/project-art-of-cinema/static/css/main.35565735.css",
-    "main.js": "/project-art-of-cinema/static/js/main.01985999.js",
+    "main.css": "/project-art-of-cinema/static/css/main.b6bd0580.css",
+    "main.js": "/project-art-of-cinema/static/js/main.8b84b7fa.js",
     "static/media/Anta-Regular.woff": "/project-art-of-cinema/static/media/Anta-Regular.f66b801d9b999d65ba6a.woff",
     "static/media/Figtree-Bold.woff": "/project-art-of-cinema/static/media/Figtree-Bold.8d654f39a106adc02542.woff",
     "static/media/Figtree-SemiBold.woff": "/project-art-of-cinema/static/media/Figtree-SemiBold.7c5e507bdc8e32a4da76.woff",
@@ -17,11 +17,11 @@
     "static/media/slick.ttf": "/project-art-of-cinema/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/project-art-of-cinema/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/project-art-of-cinema/index.html",
-    "main.35565735.css.map": "/project-art-of-cinema/static/css/main.35565735.css.map",
-    "main.01985999.js.map": "/project-art-of-cinema/static/js/main.01985999.js.map"
+    "main.b6bd0580.css.map": "/project-art-of-cinema/static/css/main.b6bd0580.css.map",
+    "main.8b84b7fa.js.map": "/project-art-of-cinema/static/js/main.8b84b7fa.js.map"
   },
   "entrypoints": [
-    "static/css/main.35565735.css",
-    "static/js/main.01985999.js"
+    "static/css/main.b6bd0580.css",
+    "static/js/main.8b84b7fa.js"
   ]
 }
