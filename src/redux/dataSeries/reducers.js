@@ -3,6 +3,7 @@ import {
   fetchSeriesAsync,
   fetchSeriesCredits,
   fetchSeriesReviews,
+  fetchSeriesGallery,
   searchSeries,
 } from './actions';
 
@@ -14,6 +15,9 @@ export const seriesSlice = createSlice({
       cast: [],
     },
     seriesReviews: [],
+    seriesGallery: {
+      backdrops: [],
+    },
     status: 'idle',
     error: null,
     filter: null,
@@ -81,6 +85,20 @@ export const seriesSlice = createSlice({
         state.seriesReviews = action.payload.results;
       })
       .addCase(fetchSeriesReviews.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+      // Gallery
+      .addCase(fetchSeriesGallery.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(fetchSeriesGallery.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        if (action.payload) {
+          state.seriesGallery = action.payload;
+        }
+      })
+      .addCase(fetchSeriesGallery.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });

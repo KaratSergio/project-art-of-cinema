@@ -95,3 +95,17 @@ export const fetchSeriesReviews = createAsyncThunk(
     }
   }
 );
+//================SeriesImages=====================
+export const fetchSeriesGallery = createAsyncThunk(
+  'series/fetchSeriesGallery',
+  async ({ id }, { rejectWithValue }) => {
+    try {
+      const response = await instance.get(
+        `tv/${id}/images?language=en-US&include_image_language=en,null`
+      );
+      return response.data;
+    } catch (error) {
+      throw rejectWithValue(error.message);
+    }
+  }
+);

@@ -7,6 +7,7 @@ import { Home } from '../pages/Home/Home';
 import { Series } from '../pages/Series/Series';
 import { SeriesDetails } from '../pages/Series/SeriesDetails/SeriesDetails';
 import { SeriesReviews } from './Series/SeriesReviews/SeriesReviews';
+import { SeriesGallery } from './Series/SeriesGallery/SeriesGallery';
 import { SeriesCast } from './Series/SeriesCast/SeriesCast';
 
 import { Movie } from '../pages/Movie/Movie';
@@ -34,6 +35,7 @@ export const App = () => {
         <Route path="series/:page/:id" element={<SeriesDetails />}>
           <Route path="cast" element={<SeriesCast />} />
           <Route path="reviews" element={<SeriesReviews />} />
+          <Route path="gallery" element={<SeriesGallery />} />
         </Route>
 
         <Route path="*" element={<NoPageFound />} />

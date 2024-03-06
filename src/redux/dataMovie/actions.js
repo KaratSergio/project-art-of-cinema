@@ -103,7 +103,6 @@ export const fetchMovieGallery = createAsyncThunk(
       const response = await instance.get(
         `movie/${id}/images?language=en-US&include_image_language=en,null`
       );
-      console.log('fetchMovieGallery', response.data);
       return response.data;
     } catch (error) {
       throw rejectWithValue(error.message);
