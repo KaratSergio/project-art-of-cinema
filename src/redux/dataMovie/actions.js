@@ -95,3 +95,18 @@ export const fetchMovieReviews = createAsyncThunk(
     }
   }
 );
+//================MovieImages=====================
+export const fetchMovieGallery = createAsyncThunk(
+  'movies/fetchMovieGallery',
+  async ({ id }, { rejectWithValue }) => {
+    try {
+      const response = await instance.get(
+        `movie/${id}/images?language=en-US&include_image_language=en,null`
+      );
+      console.log('fetchMovieGallery', response.data);
+      return response.data;
+    } catch (error) {
+      throw rejectWithValue(error.message);
+    }
+  }
+);

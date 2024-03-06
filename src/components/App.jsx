@@ -12,6 +12,7 @@ import { SeriesCast } from './Series/SeriesCast/SeriesCast';
 import { Movie } from '../pages/Movie/Movie';
 import { MovieDetails } from '../pages/Movie/MovieDetails/MovieDetails';
 import { MovieReviews } from './Movies/MovieReviews/MovieReviews';
+import { MovieGallery } from './Movies/MovieGallery/MovieGallery';
 import { MovieCast } from './Movies/MovieCast/MovieCast';
 
 import { NoPageFound } from '../pages/PageNotFound/PageNotFound';
@@ -26,6 +27,7 @@ export const App = () => {
         <Route path="movie/:page/:id" element={<MovieDetails />}>
           <Route path="cast" element={<MovieCast />} />
           <Route path="reviews" element={<MovieReviews />} />
+          <Route path="gallery" element={<MovieGallery />} />
         </Route>
 
         <Route path="series/:page" element={<Series />} />

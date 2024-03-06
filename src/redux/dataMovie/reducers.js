@@ -3,6 +3,7 @@ import {
   fetchMoviesAsync,
   fetchMovieCredits,
   fetchMovieReviews,
+  fetchMovieGallery,
   searchMovies,
 } from './actions';
 
@@ -14,6 +15,9 @@ export const movieSlice = createSlice({
       cast: [],
     },
     movieReviews: [],
+    movieGallery: {
+      backdrops: [],
+    },
     status: 'idle',
     error: null,
     filter: null,
@@ -79,6 +83,20 @@ export const movieSlice = createSlice({
         state.movieReviews = action.payload.results;
       })
       .addCase(fetchMovieReviews.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+      // Gallery
+      .addCase(fetchMovieGallery.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(fetchMovieGallery.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        if (action.payload) {
+          state.movieGallery = action.payload;
+        }
+      })
+      .addCase(fetchMovieGallery.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });
