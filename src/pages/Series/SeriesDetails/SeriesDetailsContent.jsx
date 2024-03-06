@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { RatingBar } from 'components/RatingBar/RatingBar';
+import { FaUsers, FaComments, FaImages, FaPlay } from 'react-icons/fa';
 
 import scss from './SeriesDetails.module.scss';
 
@@ -51,22 +52,30 @@ export const SeriesDetailsContent = ({
         </div>
         <div className={scss.addInfo}>
           <div className={scss.linkBox}>
-            <Link to="cast" state={{ currentPage }}>
-              Actors
+            <Link className={scss.linkPage} to="cast" state={{ currentPage }}>
+              <FaUsers />
             </Link>
           </div>
           <div className={scss.linkBox}>
-            <Link to="reviews" state={{ currentPage }}>
-              Comments
+            <Link
+              className={scss.linkPage}
+              to="reviews"
+              state={{ currentPage }}
+            >
+              <FaComments />
             </Link>
           </div>
           <div className={scss.linkBox}>
-            <Link to="gallery" state={{ currentPage }}>
-              Gallery
+            <Link
+              className={scss.linkPage}
+              to="gallery"
+              state={{ currentPage }}
+            >
+              <FaImages />
             </Link>
           </div>
           <button className={scss.button} onClick={loadTrailer}>
-            Trailer
+            <FaPlay />
           </button>
         </div>
       </div>
