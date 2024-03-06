@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { RatingBar } from 'components/RatingBar/RatingBar';
-import { FaUsers, FaComments, FaImages, FaPlay } from 'react-icons/fa';
 
 import scss from './MovieDetails.module.scss';
+import { FaUsers, FaComments, FaImages, FaPlay } from 'react-icons/fa';
 
 const PosterImageURL = 'https://image.tmdb.org/t/p/w400';
 

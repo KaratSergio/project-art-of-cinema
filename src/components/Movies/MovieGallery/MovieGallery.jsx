@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // api & selector
@@ -6,26 +6,41 @@ import { fetchMovieGallery } from '../../../redux/dataMovie/actions';
 import { selectMovieGallery } from '../../../redux/dataMovie/selectors';
 
 import scss from './MovieGallery.module.scss';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 export const MovieGallery = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const gallery = useSelector(selectMovieGallery);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    console.log('Effect started');
     dispatch(fetchMovieGallery({ id }));
-    console.log('fetchMovieGallery dispatched');
   }, [dispatch, id]);
 
-  console.log('Gallery:', gallery);
+  const nextSlide = () => {
+    setCurrentSlide(prevSlide =>
+      prevSlide === gallery.length - 1 ? 0 : prevSlide + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(prevSlide =>
+      prevSlide === 0 ? gallery.length - 1 : prevSlide - 1
+    );
+  };
 
   return (
     <section className={scss.container}>
       <h2 className={scss.title}>Gallery</h2>
       <div className={scss.container}>
         {gallery.map((item, index) => (
-          <div key={index} className={scss.galleryList}>
+          <div
+            key={index}
+            className={`${scss.galleryList} ${
+              index === currentSlide ? scss.active : ''
+            }`}
+          >
             <img
               className={scss.galleryImg}
               src={`https://image.tmdb.org/t/p/original${item.file_path}`}
@@ -33,6 +48,12 @@ export const MovieGallery = () => {
             />
           </div>
         ))}
+        <button className={scss.galleryLeftBtn} onClick={prevSlide}>
+          <FaChevronLeft size={32} />
+        </button>
+        <button className={scss.galleryRightBtn} onClick={nextSlide}>
+          <FaChevronRight size={32} />
+        </button>
       </div>
     </section>
   );
