@@ -96,11 +96,11 @@ export const SeriesList = () => {
                       src={`${ImageURL}${singleSeries.poster_path}`}
                       alt={singleSeries.name}
                     />
+                    <div className={scss.seriesPosterTitle}>
+                      <p>{singleSeries.name}</p>
+                    </div>
                   </Link>
                 )}
-                <div className={scss.seriesPosterTitle}>
-                  <p>{singleSeries.name}</p>
-                </div>
               </li>
             ))}
         </ul>
