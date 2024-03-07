@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import scss from './Pagination.module.scss';
 
 export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
@@ -6,13 +6,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const isLastPage = currentPage === totalPages;
 
   const maxPages = Math.min(totalPages, 500);
-  let displayPages = 9; 
-
-  if (window.innerWidth <= 768) {
-    displayPages = 3;
-  } else if (window.innerWidth <= 1050) {
-    displayPages = 6;
-  }
+  const [displayPages, setDisplayPages] = useState(9);
 
   const generatePageNumbers = () => {
     const pageNumbers = [];
@@ -25,6 +19,24 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
     return pageNumbers;
   };
+
+  const handleResize = () => {
+    if (window.innerWidth <= 768) {
+      setDisplayPages(3);
+    } else if (window.innerWidth <= 1050) {
+      setDisplayPages(6);
+    } else {
+      setDisplayPages(9);
+    }
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <div className={scss.container}>
@@ -65,9 +77,7 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         <span>{maxPages}</span>
       ) : (
         <>
-          {currentPage + Math.floor(displayPages / 2) < maxPages && (
-            <span>...</span>
-          )}
+          {currentPage + displayPages < maxPages && <span>...</span>}
           <button
             onClick={() => onPageChange(maxPages)}
             disabled={isLastPage}

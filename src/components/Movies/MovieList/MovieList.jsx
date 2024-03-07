@@ -64,6 +64,19 @@ export const MovieList = () => {
     };
   }, []);
 
+  // Update URL on page change+scroll UP
+  useEffect(() => {
+    window.history.replaceState(
+      {},
+      '',
+      `/project-art-of-cinema/movie/page${currentPage}`
+    );
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, [currentPage]);
+
   return (
     <div className={scss.container}>
       <MovieSearch />
