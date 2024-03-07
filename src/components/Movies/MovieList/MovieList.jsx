@@ -96,11 +96,11 @@ export const MovieList = () => {
                       src={`${ImageURL}${movie.poster_path}`}
                       alt={movie.title}
                     />
+                    <div className={scss.moviePosterTitle}>
+                      <p>{movie.title}</p>
+                    </div>
                   </Link>
                 )}
-                <div className={scss.moviePosterTitle}>
-                  <p>{movie.title}</p>
-                </div>
               </li>
             ))}
         </ul>

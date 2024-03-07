@@ -24,25 +24,35 @@ $text-color: bisque;
   justify-content: center;
 }
 .movieItem {
+  position: relative;
   width: 150px;
-  height: 278px;
+  height: 228px;
   border-radius: 4px;
   background-color: $secondary-color;
 }
 .moviePoster {
   width: 150px;
-  height: 220px;
+  height: 228px;
+  border-radius: 4px;
 }
 .moviePosterTitle {
+  bottom: 0px;
+  position: absolute;
   display: flex;
-  // font-size: 14px;
-  width: 145px;
-  height: 50px;
-  padding: 4px;
-  align-items: center;
+  flex-wrap: wrap;
+  width: 140px;
+  height: 228px;
+  padding: 0 5px 5px;
+  align-items: flex-end;
   justify-content: center;
   text-align: center;
-  color: $text-color;
+  color: #eee;
+  z-index: 10;
+  background: linear-gradient(
+    to top,
+    rgba(17, 17, 17, 0.66) 20%,
+    rgba(17, 17, 17, 0)
+  );
 }
 //==========================================
 @media screen and (min-width: 768px) {
@@ -58,5 +68,14 @@ $text-color: bisque;
   .container {
     max-width: 1060px;
     min-width: 1060px;
+  }
+  .moviePoster {
+    width: 160px;
+  }
+  .moviePosterTitle {
+    width: 150px;
+  }
+  .movieGallery {
+    gap: 18px 28px;
   }
 }
