@@ -51,11 +51,15 @@
 .galleryRightBtn {
   right: 10px;
 }
+.noImages {
+  margin-top: 20px;
+  color: bisque;
+}
 //==========================================
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
-    margin-top: 15px;
+    margin-top: 22px;
   }
   .galleryImg {
     max-width: 740px;
@@ -68,6 +72,9 @@
     left: 45%;
     font-size: 14px;
     width: 100px;
+  }
+  .noImages {
+    margin-top: 40px;
   }
 }
 //==========================================

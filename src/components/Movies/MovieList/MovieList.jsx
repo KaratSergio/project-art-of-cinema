@@ -77,32 +77,33 @@ export const MovieList = () => {
     });
   }, [currentPage]);
 
+  const filteredMovies = movies.filter(movie => movie.poster_path);
+
   return (
     <div className={scss.container}>
       <MovieSearch />
       <h1 className={scss.movieTitle}>Movies</h1>
       <div>
         <ul className={scss.movieGallery}>
-          {movies &&
-            movies.slice(0, itemsPerPage).map(movie => (
-              <li className={scss.movieItem} key={movie.id}>
-                {movie.poster_path && (
-                  <Link
-                    to={`/movie/page${currentPage}/${movie.id}`}
-                    state={{ currentPage }}
-                  >
-                    <img
-                      className={scss.moviePoster}
-                      src={`${ImageURL}${movie.poster_path}`}
-                      alt={movie.title}
-                    />
-                    <div className={scss.moviePosterTitle}>
-                      <p>{movie.title}</p>
-                    </div>
-                  </Link>
-                )}
-              </li>
-            ))}
+          {filteredMovies.slice(0, itemsPerPage).map(movie => (
+            <li className={scss.movieItem} key={movie.id}>
+              {movie.poster_path && (
+                <Link
+                  to={`/movie/page${currentPage}/${movie.id}`}
+                  state={{ currentPage }}
+                >
+                  <img
+                    className={scss.moviePoster}
+                    src={`${ImageURL}${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                  <div className={scss.moviePosterTitle}>
+                    <p>{movie.title}</p>
+                  </div>
+                </Link>
+              )}
+            </li>
+          ))}
         </ul>
       </div>
       {totalPages > 1 && (

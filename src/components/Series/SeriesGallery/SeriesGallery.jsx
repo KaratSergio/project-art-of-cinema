@@ -32,6 +32,10 @@ export const SeriesGallery = () => {
     );
   };
 
+  if (totalSlides === 0) {
+    return <p className={scss.noImages}>No Images</p>;
+  }
+
   return (
     <section className={scss.container}>
       <h2 className={scss.title}>Gallery</h2>

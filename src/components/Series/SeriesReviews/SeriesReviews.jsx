@@ -25,7 +25,7 @@ export const SeriesReviews = () => {
       >
         {reviews && reviews.length === 0 ? (
           <div className={scss.noReviewSms}>
-            <p>No reviews for this show</p>
+            <p>No reviews!</p>
           </div>
         ) : (
           reviews.map(({ author, content, id }) => (

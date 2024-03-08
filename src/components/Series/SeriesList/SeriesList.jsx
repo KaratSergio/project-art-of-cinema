@@ -77,32 +77,33 @@ export const SeriesList = () => {
     });
   }, [currentPage]);
 
+  const filteredSeries = series.filter(series => series.poster_path);
+
   return (
     <div className={scss.container}>
       <SeriesSearch />
       <h1 className={scss.seriesTitle}>Series</h1>
       <div>
         <ul className={scss.seriesGallery}>
-          {series &&
-            series.slice(0, itemsPerPage).map(singleSeries => (
-              <li className={scss.seriesItem} key={singleSeries.id}>
-                {singleSeries.poster_path && (
-                  <Link
-                    to={`/series/page${currentPage}/${singleSeries.id}`}
-                    state={{ currentPage }}
-                  >
-                    <img
-                      className={scss.seriesPoster}
-                      src={`${ImageURL}${singleSeries.poster_path}`}
-                      alt={singleSeries.name}
-                    />
-                    <div className={scss.seriesPosterTitle}>
-                      <p>{singleSeries.name}</p>
-                    </div>
-                  </Link>
-                )}
-              </li>
-            ))}
+          {filteredSeries.slice(0, itemsPerPage).map(singleSeries => (
+            <li className={scss.seriesItem} key={singleSeries.id}>
+              {singleSeries.poster_path && (
+                <Link
+                  to={`/series/page${currentPage}/${singleSeries.id}`}
+                  state={{ currentPage }}
+                >
+                  <img
+                    className={scss.seriesPoster}
+                    src={`${ImageURL}${singleSeries.poster_path}`}
+                    alt={singleSeries.name}
+                  />
+                  <div className={scss.seriesPosterTitle}>
+                    <p>{singleSeries.name}</p>
+                  </div>
+                </Link>
+              )}
+            </li>
+          ))}
         </ul>
       </div>
       {totalPages > 1 && (
