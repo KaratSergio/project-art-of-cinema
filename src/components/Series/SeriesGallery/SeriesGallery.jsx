@@ -18,6 +18,8 @@ export const SeriesGallery = () => {
     dispatch(fetchSeriesGallery({ id }));
   }, [dispatch, id]);
 
+  const totalSlides = gallery.length;
+
   const nextSlide = () => {
     setCurrentSlide(prevSlide =>
       prevSlide === gallery.length - 1 ? 0 : prevSlide + 1
@@ -34,6 +36,9 @@ export const SeriesGallery = () => {
     <section className={scss.container}>
       <h2 className={scss.title}>Gallery</h2>
       <div className={scss.container}>
+        <p className={scss.counterImg}>
+          {currentSlide + 1} of {totalSlides}
+        </p>
         {gallery.map((item, index) => (
           <div
             key={index}

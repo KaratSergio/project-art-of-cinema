@@ -5,30 +5,32 @@ $border-color: bisque;
 $background-color: rgba($primary-color, 0.5);
 
 .container {
-    margin-top: 50px;
-    padding: 10px;
-    color: $text-color;
-    background-color: $background-color;
+  width: 100%;
+  max-width: 335px;
+  margin-top: 50px;
+  padding: 10px;
+  color: $text-color;
+  background-color: $background-color;
 }
 .commentsWrapper {
-  max-height: 300px; 
-  overflow-y: auto; 
+  max-height: 300px;
+  overflow-y: auto;
 }
 .commentsWrapper::-webkit-scrollbar {
-  width: 8px; 
+  width: 8px;
 }
 .commentsWrapper::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
 .commentsWrapper::-webkit-scrollbar-thumb {
-  background: #888; 
-  border-radius: 6px; 
+  background: #888;
+  border-radius: 6px;
 }
 .commentsWrapper::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 .commentsWrapper.hasReviews {
-  overflow-y: hidden; 
+  overflow-y: hidden;
 }
 .commentBox {
   margin: 10px;
@@ -49,6 +51,17 @@ $background-color: rgba($primary-color, 0.5);
   letter-spacing: 0.04em;
 }
 .noReviewSms {
-  color: white;
-  font-weight: bold;
+  color: bisque;
+}
+//==========================================
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+//==========================================
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1060px;
+  }
 }

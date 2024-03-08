@@ -45,6 +45,14 @@ $background-color: rgba($primary-color, 0.5);
 .actorRole {
   border-bottom-right-radius: 8px;
 }
+.textSms {
+  text-align: center;
+  background-color: $primary-color;
+  color: $text-color;
+  padding: 10px;
+  width: 260px;
+  margin: auto;
+}
 //==========================================
 @media screen and (min-width: 768px) {
   .slickList {

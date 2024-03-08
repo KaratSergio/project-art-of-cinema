@@ -57,6 +57,14 @@ $background-color: rgba($primary-color, 0.5);
 .actorCard {
   position: relative;
 }
+.textSms {
+  text-align: center;
+  background-color: $primary-color;
+  color: $text-color;
+  padding: 10px;
+  width: 260px;
+  margin: auto;
+}
 //==========================================
 @media screen and (min-width: 768px) {
   .slickList {
