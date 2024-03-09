@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // Slider react-slick
 import Slider from 'react-slick';
@@ -31,19 +31,21 @@ export const MovieCast = () => {
           {credits.map(
             ({ profile_path, name, character, id }) =>
               profile_path && (
-                <div key={id} className={scss.slickSlide}>
-                  <img
-                    src={`${baseURL}${profile_path}`}
-                    alt={name}
-                    className={scss.actorImage}
-                  />
-                  <div className={scss.actorInfo}>
-                    <p className={scss.actorName}>{name}</p>
-                    <p className={scss.actorRole}>
-                      Role: {character ? character : 'minor'}
-                    </p>
+                <Link to={`/actor/${id}`} key={id}>
+                  <div className={scss.slickSlide}>
+                    <img
+                      src={`${baseURL}${profile_path}`}
+                      alt={name}
+                      className={scss.actorImage}
+                    />
+                    <div className={scss.actorInfo}>
+                      <p className={scss.actorName}>{name}</p>
+                      <p className={scss.actorRole}>
+                        Role: {character ? character : 'minor'}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               )
           )}
         </Slider>
