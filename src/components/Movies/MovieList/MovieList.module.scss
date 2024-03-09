@@ -26,13 +26,13 @@ $text-color: bisque;
 .movieItem {
   position: relative;
   width: 150px;
-  height: 225px;
+  height: 228px;
   border-radius: 4px;
   background-color: $secondary-color;
 }
 .moviePoster {
   width: 150px;
-  height: 225px;
+  height: 228px;
   border-radius: 4px;
 }
 .moviePosterTitle {
@@ -55,6 +55,37 @@ $text-color: bisque;
     rgba(17, 17, 17, 0.918) 5%,
     rgba(17, 17, 17, 0)
   );
+
+  &::before {
+    content: '';
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+    &::after {
+      content: '';
+      background: url('../../../img/play.png') no-repeat center center;
+      background-size: 80px 80px;
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 11;
+    }
+  }
 }
 //==========================================
 @media screen and (min-width: 768px) {
@@ -68,8 +99,14 @@ $text-color: bisque;
 //==========================================
 @media screen and (min-width: 1440px) {
   .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     max-width: 1060px;
     min-width: 1060px;
+  }
+  .movieItem {
+    width: 160px;
   }
   .moviePoster {
     width: 160px;
@@ -78,6 +115,6 @@ $text-color: bisque;
     width: 149px;
   }
   .movieGallery {
-    gap: 18px 28px;
+    gap: 18px 12px;
   }
 }
