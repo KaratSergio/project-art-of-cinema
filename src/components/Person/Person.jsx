@@ -26,21 +26,24 @@ export const Person = () => {
       {person && (
         <div className={scss.container}>
           <div className={scss.profile}>
-            <div>
+            <div className={scss.photoBox}>
               <img
+                className={scss.photo}
                 src={`https://image.tmdb.org/t/p/w200${person.profile_path}`}
                 alt={person.name}
               />
-              <Link
-                to={
-                  previousPageId ? `/movie/page1/${previousPageId}/cast` : '/'
-                }
-              >
-                X
-              </Link>
             </div>
             <div className={scss.details}>
-              <h2>{person.name}</h2>
+              <div className={scss.title}>
+                <h2>{person.name}</h2>
+                <Link
+                  to={
+                    previousPageId ? `/movie/page1/${previousPageId}/cast` : '/'
+                  }
+                >
+                  X
+                </Link>
+              </div>
               <p>Birthday: {person.birthday}</p>
               <p>Place of Birth: {person.place_of_birth}</p>
               <p className={scss.biography}>Biography: {person.biography}</p>

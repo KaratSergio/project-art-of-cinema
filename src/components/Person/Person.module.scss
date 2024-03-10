@@ -8,12 +8,25 @@
 }
 .profile {
   display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 .details {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.photoBox {
+  display: flex;
+  justify-content: center;
+}
+// .photo {
+//   border: 40px 60px solid #323232;
+// }
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .biography {
   max-height: 200px;
@@ -35,6 +48,15 @@
 @media screen and (min-width: 768px) {
   .container {
     max-width: 700px;
+  }
+  .profile {
+    flex-direction: row;
+  }
+  // .details {
+
+  // }
+  .photoBox {
+    display: block;
   }
 }
 //==========================================
