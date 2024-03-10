@@ -19,31 +19,33 @@ export const Person = () => {
   console.log('Person data:', person);
 
   return (
-    <div className={scss.container}>
+    <section className={scss.container}>
       {person && (
-        <>
+        <div className={scss.container}>
           <div className={scss.profile}>
-            <img
-              src={`https://image.tmdb.org/t/p/w200${person.profile_path}`}
-              alt={person.name}
-            />
+            <div>
+              <img
+                src={`https://image.tmdb.org/t/p/w200${person.profile_path}`}
+                alt={person.name}
+              />
+            </div>
             <div className={scss.details}>
               <h2>{person.name}</h2>
               <p>Birthday: {person.birthday}</p>
               <p>Place of Birth: {person.place_of_birth}</p>
-              <p>Biography: {person.biography}</p>
+              <p className={scss.biography}>Biography: {person.biography}</p>
             </div>
           </div>
-          <div className={scss.alsoKnownAs}>
+          {/* <div className={scss.alsoKnownAs}>
             <h3>Also Known As</h3>
             <ul>
               {person.also_known_as.map((name, index) => (
                 <li key={index}>{name}</li>
               ))}
             </ul>
-          </div>
-        </>
+          </div> */}
+        </div>
       )}
-    </div>
+    </section>
   );
 };
