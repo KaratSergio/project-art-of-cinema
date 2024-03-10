@@ -13,14 +13,14 @@ import { selectMovieCredits } from '../../../redux/dataMovie/selectors';
 import scss from './MovieCast.module.scss';
 
 export const MovieCast = () => {
-  const { id } = useParams();
+  const { id: movieId } = useParams(); //  movieId
   const dispatch = useDispatch();
   const credits = useSelector(selectMovieCredits);
   const baseURL = 'https://image.tmdb.org/t/p/w200';
 
   useEffect(() => {
-    dispatch(fetchMovieCredits({ id }));
-  }, [dispatch, id]);
+    dispatch(fetchMovieCredits({ id: movieId })); //  movieId запит к API
+  }, [dispatch, movieId]);
 
   return (
     <div className={scss.slickList}>
@@ -31,7 +31,11 @@ export const MovieCast = () => {
           {credits.map(
             ({ profile_path, name, character, id }) =>
               profile_path && (
-                <Link to={`/actor/${id}`} key={id}>
+                <Link
+                  to={`/actor/${id}`}
+                  key={id}
+                  state={{ previousPageId: movieId }} // Передаемо movieId як previousPageId
+                >
                   <div className={scss.slickSlide}>
                     <img
                       src={`${baseURL}${profile_path}`}

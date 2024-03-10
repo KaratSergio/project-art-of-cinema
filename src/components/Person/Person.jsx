@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchPersonAsync } from '../../redux/dataPerson/actions';
@@ -10,7 +10,10 @@ import scss from './Person.module.scss';
 export const Person = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const location = useLocation();
   const person = useSelector(selectPerson);
+
+  const previousPageId = location.state?.previousPageId;
 
   useEffect(() => {
     dispatch(fetchPersonAsync({ id }));
@@ -19,7 +22,7 @@ export const Person = () => {
   console.log('Person data:', person);
 
   return (
-    <section className={scss.container}>
+    <section>
       {person && (
         <div className={scss.container}>
           <div className={scss.profile}>
@@ -28,6 +31,13 @@ export const Person = () => {
                 src={`https://image.tmdb.org/t/p/w200${person.profile_path}`}
                 alt={person.name}
               />
+              <Link
+                to={
+                  previousPageId ? `/movie/page1/${previousPageId}/cast` : '/'
+                }
+              >
+                X
+              </Link>
             </div>
             <div className={scss.details}>
               <h2>{person.name}</h2>
@@ -36,14 +46,6 @@ export const Person = () => {
               <p className={scss.biography}>Biography: {person.biography}</p>
             </div>
           </div>
-          {/* <div className={scss.alsoKnownAs}>
-            <h3>Also Known As</h3>
-            <ul>
-              {person.also_known_as.map((name, index) => (
-                <li key={index}>{name}</li>
-              ))}
-            </ul>
-          </div> */}
         </div>
       )}
     </section>
