@@ -15,7 +15,9 @@ import { MovieDetails } from '../pages/Movie/MovieDetails/MovieDetails';
 import { MovieReviews } from './Movies/MovieReviews/MovieReviews';
 import { MovieGallery } from './Movies/MovieGallery/MovieGallery';
 import { MovieCast } from './Movies/MovieCast/MovieCast';
+
 import { Person } from './Person/Person';
+import { PersonCredits } from './Person/PersonCredits/PersonCredits';
 
 import { NoPageFound } from '../pages/PageNotFound/PageNotFound';
 
@@ -32,7 +34,9 @@ export const App = () => {
           <Route path="gallery" element={<MovieGallery />} />
         </Route>
 
-        <Route path="actor/:id" element={<Person />} />
+        <Route path="actor/:id" element={<Person />}>
+          <Route path="credits" element={<PersonCredits />} />
+        </Route>
 
         <Route path="series/:page" element={<Series />} />
         <Route path="series/:page/:id" element={<SeriesDetails />}>

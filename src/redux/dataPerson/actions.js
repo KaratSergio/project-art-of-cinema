@@ -30,3 +30,20 @@ export const fetchPersonAsync = createAsyncThunk(
     }
   }
 );
+//================PersonCredits=======================
+export const fetchPersonCredits = createAsyncThunk(
+  'credits/fetchPersonCredits',
+  async ({ id }, { rejectWithValue }) => {
+    try {
+      const endpoint = `person/${id}/combined_credits`;
+      const response = await instance.get(endpoint);
+      console.log('combined credits:', response.data);
+      return response.data;
+    } catch (error) {
+      if (!error.response) {
+        throw error;
+      }
+      return rejectWithValue(error.response.data);
+    }
+  }
+);

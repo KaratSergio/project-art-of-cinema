@@ -6,6 +6,7 @@ import { fetchPersonAsync } from '../../redux/dataPerson/actions';
 import { selectPerson } from '../../redux/dataPerson/selectors';
 
 import scss from './Person.module.scss';
+import { PersonCredits } from './PersonCredits/PersonCredits';
 
 export const Person = () => {
   const { id } = useParams();
@@ -51,6 +52,7 @@ export const Person = () => {
           </div>
         </div>
       )}
+      <PersonCredits />
     </section>
   );
 };
