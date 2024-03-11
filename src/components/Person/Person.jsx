@@ -45,9 +45,15 @@ export const Person = () => {
                   X
                 </Link>
               </div>
-              <p>Birthday: {person.birthday}</p>
-              <p>Place of Birth: {person.place_of_birth}</p>
-              <p className={scss.biography}>Biography: {person.biography}</p>
+              <p>Birthday: {person.birthday || 'was born on one fine day'}</p>
+              <p>
+                Place of Birth: {person.place_of_birth || 'on planet earth'}
+              </p>
+              <p className={scss.biography}>
+                Biography:{' '}
+                {person.biography ||
+                  'Talent and innate charisma helped to quickly break into the world of cinema. The first roles in small films provided an opportunity to showcase acting skills. With each new project, popularity grew, leading to more offers from leading directors and producers. Outside of the film work, actively engages in charitable initiatives and works on projects aimed at supporting children with special needs. Leaves an unforgettable mark in the world of art and continues to inspire the younger generation of actors with their example and talent.'}
+              </p>
             </div>
           </div>
         </div>

@@ -18,21 +18,26 @@ export const PersonCredits = () => {
 
   return (
     <div className={scss.container}>
-      <h2>films with the actor</h2>
+      <h2 className={scss.title}>films with the actor</h2>
       <ul className={scss.listFilm}>
-        {cast.map((cast, index) => (
-          <li key={index}>
-            <img
-              className={scss.posterFilm}
-              src={`https://image.tmdb.org/t/p/w200${cast.poster_path}`}
-              alt={cast.title}
-            />
-            <div className={scss.description}>
-              <h3>{cast.title}</h3>
-              <p>{cast.character}</p>
-            </div>
-          </li>
-        ))}
+        {cast.map((cast, id) => {
+          if (!cast.poster_path) {
+            return null; // не рендеремомо картки без постеру
+          }
+          return (
+            <li key={id}>
+              <img
+                className={scss.posterFilm}
+                src={`https://image.tmdb.org/t/p/w200${cast.poster_path}`}
+                alt={cast.title}
+              />
+              <div className={scss.description}>
+                <h3>{cast.title}</h3>
+                <p>{cast.character}</p>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
