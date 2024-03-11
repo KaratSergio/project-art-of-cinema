@@ -5,7 +5,9 @@ export const personSlice = createSlice({
   name: 'person',
   initialState: {
     person: null,
-    cast: [],
+    credits: {
+      cast: [],
+    },
     status: 'idle',
     error: null,
     filter: null,
@@ -42,7 +44,7 @@ export const personSlice = createSlice({
       .addCase(fetchPersonCredits.fulfilled, (state, action) => {
         state.status = 'succeeded';
         if (action.payload) {
-          state.cast = action.payload;
+          state.credits = action.payload;
         }
       })
       .addCase(fetchPersonCredits.rejected, (state, action) => {
