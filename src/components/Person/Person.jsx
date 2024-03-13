@@ -7,6 +7,7 @@ import { selectPerson } from '../../redux/dataPerson/selectors';
 
 import scss from './Person.module.scss';
 import { PersonCredits } from './PersonCredits/PersonCredits';
+import { Footer } from '../Footer/Footer';
 
 export const Person = () => {
   const { id } = useParams();
@@ -23,7 +24,7 @@ export const Person = () => {
   console.log('Person data:', person);
 
   return (
-    <section>
+    <section className={scss.sectionPerson}>
       {person && (
         <div className={scss.container}>
           <div className={scss.profile}>
@@ -59,6 +60,7 @@ export const Person = () => {
         </div>
       )}
       <PersonCredits />
+      <Footer />
     </section>
   );
 };

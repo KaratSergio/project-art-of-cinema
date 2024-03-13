@@ -1,13 +1,12 @@
 .container {
-  max-width: 320px;
+  max-width: 340px;
   text-align: center;
   color: bisque;
-  padding: 20px 10px;
 }
 .title {
   font-family: Anta;
   letter-spacing: 0.2em;
-  padding-bottom: 10px;
+  padding: 10px 0px;
 }
 .listFilm {
   display: flex;
@@ -23,9 +22,20 @@
   height: 80px;
 }
 .posterFilm {
-  width: 200px;
-  height: 300px;
+  width: 152px;
+  height: 220px;
 }
+
+.slickSlide {
+  display: flex !important;
+  justify-content: center;
+  flex-direction: column;
+  position: relative !important;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 5px 5px;
+}
+
 //==========================================
 @media screen and (min-width: 768px) {
   .container {
