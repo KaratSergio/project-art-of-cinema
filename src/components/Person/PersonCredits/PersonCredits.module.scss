@@ -24,6 +24,9 @@
 .posterFilm {
   width: 152px;
   height: 220px;
+  border-left: 4px double rgb(197, 223, 197);
+  border-top-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .slickSlide {
@@ -46,6 +49,5 @@
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 980px;
-    margin-top: 20px;
   }
 }

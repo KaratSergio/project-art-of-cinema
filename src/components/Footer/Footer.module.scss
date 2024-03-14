@@ -8,7 +8,8 @@ $text-color: bisque;
   display: flex;
   justify-content: space-between;
   background-color: $primary-color;
-  border-radius: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   margin-top: 30px;
 }
 .footerContent {

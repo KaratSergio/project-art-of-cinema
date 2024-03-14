@@ -69,7 +69,7 @@ export const SeriesList = () => {
     window.history.replaceState(
       {},
       '',
-      `/project-art-of-cinema/movie/page${currentPage}`
+      `/project-art-of-cinema/series/page${currentPage}`
     );
     window.scrollTo({
       top: 0,

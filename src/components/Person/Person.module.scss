@@ -14,6 +14,8 @@
   justify-content: center;
   align-items: center;
   background-color: #33333570;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .profile {
   display: flex;
@@ -85,6 +87,5 @@
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 980px;
-    margin-top: 30px;
   }
 }
