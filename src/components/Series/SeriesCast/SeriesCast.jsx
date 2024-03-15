@@ -37,16 +37,18 @@ export const SeriesCast = () => {
               profile_path && (
                 <Link to={`/actor/${id}`} key={id}>
                   <div className={scss.slickSlide}>
-                    <img
-                      src={`${baseURL}${profile_path}`}
-                      alt={name}
-                      className={scss.actorImage}
-                    />
-                    <div className={scss.actorInfo}>
-                      <p className={scss.actorName}>{name}</p>
-                      <p className={scss.actorRole}>
-                        Role: {character ? character : 'minor'}
-                      </p>
+                    <div className={scss.actorBox}>
+                      <img
+                        src={`${baseURL}${profile_path}`}
+                        alt={name}
+                        className={scss.actorImage}
+                      />
+                      <div className={scss.actorInfo}>
+                        <p className={scss.actorName}>{name}</p>
+                        <p className={scss.actorRole}>
+                          Role: {character ? character : 'minor'}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </Link>
@@ -67,20 +69,27 @@ export const SeriesCast = () => {
               profile_path && (
                 <Link to={`/actor/${id}`} key={id}>
                   <div className={scss.actorCard}>
-                    <img
-                      src={`${baseURL}${profile_path}`}
-                      alt={name}
-                      className={scss.actorImage}
-                    />
-                    <div className={scss.actorInfo}>
-                      <p className={scss.actorName}>{name}</p>
-                      <p className={scss.actorRole}>
-                        Role: {character ? character : 'minor'}
-                      </p>
+                    <div className={scss.actorBox}>
+                      <img
+                        src={`${baseURL}${profile_path}`}
+                        alt={name}
+                        className={scss.actorImage}
+                      />
+                      <div className={scss.actorInfo}>
+                        <p className={scss.actorName}>{name}</p>
+                        <p className={scss.actorRole}>
+                          Role: {character ? character : 'minor'}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </Link>
               )
+          )}
+          {isOddCards && (
+            <div className={scss.actorCard}>
+              <div className={scss.actorImagePlaceholder} />
+            </div>
           )}
         </div>
       )}

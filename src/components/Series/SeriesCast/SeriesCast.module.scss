@@ -15,12 +15,16 @@ $background-color: rgba($primary-color, 0.5);
   align-items: center;
   margin-bottom: 10px;
 }
+.actorBox {
+  background-color: #6da4c0;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
 .actorImage {
   width: 145px;
   height: 210px;
   border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+  border-bottom-left-radius: 110px;
 }
 .actorInfo {
   position: absolute;
@@ -81,6 +85,9 @@ $background-color: rgba($primary-color, 0.5);
   .actorImage,
   .actorInfo {
     width: 140px;
+  }
+  .actorImage {
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
   }
   .actorName,
   .actorRole {

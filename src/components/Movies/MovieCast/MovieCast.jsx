@@ -41,16 +41,18 @@ export const MovieCast = () => {
                   state={{ previousPageId: movieId }} // Передаемо movieId як previousPageId
                 >
                   <div className={scss.slickSlide}>
-                    <img
-                      src={`${baseURL}${profile_path}`}
-                      alt={name}
-                      className={scss.actorImage}
-                    />
-                    <div className={scss.actorInfo}>
-                      <p className={scss.actorName}>{name}</p>
-                      <p className={scss.actorRole}>
-                        Role: {character ? character : 'minor'}
-                      </p>
+                    <div className={scss.actorBox}>
+                      <img
+                        src={`${baseURL}${profile_path}`}
+                        alt={name}
+                        className={scss.actorImage}
+                      />
+                      <div className={scss.actorInfo}>
+                        <p className={scss.actorName}>{name}</p>
+                        <p className={scss.actorRole}>
+                          Role: {character ? character : 'minor'}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </Link>
@@ -75,16 +77,18 @@ export const MovieCast = () => {
                   state={{ previousPageId: movieId }} // Передаемо movieId як previousPageId
                 >
                   <div className={scss.actorCard}>
-                    <img
-                      src={`${baseURL}${profile_path}`}
-                      alt={name}
-                      className={scss.actorImage}
-                    />
-                    <div className={scss.actorInfo}>
-                      <p className={scss.actorName}>{name}</p>
-                      <p className={scss.actorRole}>
-                        Role: {character ? character : 'minor'}
-                      </p>
+                    <div className={scss.actorBox}>
+                      <img
+                        src={`${baseURL}${profile_path}`}
+                        alt={name}
+                        className={scss.actorImage}
+                      />
+                      <div className={scss.actorInfo}>
+                        <p className={scss.actorName}>{name}</p>
+                        <p className={scss.actorRole}>
+                          Role: {character ? character : 'minor'}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </Link>
