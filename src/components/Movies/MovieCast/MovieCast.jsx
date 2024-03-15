@@ -22,11 +22,15 @@ export const MovieCast = () => {
     dispatch(fetchMovieCredits({ id: movieId })); //  movieId запит к API
   }, [dispatch, movieId]);
 
+  const shouldRenderSlider = credits.length > sliderSettings.slidesToShow;
+
+  const isOddCards = credits.length % 2 !== 0;
+
   return (
     <div className={scss.slickList}>
       {credits.length === 0 ? (
         <p className={scss.textSms}>No credits available for this movie</p>
-      ) : (
+      ) : shouldRenderSlider ? (
         <Slider {...sliderSettings}>
           {credits.map(
             ({ profile_path, name, character, id }) =>
@@ -52,7 +56,46 @@ export const MovieCast = () => {
                 </Link>
               )
           )}
+          {isOddCards && (
+            <div className={scss.slickSlide}>
+              <div className={scss.actorCard}>
+                <div className={scss.actorImagePlaceholder} />
+              </div>
+            </div>
+          )}
         </Slider>
+      ) : (
+        <div className={scss.actorList}>
+          {credits.map(
+            ({ profile_path, name, character, id }) =>
+              profile_path && (
+                <Link
+                  to={`/actor/${id}`}
+                  key={id}
+                  state={{ previousPageId: movieId }} // Передаемо movieId як previousPageId
+                >
+                  <div className={scss.actorCard}>
+                    <img
+                      src={`${baseURL}${profile_path}`}
+                      alt={name}
+                      className={scss.actorImage}
+                    />
+                    <div className={scss.actorInfo}>
+                      <p className={scss.actorName}>{name}</p>
+                      <p className={scss.actorRole}>
+                        Role: {character ? character : 'minor'}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              )
+          )}
+          {isOddCards && (
+            <div className={scss.actorCard}>
+              <div className={scss.actorImagePlaceholder} />
+            </div>
+          )}
+        </div>
       )}
     </div>
   );

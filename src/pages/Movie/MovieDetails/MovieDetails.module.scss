@@ -11,6 +11,10 @@ $background-color: rgba(69, 78, 83, 0.6);
   background-position: center;
   border-radius: $border-radius;
 
+  .linkBox {
+    border: 1px dashed rgba(244, 241, 241, 0.5);
+  }
+
   .linkBox,
   .button {
     width: 35px;

@@ -20,9 +20,11 @@ $background-color: rgba($primary-color, 0.5);
   height: 210px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
 }
 .actorInfo {
   position: absolute;
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,6 +38,7 @@ $background-color: rgba($primary-color, 0.5);
   color: $text-color;
   background-color: $primary-color;
   border-bottom-left-radius: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 .actorName {
   font-size: 14px;
@@ -48,6 +51,26 @@ $background-color: rgba($primary-color, 0.5);
   padding: 10px;
   width: 260px;
   margin: auto;
+}
+//if slider off
+.actorList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.actorCard {
+  position: relative;
+}
+
+.actorImagePlaceholder {
+  width: 150px;
+  height: 210px;
+  background-size: cover;
+  background-position: center 20px;
+  background-repeat: no-repeat;
+  background-image: url('../../../img/actor.png');
 }
 //==========================================
 @media screen and (min-width: 768px) {
