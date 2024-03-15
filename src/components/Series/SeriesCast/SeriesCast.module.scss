@@ -1,4 +1,4 @@
-$primary-color: #6da4c09d;
+$primary-color: #33333570;
 $text-color: bisque;
 $border-radius: 8px;
 $background-color: rgba($primary-color, 0.5);
@@ -16,7 +16,7 @@ $background-color: rgba($primary-color, 0.5);
   margin-bottom: 10px;
 }
 .actorBox {
-  background-color: #6da4c0;
+  background-color: #333335a8;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
@@ -87,7 +87,7 @@ $background-color: rgba($primary-color, 0.5);
     width: 140px;
   }
   .actorImage {
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+    box-shadow: 2px 6px 6px rgba(255, 255, 255, 0.7);
   }
   .actorName,
   .actorRole {
