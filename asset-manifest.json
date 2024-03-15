@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/project-art-of-cinema/static/css/main.7fd9061c.css",
-    "main.js": "/project-art-of-cinema/static/js/main.bff6b86d.js",
+    "main.css": "/project-art-of-cinema/static/css/main.6396941a.css",
+    "main.js": "/project-art-of-cinema/static/js/main.2e848ca3.js",
     "static/media/Anta-Regular.woff": "/project-art-of-cinema/static/media/Anta-Regular.f66b801d9b999d65ba6a.woff",
     "static/media/Figtree-Bold.woff": "/project-art-of-cinema/static/media/Figtree-Bold.8d654f39a106adc02542.woff",
     "static/media/Figtree-SemiBold.woff": "/project-art-of-cinema/static/media/Figtree-SemiBold.7c5e507bdc8e32a4da76.woff",
     "static/media/Figtree-Regular.woff": "/project-art-of-cinema/static/media/Figtree-Regular.6be45cad980d80a74814.woff",
     "static/media/Figtree-Medium.woff": "/project-art-of-cinema/static/media/Figtree-Medium.071a058714e806535f76.woff",
     "static/media/Anta-Regular.woff2": "/project-art-of-cinema/static/media/Anta-Regular.2cf4421266e0b83497f2.woff2",
+    "static/media/actor.png": "/project-art-of-cinema/static/media/actor.bea8a29aaf7eba63a6c9.png",
     "static/media/Figtree-SemiBold.woff2": "/project-art-of-cinema/static/media/Figtree-SemiBold.1ddd8b7165481f6e1693.woff2",
     "static/media/Figtree-Bold.woff2": "/project-art-of-cinema/static/media/Figtree-Bold.ddcda11da9d7d56402ad.woff2",
     "static/media/Figtree-Medium.woff2": "/project-art-of-cinema/static/media/Figtree-Medium.8a8134c09f4b5f524d62.woff2",
@@ -18,11 +19,11 @@
     "static/media/slick.ttf": "/project-art-of-cinema/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/project-art-of-cinema/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/project-art-of-cinema/index.html",
-    "main.7fd9061c.css.map": "/project-art-of-cinema/static/css/main.7fd9061c.css.map",
-    "main.bff6b86d.js.map": "/project-art-of-cinema/static/js/main.bff6b86d.js.map"
+    "main.6396941a.css.map": "/project-art-of-cinema/static/css/main.6396941a.css.map",
+    "main.2e848ca3.js.map": "/project-art-of-cinema/static/js/main.2e848ca3.js.map"
   },
   "entrypoints": [
-    "static/css/main.7fd9061c.css",
-    "static/js/main.bff6b86d.js"
+    "static/css/main.6396941a.css",
+    "static/js/main.2e848ca3.js"
   ]
 }
