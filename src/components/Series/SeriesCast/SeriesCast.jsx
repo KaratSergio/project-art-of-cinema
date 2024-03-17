@@ -28,6 +28,7 @@ export const SeriesCast = () => {
 
   return (
     <div className={scss.slickList}>
+      <h2 className={scss.title}>Actors</h2>
       {credits.length === 0 ? (
         <p className={scss.textSms}>No credits available</p>
       ) : shouldRenderSlider ? (

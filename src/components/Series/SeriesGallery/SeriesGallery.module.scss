@@ -19,7 +19,10 @@
 }
 
 .title {
-  display: none;
+  text-align: center;
+  font-size: 20px;
+  color: bisque;
+  margin-bottom: 5px;
 }
 
 .galleryList {
@@ -33,6 +36,8 @@
 .galleryImg {
   width: 100%;
   max-width: 375px;
+  border-top-left-radius: 60px;
+  border-bottom-right-radius: 60px;
 }
 
 .galleryLeftBtn,
@@ -59,7 +64,9 @@
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
-    margin-top: 22px;
+  }
+  .title {
+    margin-top: 20px;
   }
   .galleryImg {
     max-width: 740px;

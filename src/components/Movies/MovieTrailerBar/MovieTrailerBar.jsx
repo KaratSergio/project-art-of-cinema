@@ -13,8 +13,6 @@ export const MovieTrailerBar = () => {
   const dispatch = useDispatch();
   const { movies } = useSelector(selectMovies);
   const [loading, setLoading] = useState(false);
-  const [currentPage] = useState(1);
-  const [query] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const slidesToShow = 3;
   const IMG_URL = 'https://image.tmdb.org/t/p/w400';
@@ -36,13 +34,7 @@ export const MovieTrailerBar = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        await dispatch(
-          fetchMoviesAsync({
-            endpoint: 'trending/movie/day',
-            currentPage,
-            query,
-          })
-        );
+        await dispatch(fetchMoviesAsync({ endpoint: 'trending/movie/day' }));
       } catch (error) {
         console.error('Error fetching movies:', error);
       } finally {
@@ -51,16 +43,19 @@ export const MovieTrailerBar = () => {
     };
 
     fetchData();
-  }, [dispatch, currentPage, query]);
+  }, [dispatch]);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000); // Автопрокрутка каждые 5 секунд
-    return () => clearInterval(interval); // Очистка интервала при размонтировании компонента
+    const interval = setInterval(nextSlide, 5000);
+    return () => clearInterval(interval);
   }, [nextSlide]);
 
   const handleLoadTrailer = async movie => {
     await loadTrailer(dispatch, movie, setTrailerKey, setIsModalOpen);
   };
+
+  // Склеюємо слайди, щоб отримати циклічний ефект
+  const mergedMovies = [...movies, ...movies.slice(0, slidesToShow)];
 
   return (
     <div className={scss.container}>
@@ -68,20 +63,26 @@ export const MovieTrailerBar = () => {
         <div>Loading...</div>
       ) : (
         <div className={scss.slider}>
+          <h2 className={scss.title}>Trending movies</h2>
           <div className={scss.slideContainer}>
-            {[...movies.slice(currentIndex), ...movies.slice(0, currentIndex)]
-              .slice(0, slidesToShow)
+            {mergedMovies
+              .slice(currentIndex, currentIndex + slidesToShow)
               .map(movie => (
                 <div key={movie.id} className={scss.slide}>
                   <div
                     className={scss.overlay}
                     onClick={() => handleLoadTrailer(movie)}
                   >
-                    <img
-                      className={scss.slideImg}
-                      src={`${IMG_URL}${movie.backdrop_path}`}
-                      alt={movie.title}
-                    />
+                    <div className={scss.boxSlideImg}>
+                      <img
+                        className={scss.slideImg}
+                        src={`${IMG_URL}${movie.backdrop_path}`}
+                        alt={movie.title}
+                      />
+                      <h3 className={scss.titleMovie}>
+                        {movie.title} ({movie.release_date.slice(0, 4)})
+                      </h3>
+                    </div>
                     <div className={scss.playIcon}></div>
                   </div>
                 </div>

@@ -38,19 +38,39 @@
   background-size: 80px 80px;
 }
 .slideContainer {
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   overflow-x: hidden;
   width: 300px;
+  border-top: dashed 6px bisque;
+  border-bottom: dashed 6px bisque;
+  padding: 14px 0;
+  transition: transform 5s ease;
 }
 .slide {
   flex: 0 0 auto;
 }
-
+.boxSlideImg {
+  position: relative;
+}
 .slideImg {
   width: 300px;
   border-radius: 18px;
   transition: transform 0.3s ease;
+}
+.title {
+  margin-top: 20px;
+  text-align: center;
+}
+.titleMovie {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  color: bisque;
+  background-color: #11111176;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 16px;
 }
 .navBtn {
   margin-top: 20px;
