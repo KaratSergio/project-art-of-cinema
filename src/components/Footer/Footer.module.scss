@@ -4,7 +4,7 @@ $text-color: bisque;
 .footer {
   position: static;
   width: 100%;
-  max-width: 367px;
+  max-width: 360px;
   display: flex;
   justify-content: space-between;
   background-color: $primary-color;
@@ -13,7 +13,6 @@ $text-color: bisque;
   margin-top: 30px;
   box-shadow: inset 2px 2px 16px #111;
   border: 4px double bisque;
-  border-bottom: none;
 }
 .footerContent {
   display: flex;
