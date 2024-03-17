@@ -32,10 +32,18 @@ export const Footer = () => {
       <div className={scss.footerNavBox}>
         <div>
           <ul className={scss.navList}>
-            <li>Movies</li>
-            <li>Series</li>
-            <li>Gallery</li>
-            <li>Person</li>
+            <li className={scss.navLink}>
+              <Link to="/movies/page1">Movies</Link>
+            </li>
+            <li className={scss.navLink}>
+              <Link to="/series/page1">Series</Link>
+            </li>
+            <li className={scss.navLink}>
+              <Link to="/gallery">Gallery</Link>
+            </li>
+            <li className={scss.navLink}>
+              <Link to="/person">Person</Link>
+            </li>
           </ul>
         </div>
         <div className={scss.logoBox}>

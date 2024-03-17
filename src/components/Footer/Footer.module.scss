@@ -4,13 +4,16 @@ $text-color: bisque;
 .footer {
   position: static;
   width: 100%;
-  max-width: 375px;
+  max-width: 367px;
   display: flex;
   justify-content: space-between;
   background-color: $primary-color;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   margin-top: 30px;
+  box-shadow: inset 2px 2px 16px #111;
+  border: 4px double bisque;
+  border-bottom: none;
 }
 .footerContent {
   display: flex;
@@ -65,10 +68,17 @@ $text-color: bisque;
 .footerNavBox {
   display: none;
 }
+.navLink {
+  text-shadow: 0px 0px 5px rgba(20, 220, 220, 0.914);
+}
+.navLink:hover,
+.navLink:focus {
+  color: #fdfcfc80;
+}
 //=======================================
 @media screen and (min-width: 768px) {
   .footer {
-    max-width: 768px;
+    max-width: 760px;
   }
   .footerNavBox {
     display: flex;
@@ -90,6 +100,6 @@ $text-color: bisque;
 //=======================================
 @media screen and (min-width: 1440px) {
   .footer {
-    max-width: 1060px;
+    max-width: 1052px;
   }
 }
