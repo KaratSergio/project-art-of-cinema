@@ -80,7 +80,7 @@ export const MovieTrailerBar = () => {
                         alt={movie.title}
                       />
                       <h3 className={scss.titleMovie}>
-                        {movie.title.toLowerCase()} (
+                        {movie.title ? movie.title.toLowerCase() : ''} (
                         {movie.release_date
                           ? movie.release_date.slice(0, 4)
                           : ''}

@@ -12,7 +12,12 @@ $text-color: bisque;
   border-top-right-radius: 8px;
   margin-top: 30px;
   box-shadow: inset 2px 2px 16px #111;
-  border: 4px double bisque;
+  border: 4px double rgba(255, 228, 196, 0.6);
+  background-image: url('../../img/lenta.png');
+  background-size: contain;
+  background-position: center;
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
 }
 .footerContent {
   display: flex;
@@ -78,6 +83,8 @@ $text-color: bisque;
 @media screen and (min-width: 768px) {
   .footer {
     max-width: 760px;
+    background-image: url('../../img/string.png');
+    background-blend-mode: screen;
   }
   .footerNavBox {
     display: flex;
@@ -95,10 +102,18 @@ $text-color: bisque;
     flex-wrap: wrap;
     gap: 16px;
   }
+  .logo {
+    display: none;
+  }
 }
 //=======================================
 @media screen and (min-width: 1440px) {
   .footer {
     max-width: 1052px;
+    background-image: url('../../img/camera.png');
+    background-position: 50px center;
+  }
+  .logo {
+    display: inherit;
   }
 }

@@ -17,9 +17,13 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: $border-radius;
   box-shadow: $box-shadow;
   margin-top: 15px;
-  padding: 10px 0 5px;
+  padding: 10px 0 4px;
   box-shadow: inset 2px 2px 16px #111;
-  border: 4px double bisque;
+  border: 4px double rgba(255, 228, 196, 0.6);
+  background-image: url('../../img/string.png');
+  background-size: contain;
+  background-position: center;
+  background-blend-mode: multiply;
 }
 .navBox {
   width: 100%;
@@ -29,8 +33,9 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
 }
 .logo {
-  height: 50px;
-  width: 70px;
+  height: 47px;
+  width: 50px;
+  margin-right: 10px;
 }
 .logoBox {
   display: flex;
@@ -47,6 +52,8 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: 60px;
     max-width: 760px;
     padding: 0;
+    background-image: url('../../img/star.png');
+    background-size: 700px;
   }
   .navBox {
     max-width: 768px;
@@ -60,6 +67,7 @@ $box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   .container {
     margin: 200px auto;
     max-width: 1052px;
+    background-size: cover;
   }
   .navBox {
     max-width: 1020px;

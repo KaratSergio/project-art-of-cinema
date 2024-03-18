@@ -15,7 +15,7 @@
       height: 2px;
       border-radius: 10px;
       position: absolute;
-      background-color: #333;
+      background-color: bisque;
       transition: all 0.3s ease;
 
       &:first-child {
@@ -55,7 +55,7 @@
   top: -14px;
   right: -5px;
   height: 51px;
-  
+
   width: 355px;
   border-radius: 8px;
   overflow-x: hidden;
@@ -73,12 +73,12 @@
     height: 51px;
     gap: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
+
     .menuItem {
       padding: 10px;
       color: #333;
       text-decoration: none;
-  
+
       &:hover {
         background-color: #ddd;
         border-radius: 50px;
