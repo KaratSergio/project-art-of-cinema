@@ -39,7 +39,7 @@ export const SeriesGallery = () => {
   return (
     <section className={scss.container}>
       <h2 className={scss.title}>Gallery</h2>
-      <div className={scss.container}>
+      <div>
         <p className={scss.counterImg}>
           {currentSlide + 1} of {totalSlides}
         </p>
@@ -58,10 +58,10 @@ export const SeriesGallery = () => {
           </div>
         ))}
         <button className={scss.galleryLeftBtn} onClick={prevSlide}>
-          <FaChevronLeft size={32} />
+          <FaChevronLeft className={scss.icon} />
         </button>
         <button className={scss.galleryRightBtn} onClick={nextSlide}>
-          <FaChevronRight size={32} />
+          <FaChevronRight className={scss.icon} />
         </button>
       </div>
     </section>
