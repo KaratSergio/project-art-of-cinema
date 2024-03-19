@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logotype from '../../img/logo.jpg';
+import Logotype from '../../img/camera.png';
 import scss from './Footer.module.scss';
 
 export const Footer = () => {

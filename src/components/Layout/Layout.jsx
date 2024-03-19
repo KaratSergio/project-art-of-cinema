@@ -4,7 +4,7 @@ import { Outlet, Link } from 'react-router-dom';
 import { Navigation } from '../Navigation/Navigation';
 
 import scss from './Layout.module.scss';
-import Logotype from '../../img/kaset.png';
+import Logotype from '../../img/logo.jpg';
 
 export const Layout = () => {
   return (
