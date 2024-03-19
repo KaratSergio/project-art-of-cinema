@@ -16,13 +16,13 @@
 .overlay::after {
   content: '';
   position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 94%;
-  height: 90%;
+  top: 45px;
+  left: 8px;
+  width: 96%;
+  height: 65%;
   opacity: 0;
   border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(5, 5, 5, 0.5);
   transition: opacity 0.3s ease;
 }
 .overlay:hover::after {
@@ -39,26 +39,30 @@
   background-size: 80px 80px;
 }
 .slideContainer {
-  margin-top: 10px;
   display: flex;
   overflow-x: hidden;
   width: 320px;
-  border-top: dashed 8px rgb(105, 93, 78);
-  border-bottom: dashed 8px rgb(105, 93, 78);
-  padding: 14px 0;
-  transition: transform 5s ease;
+  transition: transform 1s ease;
 }
 .slide {
   flex: 0 0 auto;
 }
 .boxSlideImg {
+  width: 318px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  background-color: rgb(105, 93, 78);
+  background-image: url('../../../img/kadr.png');
+  background-size: 312px 246px;
+  background-position: center;
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
 }
 .slideImg {
   width: 300px;
-  border-radius: 18px;
-  border: 10px solid rgb(105, 93, 78);
+  border-radius: 8px;
   transition: transform 0.3s ease;
 }
 .title {
@@ -66,14 +70,14 @@
   text-align: center;
   color: bisque;
   font-weight: 400;
-  font-style: italic;
   letter-spacing: 0.1em;
+  font-size: 16px;
 }
 .titleMovie {
   position: absolute;
   width: 80%;
-  left: 10px;
-  bottom: 10px;
+  left: 8px;
+  bottom: 45px;
   color: bisque;
   background: linear-gradient(to right, #111111, rgba(17, 17, 17, 0));
   padding: 2px 6px;
@@ -83,7 +87,6 @@
   text-shadow: 1px 0px 3px #161616;
 }
 .navBtn {
-  margin-top: 20px;
   .prevButton {
     width: 100px;
     border-bottom-left-radius: 30px;
@@ -100,7 +103,6 @@
     border: none;
     color: white;
     padding: 4px 8px;
-    text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
@@ -121,10 +123,16 @@
     max-width: 640px;
   }
   .slideContainer {
-    width: 640px;
+    width: 624px;
   }
   .slide {
     flex: 0 0 50%;
+  }
+  .boxSlideImg {
+    width: 312px;
+  }
+  .titleMovie {
+    left: 6px;
   }
 }
 //=======================================
@@ -136,6 +144,9 @@
     width: 960px;
   }
   .slide {
-    flex: 0 0 33.333%;
+    flex: 0 0 20%;
+  }
+  .boxSlideImg {
+    width: 312px;
   }
 }

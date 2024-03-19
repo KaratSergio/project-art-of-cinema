@@ -46,7 +46,7 @@ export const MovieTrailerBar = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 8000);
     return () => clearInterval(interval);
   }, [nextSlide]);
 
@@ -63,7 +63,31 @@ export const MovieTrailerBar = () => {
         <div>Loading...</div>
       ) : (
         <div className={scss.slider}>
-          <h2 className={scss.title}>Trending movies</h2>
+          <h2 className={scss.title}>
+            {[...Array(5)].map((_, index) => (
+              <span
+                key={index}
+                style={{
+                  fontSize: `${14 + index * 2}px`,
+                  color: 'rgb(123, 122, 121)',
+                }}
+              >
+                &#9733;
+              </span>
+            ))}
+            Trending movies
+            {[...Array(5)].map((_, index) => (
+              <span
+                key={index}
+                style={{
+                  fontSize: `${22 - index * 2}px`,
+                  color: 'rgb(123, 122, 121)',
+                }}
+              >
+                &#9733;
+              </span>
+            ))}
+          </h2>
           <div className={scss.slideContainer}>
             {mergedMovies
               .slice(currentIndex, currentIndex + slidesToShow)
@@ -79,13 +103,14 @@ export const MovieTrailerBar = () => {
                         src={`${IMG_URL}${movie.backdrop_path}`}
                         alt={movie.title}
                       />
-                      <h3 className={scss.titleMovie}>
-                        {movie.title ? movie.title.toLowerCase() : ''} (
-                        {movie.release_date
-                          ? movie.release_date.slice(0, 4)
-                          : ''}
-                        )
-                      </h3>
+                      {movie.title && movie.release_date ? (
+                        <h3 className={scss.titleMovie}>
+                          {movie.title.toLowerCase()} (
+                          {movie.release_date.slice(0, 4)})
+                        </h3>
+                      ) : (
+                        <h3 className={scss.titleMovie}>Loading...</h3>
+                      )}
                     </div>
                     <div className={scss.playIcon}></div>
                   </div>
@@ -96,10 +121,24 @@ export const MovieTrailerBar = () => {
       )}
       <div className={scss.navBtn}>
         <button className={scss.prevButton} onClick={prevSlide}>
-          Prev
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M3 12l18-12v24z" fill="currentColor" />
+          </svg>
         </button>
         <button className={scss.nextButton} onClick={nextSlide}>
-          Next
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M21 12l-18 12v-24z" fill="currentColor" />
+          </svg>
         </button>
       </div>
       {isModalOpen && (
