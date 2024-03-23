@@ -20,7 +20,6 @@ export const fetchPersonAsync = createAsyncThunk(
     try {
       const endpoint = `person/${id}`;
       const response = await instance.get(endpoint);
-      console.log('Received person data:', response.data);
       return response.data;
     } catch (error) {
       if (!error.response) {
@@ -37,7 +36,6 @@ export const fetchPersonCredits = createAsyncThunk(
     try {
       const endpoint = `person/${id}/combined_credits`;
       const response = await instance.get(endpoint);
-      console.log('combined credits:', response.data);
       return response.data;
     } catch (error) {
       if (!error.response) {

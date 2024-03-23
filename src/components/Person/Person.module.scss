@@ -31,14 +31,13 @@
 .photoBox {
   display: flex;
   justify-content: center;
-  background-image: radial-gradient(
-    circle at center,
-    rgba(155, 154, 154, 0.243) 60%,
-    rgba(51, 51, 51, 0) 70%
-  );
+  background-image: url('../../img/ramka.png');
+  background-size: 310px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .photo {
-  border: 1px solid #484747;
+  border: 8px solid #000;
 }
 .title {
   display: flex;
@@ -70,22 +69,23 @@
   .profile {
     flex-direction: row;
     align-items: center;
+    max-width: 100%;
   }
   .photoBox {
-    padding-left: 6px;
-    background-image: none;
+    width: 320px;
   }
   .details {
     padding: 10px 12px 10px 0px;
     height: 300px;
-  }
-  .photoBox {
-    display: block;
+    width: 320px;
   }
 }
 //==========================================
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 980px;
+  }
+  .details {
+    width: 674px;
   }
 }

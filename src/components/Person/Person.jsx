@@ -21,8 +21,6 @@ export const Person = () => {
     dispatch(fetchPersonAsync({ id }));
   }, [dispatch, id]);
 
-  console.log('Person data:', person);
-
   return (
     <section className={scss.sectionPerson}>
       {person && (
