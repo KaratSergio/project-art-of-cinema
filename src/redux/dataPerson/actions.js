@@ -29,6 +29,7 @@ export const fetchPersonAsync = createAsyncThunk(
     }
   }
 );
+
 //================PersonCredits=======================
 export const fetchPersonCredits = createAsyncThunk(
   'credits/fetchPersonCredits',
@@ -37,6 +38,26 @@ export const fetchPersonCredits = createAsyncThunk(
       const endpoint = `person/${id}/combined_credits`;
       const response = await instance.get(endpoint);
       return response.data;
+    } catch (error) {
+      if (!error.response) {
+        throw error;
+      }
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+//================TrendingPerson=======================
+export const fetchTrendingPersonAsync = createAsyncThunk(
+  'trending/fetchTrendingPerson',
+  async (_, { rejectWithValue }) => {
+    try {
+      const endpoint = 'trending/person/week';
+      const response = await instance.get(endpoint);
+
+      console.log('Trending Persons Response:', response.data.results);
+
+      return response.data.results;
     } catch (error) {
       if (!error.response) {
         throw error;

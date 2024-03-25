@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchPersonAsync, fetchPersonCredits } from './actions';
+import {
+  fetchPersonAsync,
+  fetchPersonCredits,
+  fetchTrendingPersonAsync,
+} from './actions';
 
 export const personSlice = createSlice({
   name: 'person',
@@ -8,6 +12,7 @@ export const personSlice = createSlice({
     credits: {
       cast: [],
     },
+    trendingPersons: [],
     status: 'idle',
     error: null,
     filter: null,
@@ -48,6 +53,18 @@ export const personSlice = createSlice({
         }
       })
       .addCase(fetchPersonCredits.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+      // TrendingPerson
+      .addCase(fetchTrendingPersonAsync.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(fetchTrendingPersonAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.trendingPersons = action.payload;
+      })
+      .addCase(fetchTrendingPersonAsync.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });
