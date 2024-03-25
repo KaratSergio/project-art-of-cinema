@@ -1,3 +1,9 @@
+$primary-color: #33333570;
+$secondary-color: #000;
+$scrollbar-thumb-color: #888;
+$scrollbar-track-color: #eee;
+$text-color: bisque;
+
 .sectionPerson {
   display: flex;
   justify-content: center;
@@ -9,25 +15,28 @@
   width: 100%;
   padding: 10px;
   max-width: 320px;
-  color: bisque;
+  color: $text-color;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #33333570;
+  background-color: $primary-color;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
+
 .profile {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 .details {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 10px 12px 10px 10px;
 }
+
 .photoBox {
   display: flex;
   justify-content: center;
@@ -36,55 +45,65 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .photo {
-  border: 8px solid #000;
+  border: 8px solid $secondary-color;
 }
+
 .title {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .biography {
   max-height: 200px;
   overflow-y: auto;
   padding-right: 10px;
+
+  /* WebKit (Chrome, Safari, Opera) */
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-thumb-color;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $scrollbar-track-color;
+    border-radius: 5px;
+  }
 }
-/* WebKit (Chrome, Safari, Opera) */
-.biography::-webkit-scrollbar {
-  width: 10px;
-}
-.biography::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 5px;
-}
-.biography::-webkit-scrollbar-track {
-  background-color: #eee;
-  border-radius: 5px;
-}
-//==========================================
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 700px;
   }
+
   .profile {
     flex-direction: row;
     align-items: center;
     max-width: 100%;
   }
+
   .photoBox {
     width: 320px;
   }
+
   .details {
     padding: 10px 12px 10px 0px;
     height: 300px;
     width: 320px;
   }
 }
-//==========================================
+
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 980px;
   }
+
   .details {
     width: 674px;
   }
