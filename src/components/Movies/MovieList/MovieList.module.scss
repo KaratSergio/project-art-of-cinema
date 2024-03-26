@@ -1,6 +1,7 @@
 $primary-color: #111;
 $secondary-color: #1c1b1b;
 $text-color: bisque;
+$play-button-background: url('../../../img/play.png') no-repeat center center;
 
 .container {
   display: flex;
@@ -11,11 +12,13 @@ $text-color: bisque;
   max-width: 320px;
   height: 100%;
 }
+
 .movieTitle {
   font-size: 14px;
   text-align: center;
   color: $primary-color;
 }
+
 .movieGallery {
   display: flex;
   gap: 7px 7px;
@@ -23,6 +26,7 @@ $text-color: bisque;
   align-items: center;
   justify-content: center;
 }
+
 .movieItem {
   position: relative;
   width: 150px;
@@ -30,11 +34,13 @@ $text-color: bisque;
   border-radius: 4px;
   background-color: $secondary-color;
 }
+
 .moviePoster {
   width: 150px;
   height: 228px;
   border-radius: 4px;
 }
+
 .moviePosterTitle {
   border: 1px solid #5b5b5b;
   border-radius: 4px;
@@ -75,7 +81,7 @@ $text-color: bisque;
     }
     &::after {
       content: '';
-      background: url('../../../img/play.png') no-repeat center center;
+      background: $play-button-background;
       background-size: 80px 80px;
       width: 150px;
       height: 150px;
@@ -87,6 +93,7 @@ $text-color: bisque;
     }
   }
 }
+
 //==========================================
 @media screen and (min-width: 768px) {
   .container {
@@ -96,6 +103,7 @@ $text-color: bisque;
     gap: 18px 10px;
   }
 }
+
 //==========================================
 @media screen and (min-width: 1440px) {
   .container {
@@ -103,7 +111,6 @@ $text-color: bisque;
     align-items: center;
     justify-content: center;
     max-width: 1060px;
-    min-width: 1060px;
   }
   .movieItem {
     width: 160px;

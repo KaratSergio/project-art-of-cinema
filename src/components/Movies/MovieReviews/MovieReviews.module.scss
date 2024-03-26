@@ -3,6 +3,13 @@ $secondary-color: #467288;
 $text-color: rgb(234, 240, 240);
 $border-color: bisque;
 $background-color: rgba($primary-color, 0.5);
+$scrollbar-background-color: #f1f1f1;
+$scrollbar-thumb-color: #888;
+$scrollbar-thumb-hover-color: #555;
+$author-box-background-color: rgba($secondary-color, 0.6);
+$content-box-background-color: rgba($primary-color, 0.62);
+$no-review-text-color: bisque;
+$title-color: rgba(255, 228, 196, 0.7);
 
 .container {
   width: 100%;
@@ -12,66 +19,80 @@ $background-color: rgba($primary-color, 0.5);
   color: $text-color;
   background-color: $background-color;
 }
+
 .title {
   text-align: center;
   font-size: 16px;
-  color: rgba(255, 228, 196, 0.7);
+  color: $title-color;
   font-weight: 400;
   letter-spacing: 0.1em;
   margin-top: 10px;
   margin-bottom: 5px;
 }
+
 .commentsWrapper {
   max-height: 300px;
   overflow-y: auto;
 }
+
 .commentsWrapper::-webkit-scrollbar {
   width: 8px;
 }
+
 .commentsWrapper::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: $scrollbar-background-color;
 }
+
 .commentsWrapper::-webkit-scrollbar-thumb {
-  background: #888;
+  background: $scrollbar-thumb-color;
   border-radius: 6px;
 }
+
 .commentsWrapper::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: $scrollbar-thumb-hover-color;
 }
+
 .commentsWrapper.hasReviews {
   overflow-y: hidden;
 }
+
 .commentBox {
   margin: 10px;
 }
+
 .authorBox {
-  background-color: rgba($secondary-color, 0.6);
+  background-color: $author-box-background-color;
   padding: 8px;
   width: max-content;
   border-top-right-radius: 10px;
   border: 1px solid $border-color;
 }
+
 .contentBox {
-  background-color: rgba($primary-color, 0.62);
+  background-color: $content-box-background-color;
   padding: 6px 10px;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   border: 1px solid $border-color;
   letter-spacing: 0.04em;
 }
+
 .noReviewSms {
-  color: bisque;
+  color: $no-review-text-color;
   text-align: center;
 }
+
 //==========================================
 @media screen and (min-width: 768px) {
   .container {
     max-width: 700px;
   }
+
   .title {
     margin-top: 20px;
   }
 }
+
 //==========================================
 @media screen and (min-width: 1440px) {
   .container {
