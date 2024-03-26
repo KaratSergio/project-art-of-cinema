@@ -7,14 +7,17 @@ export const Footer = () => {
   return (
     <footer className={scss.footer}>
       <div className={scss.footerContent}>
-        <p>Millions of movies, TV shows and people to discover. Explore now.</p>
-        <p>
-          Cinema turns out to be the first artistic medium that can show how
-          matter plays along with man.
-          <br /> © Walter Benjamin
-        </p>
+        <div className={scss.footerContentText}>
+          <p>
+            Millions of movies, TV shows and people to discover. Explore now.
+          </p>
+          <p>
+            Cinema turns out to be the first artistic medium that can show how
+            matter plays along with man.
+            <br /> © Walter Benjamin
+          </p>
+        </div>
         <div>
-          <p>based on API The Movie Data Base</p>
           <div className={scss.byApi}>
             <p>© 2024 KaratSergio.</p>
             <a
@@ -45,6 +48,9 @@ export const Footer = () => {
               <Link to="/person">Person</Link>
             </li>
           </ul>
+          <p className={scss.navText}>
+            “Change one thing, everything changes” Butterfly effect
+          </p>
         </div>
         <div className={scss.logoBox}>
           <Link to="/" className={scss.logoText}>

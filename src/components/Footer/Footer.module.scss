@@ -6,6 +6,7 @@ $text-color: bisque;
   width: 100%;
   max-width: 360px;
   display: flex;
+  flex-direction: column-reverse;
   justify-content: space-between;
   background-color: $primary-color;
   border-top-left-radius: 8px;
@@ -21,21 +22,24 @@ $text-color: bisque;
 .footerContent {
   display: flex;
   width: 100%;
-  max-width: 375px;
+  max-width: 320px;
   color: bisque;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-start;
   height: 200px;
   padding: 20px;
 }
+.footerContentText {
+  display: none;
+}
 .logoBox {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
 .logo {
-  height: 140px;
+  height: 160px;
   width: 180px;
 }
 .logoText {
@@ -49,6 +53,7 @@ $text-color: bisque;
   justify-content: center;
   align-items: center;
   margin-top: 8px;
+  color: #7a7979;
 }
 .tmdb {
   display: flex;
@@ -56,7 +61,7 @@ $text-color: bisque;
   align-items: center;
   font-size: 24px;
   font-weight: bold;
-  color: bisque;
+  color: #111;
   margin-left: 10px;
   text-shadow: 0px 0px 5px rgba(20, 220, 220, 0.914);
 }
@@ -65,11 +70,25 @@ $text-color: bisque;
   width: 60px;
   height: 25px;
   border-radius: 50px;
-  background-color: bisque;
+  background-color: #111;
   box-shadow: inset 0px 0px 5px rgba(20, 220, 220, 0.914);
 }
 .footerNavBox {
-  display: none;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .navList {
+    font-family: Anta;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.1em;
+  }
+  .navText {
+    width: 300px;
+    margin-top: 8px;
+  }
 }
 .navLink {
   text-shadow: 0px 0px 5px rgba(20, 220, 220, 0.914);
@@ -81,24 +100,29 @@ $text-color: bisque;
 //=======================================
 @media screen and (min-width: 768px) {
   .footer {
+    flex-direction: initial;
     max-width: 760px;
     background-image: none;
   }
-  .footerNavBox {
+  .footerContent {
+    justify-content: space-between;
+    height: 250px;
+  }
+  .footerContentText {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footerNavBox {
+    margin-top: 0;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
     padding: 20px;
     width: 330px;
   }
-  .navList {
-    width: 300px;
-    color: beige;
-    letter-spacing: 0.1em;
+  .logoBox {
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
   }
 }
 //=======================================
@@ -107,6 +131,10 @@ $text-color: bisque;
     max-width: 1052px;
     background-image: url('../../img/lenta.png');
     background-position: 666px 50px;
+  }
+  .footerContent {
+    justify-content: space-between;
+    height: 200px;
   }
   .logo {
     display: none;
