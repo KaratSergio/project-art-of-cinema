@@ -60,6 +60,13 @@ export const Navigation = () => {
           >
             SERIES
           </NavLink>
+          <NavLink
+            to="/person"
+            className={activeMenu === '/person' ? scss.active : ''}
+            onClick={() => handleMenuClick('/person')}
+          >
+            PERSON
+          </NavLink>
         </div>
       )}
     </div>

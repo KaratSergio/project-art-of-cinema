@@ -38,6 +38,13 @@ export const BurgerMenu = ({ isActive, handleToggle }) => {
           >
             SERIES
           </NavLink>
+          <NavLink
+            to="/person"
+            className={scss.menuItem}
+            onClick={handleToggle}
+          >
+            PERSON
+          </NavLink>
         </div>
       )}
     </div>
