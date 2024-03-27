@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/project-art-of-cinema/static/css/main.80c3def5.css",
-    "main.js": "/project-art-of-cinema/static/js/main.65714e2e.js",
+    "main.css": "/project-art-of-cinema/static/css/main.84e3623d.css",
+    "main.js": "/project-art-of-cinema/static/js/main.7fa921e6.js",
+    "static/media/notFound.png": "/project-art-of-cinema/static/media/notFound.d27e6c68b00fe2d5f609.png",
     "static/media/lenta.png": "/project-art-of-cinema/static/media/lenta.4aa1ca5751e2fcc80d46.png",
     "static/media/camera.png": "/project-art-of-cinema/static/media/camera.40eb4990470ff52734a5.png",
     "static/media/ramka.png": "/project-art-of-cinema/static/media/ramka.7a5043fc93da0200f59c.png",
@@ -17,16 +18,17 @@
     "static/media/Figtree-Medium.woff2": "/project-art-of-cinema/static/media/Figtree-Medium.8a8134c09f4b5f524d62.woff2",
     "static/media/Figtree-Regular.woff2": "/project-art-of-cinema/static/media/Figtree-Regular.68a1ac8bf49f17b77878.woff2",
     "static/media/play.png": "/project-art-of-cinema/static/media/play.dbb3d818ae8ab1b1a5d5.png",
+    "static/media/person-star.png": "/project-art-of-cinema/static/media/person-star.e860f4ac23646fdf903c.png",
     "static/media/slick.svg": "/project-art-of-cinema/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/project-art-of-cinema/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/project-art-of-cinema/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/project-art-of-cinema/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/project-art-of-cinema/index.html",
-    "main.80c3def5.css.map": "/project-art-of-cinema/static/css/main.80c3def5.css.map",
-    "main.65714e2e.js.map": "/project-art-of-cinema/static/js/main.65714e2e.js.map"
+    "main.84e3623d.css.map": "/project-art-of-cinema/static/css/main.84e3623d.css.map",
+    "main.7fa921e6.js.map": "/project-art-of-cinema/static/js/main.7fa921e6.js.map"
   },
   "entrypoints": [
-    "static/css/main.80c3def5.css",
-    "static/js/main.65714e2e.js"
+    "static/css/main.84e3623d.css",
+    "static/js/main.7fa921e6.js"
   ]
 }
