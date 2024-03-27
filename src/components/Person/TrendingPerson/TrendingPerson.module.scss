@@ -11,11 +11,10 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px 30px;
+  gap: 2px 1px;
 }
 
 .actorCard {
-  background-color: #eee;
   color: #eee;
   display: inline-block;
   font-size: 16px;
@@ -27,6 +26,14 @@
   text-align: right;
   width: 100%;
   border: 1px solid #222222;
+  border-radius: 8px;
+
+  background-image: url('../../../img/person-star.png');
+  background-color: rgba(239, 233, 119, 0.303);
+  background-size: 100px;
+  background-position: 209px -2px;
+  background-blend-mode: soft-light;
+  background-repeat: repeat-y;
 }
 
 .actorCard *,
@@ -42,11 +49,11 @@
   backface-visibility: hidden;
   max-width: 100%;
   vertical-align: top;
-  filter: sepia(25%);
+  filter: sepia(65%);
 }
 
-.actorCard:before,
-.actorCard:after {
+.actorCard::before,
+.actorCard::after {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -104,21 +111,35 @@
   transform: skew(-30deg) translateX(90%);
 }
 
-.actorCard h3 {
+.actorCard h3,
+.actorCard p {
   margin: 0;
   opacity: 0;
+}
+
+.actorCard h3 {
   font-size: 22px;
   font-weight: 700;
   line-height: 1em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  height: 60px;
+}
+
+.actorCard p {
+  font-size: 0.9em;
+  margin-top: 52px;
+  color: #db9336;
 }
 
 .actorCard:hover h3,
-.actorCard.hover h3 {
+.actorCard.hover h3,
+.actorCard:hover p,
+.actorCard.hover p {
   -webkit-transform: translateY(0);
   transform: translateY(0);
   opacity: 0.9;
+  text-shadow: 1px 3px 2px #222222;
 }
 
 .actorCard:hover:before,

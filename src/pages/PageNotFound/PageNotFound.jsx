@@ -5,9 +5,10 @@ import scss from './PageNotFound.module.scss';
 
 export const NoPageFound = () => {
   return (
-    <section className={scss.container}>
-      <div>
+    <section>
+      <div className={scss.container}>
         <p className={scss.message}>No Page Found</p>
+        <p className={scss.num}>404</p>
       </div>
       <Footer />
     </section>

@@ -1,10 +1,58 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  position: relative;
+  max-width: 335px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+
+  background-image: url('../../img/notFound.png');
+  background-color: rgba(239, 233, 119, 0.139);
+  background-size: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 360px;
+  border: 12px double #111;
+  border-radius: 80px;
 }
-.message{
-    color: bisque;
-    font-size: 46px;
+.message {
+  position: absolute;
+  left: 100px;
+  bottom: 90px;
+  color: bisque;
+  font-family: Anta;
+  font-size: 20px;
+  transform: rotate(-9deg);
+  transform-origin: center center;
+}
+.num {
+  font-size: 160px;
+  color: #1111112b;
+}
+//=========================================
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    height: 400px;
+    background-size: 400px;
+  }
+  .num {
+    font-size: 360px;
+    color: #1111112b;
+  }
+  .message {
+    left: 280px;
+    bottom: 80px;
+    font-size: 26px;
+  }
+}
+//=========================================
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1002px;
+    min-width: 1002px;
+  }
+  .message {
+    left: 430px;
+  }
 }

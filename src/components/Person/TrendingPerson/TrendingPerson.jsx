@@ -47,7 +47,8 @@ export const TrendingPerson = () => {
                 alt={person.name}
               />
               <figcaption>
-                <h3>{person.name}</h3>
+                <h3>&#9733; {person.name}</h3>
+                <p>more details &rarr;</p>
               </figcaption>
             </Link>
           ))}
