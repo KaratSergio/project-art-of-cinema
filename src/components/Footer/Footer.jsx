@@ -38,13 +38,13 @@ export const Footer = () => {
         <div>
           <ul className={scss.navList}>
             <li className={scss.navLink}>
+              <Link to="/">Home</Link>
+            </li>
+            <li className={scss.navLink}>
               <Link to="/movies/page1">Movies</Link>
             </li>
             <li className={scss.navLink}>
               <Link to="/series/page1">Series</Link>
-            </li>
-            <li className={scss.navLink}>
-              <Link to="/gallery">Gallery</Link>
             </li>
             <li className={scss.navLink}>
               <Link to="/person">Person</Link>
