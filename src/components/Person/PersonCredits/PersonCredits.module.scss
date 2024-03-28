@@ -49,6 +49,15 @@ $border-light-color: rgb(197, 223, 197);
   margin-bottom: 10px;
   gap: 5px 5px;
 }
+// dots
+.slickList ul li button::before {
+  content: '';
+  width: 10px;
+  height: 4px;
+  background-color: rgb(245, 245, 245);
+  display: block;
+  margin: 0 auto;
+}
 
 /* Media Queries */
 @media screen and (min-width: 768px) {

@@ -34,7 +34,7 @@ export const PersonCredits = () => {
     <div className={scss.container}>
       <h2 className={scss.title}>Films</h2>
       {filteredCast.length > 0 ? (
-        <Slider {...sliderSettings}>
+        <Slider className={scss.slickList} {...sliderSettings}>
           {filteredCast.map((film, id) => (
             <div key={id} className={scss.slickSlide}>
               <img
