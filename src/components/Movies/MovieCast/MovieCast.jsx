@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // Slider react-slick
 import Slider from 'react-slick';
@@ -13,13 +13,15 @@ import { selectMovieCredits } from '../../../redux/dataMovie/selectors';
 import scss from './MovieCast.module.scss';
 
 export const MovieCast = () => {
-  const { id: movieId } = useParams(); //  movieId
+  const { id: movieId } = useParams(); //  movieID
   const dispatch = useDispatch();
   const credits = useSelector(selectMovieCredits);
   const baseURL = 'https://image.tmdb.org/t/p/w200';
+  const location = useLocation();
+  const previousPath = location.pathname;
 
   useEffect(() => {
-    dispatch(fetchMovieCredits({ id: movieId })); //  movieId запит к API
+    dispatch(fetchMovieCredits({ id: movieId })); //  movieID to API
   }, [dispatch, movieId]);
 
   const shouldRenderSlider = credits.length > sliderSettings.slidesToShow;
@@ -39,7 +41,10 @@ export const MovieCast = () => {
                 <Link
                   to={`/actor/${id}`}
                   key={id}
-                  state={{ previousPageId: movieId }} // Передаемо movieId як previousPageId
+                  state={{
+                    previousPageId: movieId,
+                    previousPath: previousPath,
+                  }} // Передаемо movieID як previousPageId
                 >
                   <div className={scss.slickSlide}>
                     <div className={scss.actorBox}>
@@ -75,7 +80,10 @@ export const MovieCast = () => {
                 <Link
                   to={`/actor/${id}`}
                   key={id}
-                  state={{ previousPageId: movieId }} // Передаемо movieId як previousPageId
+                  state={{
+                    previousPageId: movieId,
+                    previousPath: previousPath,
+                  }} // Передаемо movieId як previousPageId
                 >
                   <div className={scss.actorCard}>
                     <div className={scss.actorBox}>
@@ -105,5 +113,3 @@ export const MovieCast = () => {
     </div>
   );
 };
-
-export default MovieCast;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 import { fetchTrendingPersonAsync } from '../../../redux/dataPerson/actions';
 import { selectTrendingPersons } from '../../../redux/dataPerson/selectors';
@@ -10,12 +10,15 @@ import Footer from '../../Footer/Footer';
 import scss from './TrendingPerson.module.scss';
 
 export const TrendingPerson = () => {
+  const { id: personId } = useParams();
   const dispatch = useDispatch();
   const trendingPersons = useSelector(selectTrendingPersons);
+  const location = useLocation();
+  const previousPath = location.pathname;
 
   useEffect(() => {
     dispatch(fetchTrendingPersonAsync());
-  }, [dispatch]);
+  }, [dispatch, personId]);
 
   const [hoveredCard, setHoveredCard] = useState(null);
 
@@ -27,6 +30,9 @@ export const TrendingPerson = () => {
     setHoveredCard(null);
   };
 
+  console.log('personId:', personId);
+  console.log('previousPath:', previousPath);
+
   return (
     <section>
       <h2 className={scss.title}>Trending Persons</h2>
@@ -34,7 +40,10 @@ export const TrendingPerson = () => {
         {trendingPersons &&
           trendingPersons.map((person, index) => (
             <Link
-              to={`/actor/${person.id}`}
+              to={{
+                pathname: `/actor/${person.id}`,
+                state: { previousPageId: personId, previousPath: previousPath },
+              }}
               className={`${scss.actorCard} ${
                 hoveredCard === index ? scss.hover : ''
               }`}

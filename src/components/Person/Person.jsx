@@ -6,6 +6,7 @@ import { fetchPersonAsync } from '../../redux/dataPerson/actions';
 import { selectPerson } from '../../redux/dataPerson/selectors';
 
 import scss from './Person.module.scss';
+
 import { PersonCredits } from './PersonCredits/PersonCredits';
 import { Footer } from '../Footer/Footer';
 
@@ -16,6 +17,10 @@ export const Person = () => {
   const person = useSelector(selectPerson);
 
   const previousPageId = location.state?.previousPageId;
+  const previousPath = location.state?.previousPath;
+
+  console.log(previousPageId);
+  console.log(previousPath);
 
   useEffect(() => {
     dispatch(fetchPersonAsync({ id }));
@@ -36,13 +41,9 @@ export const Person = () => {
             <div className={scss.details}>
               <div className={scss.title}>
                 <h2>{person.name}</h2>
-                <Link
-                  to={
-                    previousPageId ? `/movie/page1/${previousPageId}/cast` : '/'
-                  }
-                >
-                  X
-                </Link>
+                {previousPageId && previousPath && (
+                  <Link to={previousPath}>&#10006;</Link>
+                )}
               </div>
               <p>Birthday: {person.birthday || 'was born on one fine day'}</p>
               <p>
