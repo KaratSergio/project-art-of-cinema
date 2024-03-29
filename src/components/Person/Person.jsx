@@ -17,7 +17,7 @@ export const Person = () => {
   const person = useSelector(selectPerson);
 
   const previousPageId = location.state?.previousPageId;
-  const previousPath = location.state?.previousPath;
+  const previousPath = location.state?.previousPath || '/person';
 
   console.log(previousPageId);
   console.log(previousPath);
@@ -43,6 +43,9 @@ export const Person = () => {
                 <h2>{person.name}</h2>
                 {previousPageId && previousPath && (
                   <Link to={previousPath}>&#10006;</Link>
+                )}
+                {previousPath === '/person' && (
+                  <Link to={'/person'}>&#10006;</Link>
                 )}
               </div>
               <p>Birthday: {person.birthday || 'was born on one fine day'}</p>

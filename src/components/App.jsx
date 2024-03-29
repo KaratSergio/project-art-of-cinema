@@ -18,7 +18,7 @@ import { MovieCast } from './Movies/MovieCast/MovieCast';
 
 import { Person } from './Person/Person';
 import { PersonCredits } from './Person/PersonCredits/PersonCredits';
-import { TrendingPerson } from './Person/TrendingPerson/TrendingPerson';
+import { PersonTrending } from './Person/PersonTrending/PersonTrending';
 
 import { NoPageFound } from '../pages/PageNotFound/PageNotFound';
 
@@ -35,11 +35,10 @@ export const App = () => {
           <Route path="gallery" element={<MovieGallery />} />
         </Route>
 
-        <Route path="actor/:id" element={<Person />}>
+        <Route path="person" element={<PersonTrending />} />
+        <Route path="person/:id" element={<Person />}>
           <Route path="credits" element={<PersonCredits />} />
         </Route>
-
-        <Route path="person" element={<TrendingPerson />} />
 
         <Route path="series/:page" element={<Series />} />
         <Route path="series/:page/:id" element={<SeriesDetails />}>

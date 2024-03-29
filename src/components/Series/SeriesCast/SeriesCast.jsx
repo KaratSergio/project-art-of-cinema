@@ -39,7 +39,7 @@ export const SeriesCast = () => {
             ({ profile_path, name, character, id }) =>
               profile_path && (
                 <Link
-                  to={`/actor/${id}`}
+                  to={`/person/${id}`}
                   key={id}
                   state={{
                     previousPageId: seriesId,
@@ -78,7 +78,7 @@ export const SeriesCast = () => {
             ({ profile_path, name, character, id }) =>
               profile_path && (
                 <Link
-                  to={`/actor/${id}`}
+                  to={`/person/${id}`}
                   key={id}
                   state={{
                     previousPageId: seriesId,
