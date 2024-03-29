@@ -14,5 +14,3 @@ export const NoPageFound = () => {
     </section>
   );
 };
-
-export default NoPageFound;

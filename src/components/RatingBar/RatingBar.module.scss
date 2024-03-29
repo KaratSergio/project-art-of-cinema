@@ -1,6 +1,7 @@
 $background-color: #ddd;
 $fill-color: #21d4e8ad;
 $text-color: #e5e1e1;
+$accent-text-color: #dddddd86;
 
 .ratingBar {
   position: relative;
@@ -44,6 +45,6 @@ $text-color: #e5e1e1;
   .accentText {
     font-weight: bold;
     letter-spacing: 0.1em;
-    color: #dddddd86;
+    color: $accent-text-color;
   }
 }

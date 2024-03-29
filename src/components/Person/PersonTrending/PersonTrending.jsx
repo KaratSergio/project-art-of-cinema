@@ -5,8 +5,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { fetchTrendingPersonAsync } from '../../../redux/dataPerson/actions';
 import { selectTrendingPersons } from '../../../redux/dataPerson/selectors';
 
-import Footer from '../../Footer/Footer';
-
 import scss from './PersonTrending.module.scss';
 
 export const PersonTrending = () => {
@@ -62,7 +60,6 @@ export const PersonTrending = () => {
             </Link>
           ))}
       </div>
-      <Footer />
     </section>
   );
 };

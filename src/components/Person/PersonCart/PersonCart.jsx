@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchPersonAsync } from '../../redux/dataPerson/actions';
-import { selectPerson } from '../../redux/dataPerson/selectors';
+import { fetchPersonAsync } from '../../../redux/dataPerson/actions';
+import { selectPerson } from '../../../redux/dataPerson/selectors';
 
-import scss from './Person.module.scss';
+import scss from './PersonCart.module.scss';
 
-import { PersonCredits } from './PersonCredits/PersonCredits';
-import { Footer } from '../Footer/Footer';
+import { PersonCredits } from '../PersonCredits/PersonCredits';
+import { Footer } from '../../Footer/Footer';
 
-export const Person = () => {
+export const PersonCart = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const location = useLocation();

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Footer } from '../../components/Footer/Footer';
-import { MovieList } from '../../components/Movies/MovieList/MovieList';
+import { PersonTrending } from '../../components/Person/PersonTrending/PersonTrending';
 
-import scss from './Movie.module.scss';
+import scss from './Person.module.scss';
 
-export const Movie = () => {
+export const Person = () => {
   return (
     <section className={scss.container}>
       <div>
-        <MovieList />
+        <PersonTrending />
       </div>
       <Footer />
     </section>

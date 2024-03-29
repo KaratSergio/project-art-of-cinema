@@ -13,5 +13,3 @@ export const Series = () => {
     </section>
   );
 };
-
-export default Series;

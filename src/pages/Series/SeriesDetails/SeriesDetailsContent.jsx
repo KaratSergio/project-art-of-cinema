@@ -82,5 +82,3 @@ export const SeriesDetailsContent = ({
     </div>
   );
 };
-
-export default SeriesDetailsContent;

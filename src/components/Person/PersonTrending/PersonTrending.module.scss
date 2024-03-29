@@ -1,6 +1,14 @@
+$titleColor: bisque;
+$cardColor: rgba(239, 233, 119, 0.303);
+$cardBackground: #222222;
+$cardShadow: rgba(0, 0, 0, 0.7);
+$cardText: #db9336;
+$cardHoverText: #eee;
+$cardHoverShadow: #222222;
+
 .title {
   text-align: center;
-  color: bisque;
+  color: $titleColor;
   font-weight: 400;
   letter-spacing: 0.1em;
   margin-bottom: 12px;
@@ -15,7 +23,7 @@
 }
 
 .actorCard {
-  color: #eee;
+  color: $cardText;
   display: inline-block;
   font-size: 16px;
   margin: 10px 5px;
@@ -25,11 +33,11 @@
   position: relative;
   text-align: right;
   width: 100%;
-  border: 1px solid #222222;
+  border: 1px solid $cardBackground;
   border-radius: 8px;
 
   background-image: url('../../../img/person-star.png');
-  background-color: rgba(239, 233, 119, 0.303);
+  background-color: $cardColor;
   background-size: 100px;
   background-position: 209px -2px;
   background-blend-mode: soft-light;
@@ -39,9 +47,7 @@
 .actorCard *,
 .actorCard *:before,
 .actorCard *:after {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: all 0.45s ease;
   transition: all 0.45s ease;
 }
 
@@ -62,17 +68,14 @@
   content: '';
   background-color: #179983;
   opacity: 0.5;
-  -webkit-transition: all 0.45s ease;
   transition: all 0.45s ease;
 }
 
 .actorCard:before {
-  -webkit-transform: skew(30deg) translateX(80%);
   transform: skew(30deg) translateX(80%);
 }
 
 .actorCard:after {
-  -webkit-transform: skew(-30deg) translateX(70%);
   transform: skew(-30deg) translateX(70%);
 }
 
@@ -94,20 +97,18 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #3f3c38;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  background-color: $cardBackground;
+  box-shadow: 0 0 20px $cardShadow;
   content: '';
   opacity: 0.5;
   z-index: -1;
 }
 
 .actorCard figcaption:before {
-  -webkit-transform: skew(30deg) translateX(100%);
   transform: skew(30deg) translateX(100%);
 }
 
 .actorCard figcaption:after {
-  -webkit-transform: skew(-30deg) translateX(90%);
   transform: skew(-30deg) translateX(90%);
 }
 
@@ -129,45 +130,37 @@
 .actorCard p {
   font-size: 0.9em;
   margin-top: 52px;
-  color: #db9336;
+  color: $cardText;
 }
 
 .actorCard:hover h3,
 .actorCard.hover h3,
 .actorCard:hover p,
 .actorCard.hover p {
-  -webkit-transform: translateY(0);
   transform: translateY(0);
   opacity: 0.9;
-  text-shadow: 1px 3px 2px #222222;
+  text-shadow: 1px 3px 2px $cardHoverShadow;
 }
 
 .actorCard:hover:before,
 .actorCard.hover:before {
-  -webkit-transform: skew(30deg) translateX(30%);
   transform: skew(30deg) translateX(30%);
-  -webkit-transition-delay: 0.05s;
   transition-delay: 0.05s;
 }
 
 .actorCard:hover:after,
 .actorCard.hover:after {
-  -webkit-transform: skew(-30deg) translateX(20%);
   transform: skew(-30deg) translateX(20%);
 }
 
 .actorCard:hover figcaption:before,
 .actorCard.hover figcaption:before {
-  -webkit-transform: skew(30deg) translateX(50%);
   transform: skew(30deg) translateX(50%);
-  -webkit-transition-delay: 0.15s;
   transition-delay: 0.15s;
 }
 
 .actorCard:hover figcaption:after,
 .actorCard.hover figcaption:after {
-  -webkit-transform: skew(-30deg) translateX(40%);
   transform: skew(-30deg) translateX(40%);
-  -webkit-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
