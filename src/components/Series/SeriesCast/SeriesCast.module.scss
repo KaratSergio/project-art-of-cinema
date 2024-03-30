@@ -2,6 +2,11 @@ $primary-color: #33333570;
 $text-color: bisque;
 $border-radius: 8px;
 $background-color: rgba($primary-color, 0.5);
+$secondary-color: rgba(98, 42, 42, 0.44);
+$tertiary-color: rgba(217, 22, 22, 0.406);
+$shadow-color: rgba(248, 245, 245, 0.7);
+$dot-color: rgb(245, 245, 245);
+$title-color: rgba(255, 228, 196, 0.7);
 
 .slickList {
   width: 320px;
@@ -12,7 +17,7 @@ $background-color: rgba($primary-color, 0.5);
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.1em;
-  color: rgba(255, 228, 196, 0.7);
+  color: $title-color;
   margin-bottom: 5px;
 }
 .slickSlide {
@@ -28,22 +33,21 @@ $background-color: rgba($primary-color, 0.5);
   content: '';
   width: 10px;
   height: 4px;
-  background-color: rgb(245, 245, 245);
+  background-color: $dot-color;
   display: block;
   margin: 0 auto;
 }
 .actorBox {
-  background-color: rgba(217, 22, 22, 0.406);
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
+  background-color: $tertiary-color;
+  border-top-right-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
   border: 1px solid #7f7e7e;
 }
 .actorImage {
   width: 145px;
   height: 210px;
-  border-top-right-radius: 8px;
+  border-top-right-radius: $border-radius;
   border-bottom-left-radius: 110px;
-
   filter: grayscale(80%);
 }
 .actorInfo {
@@ -60,15 +64,15 @@ $background-color: rgba($primary-color, 0.5);
   width: 129px;
   padding: 2px 8px;
   color: $text-color;
-  background-color: rgba(98, 42, 42, 0.44);
+  background-color: $secondary-color;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 .actorRole {
-  border-bottom-left-radius: 8px;
+  border-bottom-left-radius: $border-radius;
 }
 .actorName {
   font-size: 14px;
-  border-top-right-radius: 8px;
+  border-top-right-radius: $border-radius;
   background-color: $primary-color;
 }
 
@@ -111,7 +115,7 @@ $background-color: rgba($primary-color, 0.5);
     width: 140px;
   }
   .actorImage {
-    box-shadow: 1px 0px 6px rgba(248, 245, 245, 0.7);
+    box-shadow: 1px 0px 6px $shadow-color;
   }
   .actorName,
   .actorRole {

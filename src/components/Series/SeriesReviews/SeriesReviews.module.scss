@@ -3,6 +3,9 @@ $secondary-color: #467288;
 $text-color: rgb(234, 240, 240);
 $border-color: bisque;
 $background-color: rgba($primary-color, 0.5);
+$scrollbar-track-color: #f1f1f1;
+$scrollbar-thumb-color: #888;
+$scrollbar-thumb-hover-color: #555;
 
 .container {
   width: 100%;
@@ -12,6 +15,7 @@ $background-color: rgba($primary-color, 0.5);
   color: $text-color;
   background-color: $background-color;
 }
+
 .title {
   text-align: center;
   font-size: 16px;
@@ -21,29 +25,37 @@ $background-color: rgba($primary-color, 0.5);
   margin-top: 10px;
   margin-bottom: 5px;
 }
+
 .commentsWrapper {
   max-height: 300px;
   overflow-y: auto;
 }
+
 .commentsWrapper::-webkit-scrollbar {
   width: 8px;
 }
+
 .commentsWrapper::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: $scrollbar-track-color;
 }
+
 .commentsWrapper::-webkit-scrollbar-thumb {
-  background: #888;
+  background: $scrollbar-thumb-color;
   border-radius: 6px;
 }
+
 .commentsWrapper::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: $scrollbar-thumb-hover-color;
 }
+
 .commentsWrapper.hasReviews {
   overflow-y: hidden;
 }
+
 .commentBox {
   margin: 10px;
 }
+
 .authorBox {
   background-color: rgba($secondary-color, 0.6);
   padding: 8px;
@@ -51,6 +63,7 @@ $background-color: rgba($primary-color, 0.5);
   border-top-right-radius: 10px;
   border: 1px solid $border-color;
 }
+
 .contentBox {
   background-color: rgba($primary-color, 0.62);
   padding: 6px 10px;
@@ -59,10 +72,12 @@ $background-color: rgba($primary-color, 0.5);
   border: 1px solid $border-color;
   letter-spacing: 0.04em;
 }
+
 .noReviewSms {
-  color: bisque;
+  color: $border-color;
   text-align: center;
 }
+
 //==========================================
 @media screen and (min-width: 768px) {
   .container {
@@ -72,6 +87,7 @@ $background-color: rgba($primary-color, 0.5);
     margin-top: 20px;
   }
 }
+
 //==========================================
 @media screen and (min-width: 1440px) {
   .container {
