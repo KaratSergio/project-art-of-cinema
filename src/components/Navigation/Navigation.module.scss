@@ -1,3 +1,5 @@
+$text-color: bisque;
+
 .container {
   position: relative;
   font-size: 14px;
@@ -8,7 +10,7 @@
   a {
     &:hover,
     &.active {
-      color: bisque;
+      color: $text-color;
     }
   }
 }

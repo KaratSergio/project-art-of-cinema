@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Slider from 'react-slick';
@@ -36,13 +36,15 @@ export const PersonCredits = () => {
       {filteredCast.length > 0 ? (
         <Slider className={scss.slickList} {...sliderSettings}>
           {filteredCast.map((film, id) => (
-            <div key={id} className={scss.slickSlide}>
-              <img
-                className={scss.posterFilm}
-                src={`https://image.tmdb.org/t/p/w200${film.poster_path}`}
-                alt={film.title}
-              />
-            </div>
+            <Link key={id} to={`/movie/${film.id}`}>
+              <div className={scss.slickSlide}>
+                <img
+                  className={scss.posterFilm}
+                  src={`https://image.tmdb.org/t/p/w200${film.poster_path}`}
+                  alt={film.title}
+                />
+              </div>
+            </Link>
           ))}
         </Slider>
       ) : (

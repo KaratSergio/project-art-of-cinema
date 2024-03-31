@@ -1,3 +1,6 @@
+$primary-bg-color: #1c1b1b;
+$primary-text-color: bisque;
+
 .container {
   margin: 40px 0px 10px;
   display: flex;
@@ -9,36 +12,37 @@
   button {
     padding: 8px 10px;
     margin: 0 4px;
-    background-color: #1c1b1b;
-    color: bisque;
+    background-color: $primary-bg-color;
+    color: $primary-text-color;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 
     &:disabled {
-      background-color: bisque;
-      color: #1c1b1b;
+      background-color: $primary-text-color;
+      color: $primary-bg-color;
       opacity: 0.5;
       cursor: not-allowed;
     }
   }
+
   span {
-    color: bisque;
+    color: $primary-text-color;
     font-size: 13px;
     padding: 8px 10px;
-    background-color: #1c1b1b;
+    background-color: $primary-bg-color;
     border: none;
     border-radius: 4px;
     margin: 0 4px; /*"..."*/
   }
 }
-//==========================================
+
 @media screen and (min-width: 768px) {
   .container {
     width: 768px;
   }
 }
-//==========================================
+
 @media screen and (min-width: 1440px) {
   .container {
     width: 765px;
