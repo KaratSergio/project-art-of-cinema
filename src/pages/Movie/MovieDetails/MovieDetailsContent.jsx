@@ -36,7 +36,7 @@ export const MovieDetailsContent = ({
             <div className={scss.titleBox}>
               <h1>{title}</h1>
               <Link className={scss.goBackLink} to={from}>
-                X
+                &#10006;
               </Link>
               <div className={scss.decorLine}></div>
             </div>
@@ -44,8 +44,13 @@ export const MovieDetailsContent = ({
           <div>
             <div className={scss.ratingBox}>
               <RatingBar rating={voteAverage.toFixed(1)} />
-              <p className={scss.releaseYear}>{releaseYear}</p>
-              <div>{genresList}</div>
+              <p className={scss.releaseYear}>
+                {releaseYear}
+                <span className={scss.releaseYearText}>release year</span>
+              </p>
+              <div className={scss.genresBox}>
+                <p>{genresList}</p>
+              </div>
             </div>
             <p className={`${scss.overview} ${scss.scroll}`}>{overview}</p>
           </div>
