@@ -36,7 +36,7 @@ export const PersonCredits = () => {
       {filteredCast.length > 0 ? (
         <Slider className={scss.slickList} {...sliderSettings}>
           {filteredCast.map((film, id) => (
-            <Link key={id} to={`/movie/${film.id}`}>
+            <Link key={id} to={`/movie/page/${film.id}`}>
               <div className={scss.slickSlide}>
                 <img
                   className={scss.posterFilm}
