@@ -79,7 +79,7 @@ export const MovieDetailsContent = ({
               <FaImages />
             </Link>
           </div>
-          <button className={scss.button} onClick={loadTrailer}>
+          <button type="button" className={scss.button} onClick={loadTrailer}>
             <FaPlay />
           </button>
         </div>

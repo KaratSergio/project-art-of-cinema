@@ -46,7 +46,7 @@ export const MovieDetails = () => {
   if (!details) return null;
 
   return (
-    <div
+    <section
       className={`${scss.container} ${scss.backgroundImageContainer}`}
       style={{
         backgroundImage: `url(${BackdropImageURL}${details.backdrop_path})`,
@@ -72,7 +72,7 @@ export const MovieDetails = () => {
       )}
       <Outlet />
       <Footer />
-    </div>
+    </section>
   );
 };
 
