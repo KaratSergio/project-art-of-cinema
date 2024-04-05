@@ -73,10 +73,6 @@ export const MediaRandomizer = () => {
               }
               src={`${ImageURL}${randomContent.backdrop_path}`}
               alt={randomContent.title || randomContent.name}
-              onError={e => {
-                e.target.onerror = null;
-                e.target.src = '../../img/camera.png';
-              }}
             />
           </Link>
           <div className={scss.moviePosterTitle}>
