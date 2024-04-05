@@ -57,10 +57,18 @@ export const SeriesGallery = () => {
             />
           </div>
         ))}
-        <button className={scss.galleryLeftBtn} onClick={prevSlide}>
+        <button
+          type="button"
+          className={scss.galleryLeftBtn}
+          onClick={prevSlide}
+        >
           <FaChevronLeft className={scss.icon} />
         </button>
-        <button className={scss.galleryRightBtn} onClick={nextSlide}>
+        <button
+          type="button"
+          className={scss.galleryRightBtn}
+          onClick={nextSlide}
+        >
           <FaChevronRight className={scss.icon} />
         </button>
       </div>

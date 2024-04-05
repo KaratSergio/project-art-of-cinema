@@ -3,6 +3,7 @@ $text-color: bisque;
 $secondary-color: rgba(255, 228, 196, 0.7);
 $tertiary-color: rgb(115, 118, 118);
 $background-color: #ffffff44;
+$no-img-color: #6da4c082;
 
 .container {
   max-width: 375px;
@@ -56,7 +57,7 @@ $background-color: #ffffff44;
 
 .galleryLeftBtn,
 .galleryRightBtn {
-  color: beige;
+  color: $text-color;
   position: absolute;
   bottom: -60px;
   transform: translateY(-50%);
@@ -71,7 +72,9 @@ $background-color: #ffffff44;
   right: 85px;
 }
 .noImages {
+  padding: 8px;
   margin-top: 20px;
+  background-color: $no-img-color;
   color: $text-color;
 }
 
