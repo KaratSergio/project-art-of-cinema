@@ -1,3 +1,10 @@
+$burger-color: bisque;
+$menu-background-start: #f5f2f0;
+$menu-background-end: rgb(169, 167, 165);
+$menu-hover-background: #ddd;
+$menu-text-color: #333;
+$menu-shadow: rgba(0, 0, 0, 0.1);
+
 .burger {
   display: none;
 
@@ -16,7 +23,7 @@
       border-radius: 10px;
       border: 1px solid #111;
       position: absolute;
-      background-color: bisque;
+      background-color: $burger-color;
       transition: all 0.3s ease;
 
       &:first-child {
@@ -56,7 +63,6 @@
   top: -14px;
   right: -5px;
   height: 51px;
-
   width: 355px;
   border-radius: 8px;
   overflow-x: hidden;
@@ -69,20 +75,24 @@
     font-size: 12px;
     padding-left: 30px;
     align-items: center;
-    background: linear-gradient(359deg, #f5f2f0, rgb(169, 167, 165));
+    background: linear-gradient(
+      359deg,
+      $menu-background-start,
+      $menu-background-end
+    );
     width: 100%;
     max-width: 325px;
     height: 51px;
     gap: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px $menu-shadow;
 
     .menuItem {
       padding: 10px;
-      color: #333;
+      color: $menu-text-color;
       text-decoration: none;
 
       &:hover {
-        background-color: #ddd;
+        background-color: $menu-hover-background;
         border-radius: 50px;
       }
     }
