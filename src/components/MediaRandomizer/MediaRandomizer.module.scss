@@ -40,6 +40,11 @@ $poster-title-text-color: bisque;
 
 //==========================================
 @media screen and (min-width: 768px) {
+  .posterBox {
+    width: 748px;
+    height: 425px;
+  }
+
   .moviePoster,
   .seriesPoster {
     max-width: 748px;
@@ -57,6 +62,11 @@ $poster-title-text-color: bisque;
 
 //==========================================
 @media screen and (min-width: 1440px) {
+  .posterBox {
+    width: 1020px;
+    height: 578px;
+  }
+
   .moviePoster,
   .seriesPoster {
     max-width: 1020px;
