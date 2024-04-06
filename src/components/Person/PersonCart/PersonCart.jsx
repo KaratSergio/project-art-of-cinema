@@ -19,9 +19,6 @@ export const PersonCart = () => {
   const previousPageId = location.state?.previousPageId;
   const previousPath = location.state?.previousPath || '/person';
 
-  console.log(previousPageId);
-  console.log(previousPath);
-
   useEffect(() => {
     dispatch(fetchPersonAsync({ id }));
   }, [dispatch, id]);
