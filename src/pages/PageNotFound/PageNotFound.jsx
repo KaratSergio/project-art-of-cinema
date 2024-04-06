@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Footer } from '../../components/Footer/Footer';
 
 import scss from './PageNotFound.module.scss';

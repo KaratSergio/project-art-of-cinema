@@ -1,4 +1,7 @@
+import React from 'react';
+
 import { Footer } from '../../components/Footer/Footer';
+
 import { SeriesList } from '../../components/Series/SeriesList/SeriesList';
 
 import scss from './Series.module.scss';

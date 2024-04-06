@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import scss from './TrailerModal.module.scss';
 
 export const TrailerModal = ({ trailerKey, onClose }) => {
@@ -28,8 +29,8 @@ export const TrailerModal = ({ trailerKey, onClose }) => {
   return (
     <div className={scss.modalBackdrop} onClick={onClose}>
       <div className={scss.modalContent} onClick={e => e.stopPropagation()}>
-        <button className={scss.closeButton} onClick={onClose}>
-          X
+        <button type="button" className={scss.closeButton} onClick={onClose}>
+          &#10006;
         </button>
         {trailerKey && (
           <iframe

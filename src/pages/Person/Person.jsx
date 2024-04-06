@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Footer } from '../../components/Footer/Footer';
+
 import { PersonTrending } from '../../components/Person/PersonTrending/PersonTrending';
 
 import scss from './Person.module.scss';

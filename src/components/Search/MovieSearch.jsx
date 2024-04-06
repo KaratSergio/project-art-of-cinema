@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
+
 import { useDispatch } from 'react-redux';
+
 import { searchMovies } from '../../redux/dataMovie/actions';
+
 import { useSearchParams } from 'react-router-dom';
 
 import scss from './Search.module.scss';
