@@ -114,9 +114,15 @@ export const fetchLanguages = createAsyncThunk(
   'languages/fetchLanguages',
   async (_, { rejectWithValue }) => {
     try {
+      console.log('Fetching languages...');
+
       const response = await instance.get('configuration/languages');
+
+      console.log('Languages:', response.data);
+
       return response.data;
     } catch (error) {
+      console.error('Error fetching languages:', error);
       throw rejectWithValue(error.message);
     }
   }
