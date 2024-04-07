@@ -5,6 +5,7 @@ import {
   fetchMovieReviews,
   fetchMovieGallery,
   searchMovies,
+  fetchLanguages,
 } from './actions';
 
 export const movieSlice = createSlice({
@@ -18,6 +19,7 @@ export const movieSlice = createSlice({
     movieGallery: {
       backdrops: [],
     },
+    languages: [],
     status: 'idle',
     error: null,
     filter: null,
@@ -99,10 +101,23 @@ export const movieSlice = createSlice({
       .addCase(fetchMovieGallery.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
+      })
+      // Languages
+      .addCase(fetchLanguages.pending, state => {
+        state.status = 'loading';
+      })
+      .addCase(fetchLanguages.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.languages = action.payload;
+      })
+      .addCase(fetchLanguages.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
       });
   },
 });
 
-export const { setFilter, clearFilter, setSearchResults } = movieSlice.actions;
+export const { setFilter, clearFilter, setSearchResults, setLanguages } =
+  movieSlice.actions;
 
 export default movieSlice.reducer;

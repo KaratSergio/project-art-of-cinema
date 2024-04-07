@@ -1,6 +1,7 @@
 export const selectError = state => state.error;
 export const selectStatus = state => state.status;
 export const selectMovies = state => state.movies.movies;
+export const selectLanguages = state => state.movies.languages;
 export const selectMovieReviews = state => state.movies.movieReviews || [];
 export const selectMovieGallery = state =>
   state.movies.movieGallery?.backdrops || [];
