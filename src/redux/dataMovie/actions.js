@@ -109,3 +109,15 @@ export const fetchMovieGallery = createAsyncThunk(
     }
   }
 );
+//================Languages=====================
+export const fetchLanguages = createAsyncThunk(
+  'languages/fetchLanguages',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await instance.get('configuration/languages');
+      return response.data;
+    } catch (error) {
+      throw rejectWithValue(error.message);
+    }
+  }
+);
