@@ -1,11 +1,13 @@
 $text-color: bisque;
+$text-shadow: 0px 2px 4px rgba(20, 220, 220, 0.914);
 
 .container {
   position: relative;
   font-size: 14px;
-  font-family: Figtree;
-  font-weight: normal;
+  font-family: 'Anta';
   padding: 14px;
+  text-shadow: $text-shadow;
+  transition: color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 
   a {
     &:hover,
@@ -22,16 +24,17 @@ $text-color: bisque;
 @media screen and (min-width: 768px) {
   .container {
     font-size: 20px;
-    font-weight: 800;
+    font-weight: 400;
     padding: 18px;
     margin-right: 180px;
     width: 300px;
   }
 }
 //========================================
+
 @media screen and (min-width: 1440px) {
   .container {
-    font-size: 24px;
+    font-size: 20px;
     padding: 16px;
     letter-spacing: 0.1em;
     margin-right: 330px;
