@@ -28,7 +28,7 @@ export const MovieTrailerBar = () => {
     setCurrentIndex(prevIndex =>
       prevIndex === 0 ? movies.length - 1 : prevIndex - 1
     );
-  }, [movies.length]);
+  }, [movies]);
 
   useEffect(() => {
     const fetchData = async () => {
