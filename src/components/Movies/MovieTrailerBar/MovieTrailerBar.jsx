@@ -22,7 +22,7 @@ export const MovieTrailerBar = () => {
 
   const nextSlide = useCallback(() => {
     setCurrentIndex(prevIndex => (prevIndex + 1) % movies.length);
-  }, [movies.length]);
+  }, [movies]);
 
   const prevSlide = useCallback(() => {
     setCurrentIndex(prevIndex =>
