@@ -55,7 +55,8 @@ export const MovieTrailerBar = () => {
   };
 
   // Склеюємо слайди, щоб отримати циклічний ефект
-  const mergedMovies = [...movies, ...movies.slice(0, slidesToShow)];
+  const mergedMovies =
+    movies.length > 0 ? [...movies, ...movies.slice(0, slidesToShow)] : [];
 
   return (
     <div className={scss.container}>
