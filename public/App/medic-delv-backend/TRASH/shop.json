@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Target",
+    "address": "Kharkov, Novgorodskaya 116",
+    "phone": "(992) 914-3792"
+  },
+  {
+    "name": "Social",
+    "address": "Kharkov, Sumskaya 3",
+    "phone": "(542) 451-7038"
+  },
+  {
+    "name": "Tablet",
+    "address": "Kharkov, Olekseevskaya 22",
+    "phone": "(692) 802-2949"
+  },
+  {
+    "name": "Help24",
+    "address": "Kharkov, Sakhnovskaya 222",
+    "phone": "(501) 472-5218"
+  },
+  {
+    "name": "Pharmacy",
+    "address": "Kharkov, Karachevka 2",
+    "phone": "(186) 568-3720"
+  },
+  {
+    "name": "Pharmacy 911",
+    "address": "Kharkov, Shevchenko 9",
+    "phone": "(715) 598-5792"
+  },
+  {
+    "name": "Pharmacy 24",
+    "address": "Kharkov, LyubovMaloi 219",
+    "phone": "(233) 738-2360"
+  },
+  {
+    "name": "Pharmacy 1",
+    "address": "Kharkov, Klochkovskaya 344",
+    "phone": "(704) 398-7993"
+  }
+]
